@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- schema에 대한 정의! schema == xml 파일에서 사용하고 싶은 태그를 정의해놓은 파일 -->
+	<!-- beans라는 태그들을 사용하겠다! -->
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- shared resources == DB -->
+	
+	<!-- 1) HikariConfig(DB연결을 위한 데이터 기술) 생성 -->
+	<!-- HikariConfig hikari = new HikariConfig() -->
+	<!-- hikariConfig.setXXXX(drivername); 
+		 hikariConfig.setXXXX(jdbcURL); 
+		 hikariConfig.setXXXX(username); 
+		 hikariConfig.setXXXX(password); 
+	-->
+	<bean class="com.zaxxer.hikari.HikariConfig" id="hikariConfig">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/com"/>
+		<!-- jdbc url 주소
+		=> DataSourceExplorer에 연결된 com계정 우클릭
+		=> properties
+		=> Driver Properties
+		=> jdbcurl
+		 -->
+		<property name="username" value="com"/>
+		<property name="password" value="com01"/>
+	</bean>
+	
+	<!-- 2) DBCP 생성 : HikariDataSource -->
+	<bean class="com.zaxxer.hikari.HikariDataSource" id="dataSource">
+		<constructor-arg ref="hikariConfig"/>
+	</bean>
+	
+	<!-- 3) SqlSessionFactoryBean 객체 생성 -->
+	<!-- : Connection 객체를 빌려서 사용하는 객체 -->
+	<!-- : Mapper interface 구현체 역할을 담당 -->
+	<bean class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	<!-- 4) 구현해야하는 mapper 파일의 위치 등록하기 -->
+	<mybatis-spring:scan base-package="kr.mds.mapper"/>
+	
+	
+	<!-- 
+		public class SqlSessionFactoryBean implements BoardMapper{
+			
+			@Override
+			public ArrayList<Board> getList(){
+				session.selectList(getList);
+				return list;
+			}
+			
+		}
+		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
+	 -->
+	 
+	 
+	
+	
+</beans>
