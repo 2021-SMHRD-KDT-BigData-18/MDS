@@ -26,8 +26,8 @@
 		=> Driver Properties
 		=> jdbcurl
 		 -->
-		<property name="username" value="com"/>
-		<property name="password" value="com01"/>
+		<property name="username" value="mds"/>
+		<property name="password" value="mds01"/>
 	</bean>
 	
 	<!-- 2) DBCP 생성 : HikariDataSource -->
