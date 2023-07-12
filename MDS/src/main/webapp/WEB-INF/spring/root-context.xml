@@ -26,8 +26,8 @@
 		=> Driver Properties
 		=> jdbcurl
 		 -->
-		<property name="username" value="mds"/>
-		<property name="password" value="mds01"/>
+		<property name="username" value="com"/>
+		<property name="password" value="com01"/>
 	</bean>
 	
 	<!-- 2) DBCP 생성 : HikariDataSource -->
@@ -43,7 +43,7 @@
 	</bean>
 	
 	<!-- 4) 구현해야하는 mapper 파일의 위치 등록하기 -->
-	<mybatis-spring:scan base-package="kr.mds.mapper"/>
+	<mybatis-spring:scan base-package="kr.smhrd.mapper"/>
 	
 	
 	<!-- 
