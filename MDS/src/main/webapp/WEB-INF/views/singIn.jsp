@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>로그인 페이지!</h1>
+	<form action="/">
+		<input type="text">ID
+		<input type="password">PW
+		<input type="submit" value="로그인">
+	</form>
 </body>
 </html>

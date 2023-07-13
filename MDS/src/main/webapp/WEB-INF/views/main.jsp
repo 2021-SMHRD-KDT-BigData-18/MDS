@@ -15,8 +15,8 @@
   <button class="singUp">회원가입</button>
   
   
-  <script src="./assets/JS/singIn.js">
+  <script type="text/javascript" src="resources/JS/singIn.js"></script>
   
-  </script>
+  
 </body>
 </html>
