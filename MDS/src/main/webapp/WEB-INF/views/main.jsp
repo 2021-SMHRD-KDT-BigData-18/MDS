@@ -11,11 +11,11 @@
   <title>메인페이지</title>
 </head>
 <body>
-  <button class="singIn">로그인</button>
-  <button class="singUp">회원가입</button>
+  <button class="signIn">로그인</button>
+  <button class="signUp">회원가입</button>
   
   
-  <script type="text/javascript" src="resources/JS/singIn.js"></script>
+  <script type="text/javascript" src="resources/JS/account.js"></script>
   
   
 </body>

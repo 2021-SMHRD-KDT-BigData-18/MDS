@@ -8,9 +8,9 @@
 </head>
 <body>
 	<form action="/">
-		<input type="text">ID
-		<input type="password">PW
-		<input type="submit" value="로그인">
+		ID<input type="text"> </br>
+		PW<input type="password"> </br>
+		<input type="submit" value="로그인"> </br>
 	</form>
 </body>
 </html>

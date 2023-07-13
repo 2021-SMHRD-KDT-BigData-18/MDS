@@ -11,8 +11,13 @@ public class mainController {
 		return "main";
 	}
 	
-	@RequestMapping("/singIn.com")
+	@RequestMapping("/signIn.com")
 	public String singIn() {
-		return "singIn";
+		return "signIn";
+	}
+	
+	@RequestMapping("/signUp.com")
+	public String singUp() {
+		return "signUp";
 	}
 }
