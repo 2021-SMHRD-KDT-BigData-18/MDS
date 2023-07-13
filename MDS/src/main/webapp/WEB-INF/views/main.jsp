@@ -11,8 +11,20 @@
   <title>메인페이지</title>
 </head>
 <body>
-  <button class="signIn">로그인</button>
-  <button class="signUp">회원가입</button>
+  
+  <div id="home">
+  <c:choose>
+  <c:when test="${empty result.user_id()}">
+	  <a href="signIn.com" >로그인</a>
+	  <a href="signUp.com">회원가입</a>
+  </c:when>
+  <c:otherwise>
+  	<h1>${result.user_name()}님, 환영합니다!</h1>
+  </c:otherwise>
+  </c:choose>
+  </div>
+  
+  
   
   
   <script type="text/javascript" src="resources/JS/account.js"></script>
