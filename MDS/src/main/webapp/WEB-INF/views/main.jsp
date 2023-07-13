@@ -8,11 +8,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-  <script src="/assets/JS/singIn.js"></script>
-  <title>JS Bin</title>
+  <title>메인페이지</title>
 </head>
 <body>
   <button class="singIn">로그인</button>
   <button class="singUp">회원가입</button>
+  
+  
+  <script>
+  $(document).ready(function(){
+      $('.singIn').on('click', function(){
+          console.log($(this).text())
+          
+          location.href = "singIn.com";
+      });
+  });
+  </script>
 </body>
 </html>
