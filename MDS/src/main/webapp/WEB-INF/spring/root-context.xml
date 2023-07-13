@@ -19,15 +19,15 @@
 	-->
 	<bean class="com.zaxxer.hikari.HikariConfig" id="hikariConfig">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/com"/>
+		<property name="jdbcUrl" value="jdbc:mysql://project-db-cgi.smhrd.com:3307/mds"/>
 		<!-- jdbc url 주소
 		=> DataSourceExplorer에 연결된 com계정 우클릭
 		=> properties
 		=> Driver Properties
 		=> jdbcurl
 		 -->
-		<property name="username" value="com"/>
-		<property name="password" value="com01"/>
+		<property name="username" value="mds"/>
+		<property name="password" value="mds01"/>
 	</bean>
 	
 	<!-- 2) DBCP 생성 : HikariDataSource -->
@@ -43,7 +43,7 @@
 	</bean>
 	
 	<!-- 4) 구현해야하는 mapper 파일의 위치 등록하기 -->
-	<mybatis-spring:scan base-package="kr.smhrd.mapper"/>
+	<mybatis-spring:scan base-package="kr.mds.mapper"/>
 	
 	
 	<!-- 
