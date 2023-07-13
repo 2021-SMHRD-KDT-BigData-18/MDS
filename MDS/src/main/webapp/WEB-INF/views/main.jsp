@@ -13,15 +13,15 @@
 <body>
   
   <div id="home">
-  <c:choose>
-  <c:when test="${empty result.user_id()}">
-	  <a href="signIn.com" >로그인</a>
-	  <a href="signUp.com">회원가입</a>
-  </c:when>
-  <c:otherwise>
-  	<h1>${result.user_name()}님, 환영합니다!</h1>
-  </c:otherwise>
-  </c:choose>
+	  <c:choose>
+		  <c:when test="${result.user_id() eq null}">
+			  <a href="signIn.com" >로그인</a>
+			  <a href="signUp.com">회원가입</a>
+		  </c:when>
+		  <c:otherwise>
+		  	<h1>${result.user_name()}님, 환영합니다!</h1>
+		  </c:otherwise>
+	  </c:choose>
   </div>
   
   

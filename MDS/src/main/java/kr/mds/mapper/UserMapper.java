@@ -9,10 +9,10 @@ public interface UserMapper {
 	// 회원가입
 	public void singUp(User user);
 
-	// 로그인
+	// 로그인, 아이디 중복체크
 	@Select("SELECT * FROM user WHERE USER_ID=#{user_id}")
 	public User singIn(String user_id);
-	
+
 	
 	
 
