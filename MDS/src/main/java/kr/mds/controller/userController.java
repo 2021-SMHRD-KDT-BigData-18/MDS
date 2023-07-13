@@ -28,10 +28,10 @@ public class userController {
 	@RequestMapping("/signUp.com")
 		public String singUp(String user_id) {
 			// 회원가입할 때 아이디 중복 체크
-			User id = mapper.singIn(user_id);
+//			System.out.println(id);
 			String res = "";
 			
-			if(id == null) {
+			if(user_id == null) {
 				res = "true";
 			}else {
 				res = "false";

@@ -38,10 +38,10 @@ function idCheck(){
 		url : 'signUp.com',
 		type : 'post',
 		data : {
-			"id" : value
+			user_id : value
 				},
 		success : function(res){
-		console.log(res);
+		/*console.log(res);*/
 		
 		var p = $('#idCheck');
 							
