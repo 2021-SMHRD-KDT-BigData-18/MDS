@@ -15,14 +15,8 @@
   <button class="singUp">회원가입</button>
   
   
-  <script>
-  $(document).ready(function(){
-      $('.singIn').on('click', function(){
-          console.log($(this).text())
-          
-          location.href = "singIn.com";
-      });
-  });
+  <script src="./assets/JS/singIn.js">
+  
   </script>
 </body>
 </html>
