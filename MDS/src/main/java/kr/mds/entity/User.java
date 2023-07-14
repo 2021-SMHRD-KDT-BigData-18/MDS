@@ -30,7 +30,7 @@ public class User {
 	    private String u_type;
 	    
 	    // 회원 농장주소 
-	    private String farm_zip_code;
+	    private int farm_zip_code;
 	    private String farm_detailed_addr;
 	    private String farm_addr;
 	    private String farm_add_addr;
