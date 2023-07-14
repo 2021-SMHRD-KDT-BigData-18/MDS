@@ -18,7 +18,7 @@ public class userController {
 	// 로그인 후 메인페이지로 이동
 	@PostMapping("/")
 	public String main(String user_id, Model model) {
-		User result = mapper.singIn(user_id);
+		User result = mapper.signIn(user_id);
 		model.addAttribute("result", result);
 
 		return "main";
@@ -26,24 +26,23 @@ public class userController {
 
 	// 회원가입
 	@RequestMapping("/signUp.com")
-		public String singUp(String user_id) {
-			// 회원가입할 때 아이디 중복 체크
-//			System.out.println(id);
-			String res = "";
-			
-			if(user_id == null) {
-				res = "true";
-			}else {
-				res = "false";
-			}
-
+		public String singUp() {
 			return "signUp";
 		}
 
 	// 회원가입 후 로그인 페이지로 이동
 	@PostMapping("/signIn.com")
-	public String singIn(User user) {
+	public String singIn(User user, String u_id) {
 		mapper.singUp(user);
+		// 회원가입할 때 아이디 중복 체크
+//		System.out.println(id);
+		String res = "";
+		
+		if(u_id == null) {
+			res = "true";
+		}else {
+			res = "false";
+		}
 		return "signIn";
 	}
 

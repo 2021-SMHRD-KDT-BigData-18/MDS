@@ -11,7 +11,7 @@ public interface UserMapper {
 
 	// 로그인, 아이디 중복체크
 	@Select("SELECT * FROM user WHERE USER_ID=#{user_id}")
-	public User singIn(String user_id);
+	public User signIn(String user_id);
 
 	
 	

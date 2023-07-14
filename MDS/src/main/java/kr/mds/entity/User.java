@@ -1,5 +1,7 @@
 package kr.mds.entity;
 
+import java.util.Date;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,10 +10,26 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class User {
-	private String user_id;
-	private String user_pw;
-	private String user_name;
-	private String user_email;
-	private String user_farm_address;
-	private String user_sa_onoff;
+
+	    // 회원 아이디 
+	    private String u_id;
+
+	    // 회원 비밀번호 
+	    private String u_pw;
+
+	    // 회원 이메일 
+	    private String u_email;
+
+	    // 회원 농장주소 
+	    private String u_addr;
+
+	    // 회원 알림설정 
+	    private String u_alarm;
+
+	    // 회원 가입일자 
+	    private Date u_joindate;
+
+	    // 회원 유형 
+	    private String u_type;
+
 }

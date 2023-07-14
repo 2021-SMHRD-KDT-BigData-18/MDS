@@ -2,21 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.mds.mapper.UserMapper">
 	<!-- 회원가입 -->
-	<insert id="singUp" parameterType="kr.mds.entity.User">
-		insert into user(user_id, 
-						user_pw, 
-						user_name, 
-						user_email, 
-						user_farm_address,
-						user_sa_onoff)
-		values(
-			#{user_id},
-			#{user_pw},
-			#{user_name},
-			#{user_email},
-			#{user_farm_address},
-			'on'
-		)
+	<insert id="signUp" parameterType="kr.mds.entity.User">
+		INSERT INTO tb_user
+		    (u_id, 
+		    u_pw, 
+		    u_email, 
+		    u_addr, 
+		    u_alarm, 
+		    u_joindate, 
+		    u_type)
+		VALUES
+		    (#{u_id}, 
+		    #{u_pw}, 
+		    #{u_email}, 
+		    #{u_addr}, 
+		    'ON', 
+		    NOW(), 
+		    'U');
 	</insert>
 
 </mapper>
