@@ -18,13 +18,14 @@
 			<div class="id_wrap">
 				<div class="id_name">아이디</div>
 				<div class="id_input_box" >
-					<input class="id_input" type="text" name="user_id" id="user_id">
+					<input class="id_input" type="text" name="u_id" id="u_id">
+					<p class="idCheck"></p>
 				</div>
 			</div>
 			<div class="pw_wrap">
 				<div class="pw_name">비밀번호</div>
 				<div class="pw_input_box">
-					<input class="pw_input" type="password" name="user_pw">
+					<input class="pw_input" type="password" name="u_pw">
 				</div>
 			</div>
 			<div class="pwck_wrap">
@@ -36,7 +37,7 @@
 			<div class="mail_wrap">
 				<div class="mail_name">이메일</div>
 				<div class="mail_input_box">
-					<input class="mail_input" type="text" name="user_email">
+					<input class="mail_input" type="text" name="u_email">
 				</div>
 				<div class="mail_check_wrap">
 					<div class="mail_check_input_box">

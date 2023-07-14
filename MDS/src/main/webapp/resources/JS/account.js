@@ -26,7 +26,7 @@ $(document).ready(function(){
 /*ID 중복 체크*/
 $(document).ready(function(){
 
-	var input = $('#user_id');
+	var input = $('.id_input');
 	input.on("input", idCheck);
 				});
 
@@ -43,7 +43,7 @@ function idCheck(){
 		success : function(res){
 		/*console.log(res);*/
 		
-		var p = $('#idCheck');
+		var p = $('.idCheck');
 							
 		if(res == "true"){
 			// 사용가능한 아이디입니다.
