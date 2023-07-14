@@ -20,9 +20,6 @@ public class User {
 	    // 회원 이메일 
 	    private String u_email;
 
-	    // 회원 농장주소 
-	    private String u_addr;
-
 	    // 회원 알림설정 
 	    private String u_alarm;
 
@@ -31,5 +28,11 @@ public class User {
 
 	    // 회원 유형 
 	    private String u_type;
+	    
+	    // 회원 농장주소 
+	    private String farm_zip_code;
+	    private String farm_detailed_addr;
+	    private String farm_addr;
+	    private String farm_add_addr;
 
 }

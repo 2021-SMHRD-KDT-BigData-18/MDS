@@ -6,19 +6,25 @@
 		INSERT INTO tb_user
 		    (u_id, 
 		    u_pw, 
-		    u_email, 
-		    u_addr, 
+		    u_email,
 		    u_alarm, 
 		    u_joindate, 
-		    u_type)
+		    u_type,
+		    farm_zip_code,
+	    	farm_detailed_addr,
+	    	farm_addr,
+	    	farm_add_addr)
 		VALUES
 		    (#{u_id}, 
 		    #{u_pw}, 
 		    #{u_email}, 
-		    #{u_addr}, 
 		    'ON', 
 		    NOW(), 
-		    'U');
+		    'U',
+		    #{farm_zip_code},
+		    #{farm_detailed_addr},
+		    #{farm_addr},
+		    #{farm_add_addr })
 	</insert>
 
 </mapper>

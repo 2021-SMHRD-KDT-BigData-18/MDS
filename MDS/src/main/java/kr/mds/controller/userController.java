@@ -15,15 +15,6 @@ public class userController {
 	@Autowired
 	private UserMapper mapper;
 
-	// 로그인 후 메인페이지로 이동
-	@PostMapping("/")
-	public String main(String user_id, Model model) {
-		User result = mapper.signIn(user_id);
-		model.addAttribute("result", result);
-
-		return "main";
-	}
-
 	// 회원가입
 	@RequestMapping("/signUp.com")
 		public String singUp() {
@@ -31,18 +22,10 @@ public class userController {
 		}
 
 	// 회원가입 후 로그인 페이지로 이동
-	@PostMapping("/signIn.com")
+	@PostMapping("/signUp.com")
 	public String singIn(User user, String u_id) {
-		mapper.singUp(user);
-		// 회원가입할 때 아이디 중복 체크
-//		System.out.println(id);
-		String res = "";
+		mapper.signUp(user);
 		
-		if(u_id == null) {
-			res = "true";
-		}else {
-			res = "false";
-		}
 		return "signIn";
 	}
 
@@ -50,5 +33,15 @@ public class userController {
 	@RequestMapping("/signIn.com")
 	public String singIn() {
 		return "signIn";
+	}
+	
+
+	// 로그인 후 메인페이지로 이동
+	@PostMapping("/")
+	public String main(String user_id, Model model) {
+		User result = mapper.signIn(user_id);
+		model.addAttribute("result", result);
+
+		return "main";
 	}
 }
