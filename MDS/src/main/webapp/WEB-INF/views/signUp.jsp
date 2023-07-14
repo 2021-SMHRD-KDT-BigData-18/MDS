@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+<link href="resources/css/signUp.css" rel="stylesheet" type="text/css">
 <title>Insert title here</title>
 </head>
 <body>

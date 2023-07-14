@@ -8,6 +8,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <link href="resources/css/main.css" rel="stylesheet" type="text/css">
   <title>메인페이지</title>
 </head>
 <body>
