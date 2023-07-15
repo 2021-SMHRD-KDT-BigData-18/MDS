@@ -70,22 +70,6 @@
 	<script src="resources/JS/jquery-3.6.4.min.js"></script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript" src="resources/JS/account.js"></script>
-	<script type="text/javascript">
-		$('.pwck_input').keyup(function(){
-			let pass1 = $('#u_pw').val();
-			let pass2 = $('#u_pw_confirm').val();
-			
-			if(pass1 != "" || pass2 != ""){
-				if(pass1 == pass2){
-					$('#confirmMsg').html("비밀번호 일치");
-					$('#confirmMsg').css('color', 'green');
-				} else {
-					$('#confirmMsg').html("비밀번호 불일치");
-					$('#confirmMsg').css('color', 'red');
-				}
-			}
-		})
-	</script>
 	
 </body>
 </html>
