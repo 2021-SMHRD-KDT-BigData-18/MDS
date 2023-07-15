@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="cpath" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 <link href="resources/css/signUp.css" rel="stylesheet" type="text/css">
 <title>Insert title here</title>
 </head>
@@ -19,17 +20,18 @@
 				<div class="id_name">아이디</div>
 				<div class="id_input_box" >
 					<input class="id_input" type="text" name="u_id" id="u_id">
-					<p class="idCheck"></p>
+					<div id="id_check"></div>
 				</div>
 			</div>
 			<div class="pw_wrap">
 				<div class="pw_name">비밀번호</div>
 				<div class="pw_input_box">
-					<input class="pw_input" type="password" name="u_pw">
+					<input class="pw_input" type="password" name="u_pw" id="u_pw">
 				</div>
 				<div class="pwck_name">비밀번호 확인</div>
 				<div class="pwck_input_box">
-					<input class="pwck_input" type="password">
+					<input class="pwck_input" type="password" name="u_pw_confirm" id="u_pw_confirm">
+					<span id="confirmMsg"></span>
 				</div>
 			</div>
 			
@@ -65,8 +67,25 @@
 	</form>
 	</div>
 
-
+	<script src="resources/JS/jquery-3.6.4.min.js"></script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript" src="resources/JS/account.js"></script>
+	<script type="text/javascript">
+		$('.pwck_input').keyup(function(){
+			let pass1 = $('#u_pw').val();
+			let pass2 = $('#u_pw_confirm').val();
+			
+			if(pass1 != "" || pass2 != ""){
+				if(pass1 == pass2){
+					$('#confirmMsg').html("비밀번호 일치");
+					$('#confirmMsg').css('color', 'green');
+				} else {
+					$('#confirmMsg').html("비밀번호 불일치");
+					$('#confirmMsg').css('color', 'red');
+				}
+			}
+		})
+	</script>
+	
 </body>
 </html>

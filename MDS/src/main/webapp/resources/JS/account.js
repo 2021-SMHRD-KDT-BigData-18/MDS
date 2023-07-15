@@ -22,7 +22,7 @@ $(document).ready(function(){
         });
     }); */
 
-도로명주소
+/*도로명주소*/
 function sample6_execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
@@ -72,41 +72,38 @@ function sample6_execDaumPostcode() {
     }
 
 
-
-/*ID 중복 체크*/
+/*아이디 중복 체크*/
 $(document).ready(function(){
-
-	var input = $('.id_input');
-	input.on("input", idCheck);
-				});
-
-function idCheck(){
-	var value = $(this).val();
-	console.log(value);
+		var input = $('#u_id');
+		input.on("input", idCheck);
+	});
 	
-	$.ajax({
-		url : 'signUp.com',
-		type : 'post',
-		data : {
-			user_id : value
-				},
-		success : function(res){
-		/*console.log(res);*/
+	function idCheck(){
 		
-		var p = $('.idCheck');
-							
-		if(res == "true"){
-			// 사용가능한 아이디입니다.
-			p.html('사용이 가능한 이메일 입니다.');
-			p.css("color", "green"); // css("style 이름", "값")
-		}else {
-			// 사용 불가능한 아이디입니다.
-			p.html("사용이 불가능한 아이디 입니다.").css("color", "red");
+		var value = $(this).val();
+		/*console.log(value);*/
+		
+		$.ajax({
+			url : 'idCheck.com',
+			type : 'post',
+			data : {
+				"u_id" : value
+			},
+			success : function(res){
+				/*console.log(res);*/
+				
+				var p = $('#id_check');
+				
+				if(res == "true"){
+					p.html('사용이 가능한 아이디 입니다.');
+					p.css("color", "green"); // css("style 이름", "값")
+				}else {
+					p.html("사용이 불가능한 아이디 입니다.").css("color", "red");
 				}
-							
-		},
-		error : function(e){
-			alert("요청 실패");
-				}
-					});
-};
+				
+			},
+			error : function(e){
+				alert("요청 실패");
+			}
+		});
+	}

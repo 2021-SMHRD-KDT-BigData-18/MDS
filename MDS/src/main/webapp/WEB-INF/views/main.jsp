@@ -15,12 +15,12 @@
   
   <div id="home">
 	  <c:choose>
-		  <c:when test="${result.user_id() eq null}">
+		  <c:when test="${result eq null}">
 			  <a href="signIn.com" >로그인</a>
 			  <a href="signUp.com">회원가입</a>
 		  </c:when>
 		  <c:otherwise>
-		  	<h1>${result.user_name()}님, 환영합니다!</h1>
+		  	<h1>${result.u_id}님, 환영합니다!</h1>
 		  </c:otherwise>
 	  </c:choose>
   </div>

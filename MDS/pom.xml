@@ -169,7 +169,13 @@
 		    <version>4.3.20.RELEASE</version>
 		</dependency>
 		
-		
+		<!-- ajax 비동기 통신으로 요청이 들어왔을 때 결과값을 자동으로 json구조로 변환시켜주는 라이브러리 -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.14.2</version>
+		</dependency>
 		      
 	</dependencies>
     <build>
