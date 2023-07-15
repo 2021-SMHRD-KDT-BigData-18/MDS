@@ -38,15 +38,16 @@
 			<div class="mail_wrap">
 				<div class="mail_name">이메일</div>
 				<div class="mail_input_box">
-					<input class="mail_input" type="text" name="u_email">
+					<input type="text" name="u_email" id="u_email" placeholder="이메일" >
 				<div class="mail_check_wrap">
-					<div class="mail_check_input_box">
-						<input class="mail_check_input">
-					</div>
 					<div class="mail_check_button">
-						<span>인증번호 전송</span>
+						<button type="button" class="btn btn-primary" id="mail-Check-Btn">본인인증</button>
 					</div>
-					<div class="clearfix"></div>
+					<div class="mail_check_input_box">
+						<input class="form-control mail-check-input" placeholder="인증번호 6자리를 입력해주세요!" disabled="disabled" maxlength="6">
+					</div>
+					<span id="mail-check-warn"></span>
+				</div>
 				</div>
 			</div>
 			
