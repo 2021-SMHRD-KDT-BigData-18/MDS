@@ -1,6 +1,7 @@
 package kr.mds.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,8 @@ public class userController {
 
 	@Autowired
 	private UserMapper mapper;
+	
+	// 이메일 인증 의존성 주입
 	@Autowired
 	private MailSendService mailService;
 
@@ -32,6 +35,7 @@ public class userController {
 	@PostMapping("/signUp.com")
 	public String singUp(User user) {
 		int result = mapper.signUp(user);
+		
 		if(result > 0) return "redirect:/signIn.com";
 		else return "signUp";
 	}
@@ -65,7 +69,9 @@ public class userController {
 	@PostMapping("/")
 	public String main(User user, Model model) {
 		User result = mapper.signIn(user);
+		
 		model.addAttribute("result", result);
+		
 		if(result != null) return "main";
 		else return "redirect:/signIn.com";
 	}
