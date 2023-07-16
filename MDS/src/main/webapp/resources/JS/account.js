@@ -110,7 +110,7 @@ $(document).ready(function(){
 	
 
 /*비밀번호 재확인*/
-$('.pwck_input').keyup(function(){
+$('#u_pw_confirm').keyup(function(){
 			let pass1 = $('#u_pw').val();
 			let pass2 = $('#u_pw_confirm').val();
 			

@@ -61,7 +61,6 @@
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 	 -->
 	 
-	 
 	
 	
 </beans>
