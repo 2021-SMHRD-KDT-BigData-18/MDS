@@ -5,7 +5,7 @@ import kr.mds.entity.User;
 public interface UserMapper {
 	
 	// 회원가입
-	public void signUp(User user);
+	public int signUp(User user);
 
 	// 로그인
 	public User signIn(User user);

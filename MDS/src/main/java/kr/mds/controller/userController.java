@@ -31,9 +31,9 @@ public class userController {
 	// 회원가입 후 로그인 페이지로 이동
 	@PostMapping("/signUp.com")
 	public String singUp(User user) {
-		mapper.signUp(user);
-
-		return "signIn";
+		int result = mapper.signUp(user);
+		if(result > 0) return "redirect:/signIn.com";
+		else return "signUp";
 	}
 
 	// 회원가입 아이디중복 체크
@@ -66,12 +66,8 @@ public class userController {
 	public String main(User user, Model model) {
 		User result = mapper.signIn(user);
 		model.addAttribute("result", result);
-
-		if (result != null) {
-			return "signIn";
-		} else {
-			return "main";
-		}
+		if(result != null) return "main";
+		else return "redirect:/signIn.com";
 	}
 
 }

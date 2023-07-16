@@ -44,7 +44,7 @@
 						<button type="button" class="btn btn-primary" id="mail-Check-Btn">본인인증</button>
 					</div>
 					<div class="mail_check_input_box">
-						<input class="form-control mail-check-input" placeholder="인증번호 6자리를 입력해주세요!" disabled="disabled" maxlength="6">
+						<input name="u_email_num" class="form-control mail-check-input" placeholder="인증번호 6자리를 입력해주세요!" disabled="disabled" maxlength="6">
 					</div>
 					<span id="mail-check-warn"></span>
 				</div>
@@ -53,7 +53,7 @@
 			
 			<div class="address_wrap">
 				<div class="address_name">농장주소</div>
-				<input type="text" id="sample6_postcode" placeholder="우편번호" name="zip_code">
+				<input type="text" id="sample6_postcode" placeholder="우편번호" name="farm_zip_code">
 				<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
 				<input type="text" id="sample6_address" placeholder="주소" name="farm_addr"><br>
 				<input type="text" id="sample6_detailAddress" placeholder="상세주소" name="farm_detailed_addr">
