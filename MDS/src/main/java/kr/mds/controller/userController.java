@@ -1,6 +1,5 @@
 package kr.mds.controller;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,53 +19,59 @@ public class userController {
 
 	@Autowired
 	private UserMapper mapper;
+	@Autowired
+	private MailSendService mailService;
 
 	// 회원가입
 	@RequestMapping("/signUp.com")
-		public String singUp() {
-			return "signUp";
-		}
+	public String singUp() {
+		return "signUp";
+	}
 
 	// 회원가입 후 로그인 페이지로 이동
 	@PostMapping("/signUp.com")
 	public String singUp(User user) {
 		mapper.signUp(user);
-		
+
 		return "signIn";
 	}
-	
+
 	// 회원가입 아이디중복 체크
 	@PostMapping("/idCheck.com")
 	public @ResponseBody String idCheck(@RequestParam("u_id") String u_id) {
 //		System.out.println(u_id);
 		String res = "";
-		if(mapper.idCheck(u_id) == null) res = "true";
-		else res = "false";
+		if (mapper.idCheck(u_id) == null)
+			res = "true";
+		else
+			res = "false";
 		return res;
 	}
-	
+
+	// 회원가입 이메일 인증
+	@RequestMapping("/checkEmail.com")
+	public @ResponseBody String checkEmail(String u_email) {
+		System.out.println(u_email);
+		return mailService.joinEmail(u_email);
+	}
 
 	// 로그인
 	@RequestMapping("/signIn.com")
 	public String singIn() {
 		return "signIn";
 	}
-	
 
 	// 로그인 후 메인페이지로 이동
 	@PostMapping("/")
 	public String main(User user, Model model) {
 		User result = mapper.signIn(user);
 		model.addAttribute("result", result);
-		
-		if(result != null) {
+
+		if (result != null) {
 			return "signIn";
-		}else {
+		} else {
 			return "main";
 		}
 	}
-	
-	
-	
-	
+
 }
