@@ -20,10 +20,14 @@ public class userController {
 
 	@Autowired
 	private UserMapper mapper;
-	
+
 	// 이메일 인증 의존성 주입
 	@Autowired
 	private MailSendService mailService;
+
+	// 비밀번호 암호화 의존성 주입
+	@Autowired
+	private SHA256Util pwEncoder;
 
 	// 회원가입
 	@RequestMapping("/signUp.com")
@@ -34,10 +38,23 @@ public class userController {
 	// 회원가입 후 로그인 페이지로 이동
 	@PostMapping("/signUp.com")
 	public String singUp(User user) {
+		// 비밀번호 암호화
+		System.out.println("첫번째:" + user.getU_pw());
+		System.out.println("첫번째:" + user.getU_pw_confirm());
+		// 비밀번호 암호화 (sha256)
+		String u_pw = pwEncoder.encrypt(user.getU_pw());
+		String u_pw_confirm = pwEncoder.encrypt(user.getU_pw_confirm());
+		user.setU_pw(u_pw);
+		user.setU_pw_confirm(u_pw_confirm);
+		System.out.println("두번째:" + user.getU_pw());
+		System.out.println("두번째:" + user.getU_pw_confirm());
+		// 회원가입 메서드
 		int result = mapper.signUp(user);
-		
-		if(result > 0) return "redirect:/signIn.com";
-		else return "signUp";
+
+		if (result > 0)
+			return "redirect:/signIn.com";
+		else
+			return "signUp";
 	}
 
 	// 회원가입 아이디중복 체크
@@ -68,12 +85,20 @@ public class userController {
 	// 로그인 후 메인페이지로 이동
 	@PostMapping("/")
 	public String main(User user, Model model) {
+		
+		System.out.println("첫번째:" + user.getU_pw());
+		String u_pw = pwEncoder.encrypt(user.getU_pw());
+		user.setU_pw(u_pw);
+		System.out.println("두번째:" + user.getU_pw());
+		
 		User result = mapper.signIn(user);
-		
+
 		model.addAttribute("result", result);
-		
-		if(result != null) return "main";
-		else return "redirect:/signIn.com";
+
+		if (result != null)
+			return "main";
+		else
+			return "redirect:/signIn.com";
 	}
 
 }
