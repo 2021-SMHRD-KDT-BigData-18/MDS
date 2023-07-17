@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.mds.entity.CCTV;
 import kr.mds.entity.User;
+import kr.mds.mapper.CCTVMapper;
 import kr.mds.mapper.UserMapper;
 
 @Controller
@@ -20,6 +22,9 @@ public class userController {
 
 	@Autowired
 	private UserMapper mapper;
+	
+	@Autowired
+	private CCTVMapper cctvmapper;
 
 	// 이메일 인증 의존성 주입
 	@Autowired
@@ -86,54 +91,48 @@ public class userController {
 	@PostMapping("/")
 	public String main(User user, Model model) {
 		
+		// 암호화된 비밀번호로 로그인
 		System.out.println("첫번째:" + user.getU_pw());
 		String u_pw = pwEncoder.encrypt(user.getU_pw());
 		user.setU_pw(u_pw);
 		System.out.println("두번째:" + user.getU_pw());
-		
-		User result = mapper.signIn(user);
 
+		User result = mapper.signIn(user);
 		model.addAttribute("result", result);
+		
+		// 메인페이지에서 아이디에 맞게 rtsp 영상 송신
+		CCTV list = cctvmapper.listSelect(user.getU_id());
+		model.addAttribute("list", list);
 
 		if (result != null)
 			return "main";
 		else
 			return "redirect:/signIn.com";
-		
-		
-		
-		
-		
+
 	}
-		
+
 	// 로그아웃
-		@GetMapping("/logout.com")
-			public String logout() {
-			
-			return "main";
-		}
-		
-		
-		// 회원정보수정 페이지 이동
-			@RequestMapping("/checkUser.com")
-				public String checkUser() {
-				
-				return "checkUser";
-			}
-			// 회원정보 수정
-			@PostMapping("/updateuUser")
-			public String updateUser(User user, Model model) {
-				
-				int result = mapper.Updateuser(user);
-				
-				return "redirect:/updateUser.com";
-				
-			}
-		
-	
-		
+	@GetMapping("/logout.com")
+	public String logout() {
+
+		return "main";
 	}
 
-		
-	
+	// 회원정보수정 페이지 이동
+	@RequestMapping("/checkUser.com")
+	public String checkUser() {
 
+		return "checkUser";
+	}
+
+	// 회원정보 수정
+	@PostMapping("/updateuUser")
+	public String updateUser(User user, Model model) {
+
+		int result = mapper.Updateuser(user);
+
+		return "redirect:/updateUser.com";
+
+	}
+
+}
