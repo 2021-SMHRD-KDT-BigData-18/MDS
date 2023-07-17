@@ -44,4 +44,22 @@
 		SELECT * FROM tb_user WHERE U_ID=#{u_id}
 	</select>
 
+	<!-- 회원 정보 조회 -->
+	<select id="checkUser"
+	resultType="kr.mds.entity.User">
+	SELECT u_id,u_pw FROM tb_user
+	WHERE U_ID = #{u_id}  
+	
+	</select>
+	<!-- 회원 정보 수정 -->
+	<update id="updateUser" >
+        UPDATE tb_user
+        SET U_PW = #{u_pw}, U_PW_CONFIRM = #{u_pw_confirm},
+        U_EMAIL = #{u_email}, U_ALARM = #{u_alarm}, FARM_DETAILED_ADDR = #{farm_detailed_addr}
+        WHERE U_ID = #{u_id}
+	</update>
+	
+
+
+
 </mapper>

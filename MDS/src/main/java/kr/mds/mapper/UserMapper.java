@@ -13,6 +13,9 @@ public interface UserMapper {
 	// 아이디 중복 체크
 	public User idCheck(String u_id);
 
+	// 회원정보 수정
+	public int Updateuser(User user);
+
 	
 	
 	

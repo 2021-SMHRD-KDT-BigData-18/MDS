@@ -99,8 +99,38 @@ public class userController {
 			return "main";
 		else
 			return "redirect:/signIn.com";
+		
+		
+		
+		
+		
 	}
 		
+	// 로그아웃
+		@GetMapping("/logout.com")
+			public String logout() {
+			
+			return "main";
+		}
+		
+		
+		// 회원정보수정 페이지 이동
+			@RequestMapping("/checkUser.com")
+				public String checkUser() {
+				
+				return "checkUser";
+			}
+			// 회원정보 수정
+			@PostMapping("/updateuUser")
+			public String Updateuser(User user, Model model) {
+				
+				int result = mapper.Updateuser(user);
+				
+				return "redirect:/updateUser.com";
+				
+			}
+		
+	
 		
 	}
 
