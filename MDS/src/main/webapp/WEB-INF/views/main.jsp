@@ -29,7 +29,7 @@
   
   
   <script type="text/javascript" src="resources/JS/account.js"></script>
-  
+  <script type="text/javascript" src="resources/JS/chat.js"></script>  
 
   
 </body>

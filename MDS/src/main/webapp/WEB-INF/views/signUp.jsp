@@ -71,6 +71,7 @@
 	<script src="resources/JS/jquery-3.6.4.min.js"></script>
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript" src="resources/JS/account.js"></script>
+	<script type="text/javascript" src="resources/JS/chat.js"></script>
 	
 </body>
 </html>
