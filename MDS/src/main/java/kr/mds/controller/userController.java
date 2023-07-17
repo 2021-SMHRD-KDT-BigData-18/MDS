@@ -104,7 +104,7 @@ public class userController {
 		@GetMapping("/")
 		public String logout() {
 		        
-		        return "redirect:/login?logout";
+		        return "redirect:/login.com";
 		
 	}
 
