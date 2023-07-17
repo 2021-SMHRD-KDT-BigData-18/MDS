@@ -13,7 +13,7 @@
 </head>
 <body>
   
-  <div id="home">
+  <div id="header">
 	  <c:choose>
 		  <c:when test="${result eq null}">
 			  <a href="signIn.com" >로그인</a>
@@ -23,6 +23,10 @@
 		  	<h1>${result.u_id}님, 환영합니다!</h1>
 		  </c:otherwise>
 	  </c:choose>
+  </div>
+  
+  <div id="main">
+  	
   </div>
   
   
