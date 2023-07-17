@@ -122,7 +122,7 @@ public class userController {
 			}
 			// 회원정보 수정
 			@PostMapping("/updateuUser")
-			public String Updateuser(User user, Model model) {
+			public String updateUser(User user, Model model) {
 				
 				int result = mapper.Updateuser(user);
 				
