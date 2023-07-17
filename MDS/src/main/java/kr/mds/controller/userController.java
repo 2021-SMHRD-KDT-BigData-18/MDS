@@ -100,5 +100,12 @@ public class userController {
 		else
 			return "redirect:/signIn.com";
 	}
+		//로그아웃
+		@GetMapping("/")
+		public String logout() {
+		        
+		        return "redirect:/login?logout";
+		
+	}
 
 }
