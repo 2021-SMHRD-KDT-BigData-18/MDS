@@ -22,16 +22,8 @@ $(document).ready(function(){
         });
     }); */
 
-/* 도로명주소
-<input type="text" id="sample6_postcode" placeholder="우편번호">
-<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-<input type="text" id="sample6_address" placeholder="주소"><br>
-<input type="text" id="sample6_detailAddress" placeholder="상세주소">
-<input type="text" id="sample6_extraAddress" placeholder="참고항목">
-
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-    function sample6_execDaumPostcode() {
+/*도로명주소*/
+function sample6_execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
                 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -78,45 +70,97 @@ $(document).ready(function(){
             }
         }).open();
     }
-</script>
-*/
 
 
-
-/*ID 중복 체크*/
+/*아이디 중복 체크*/
 $(document).ready(function(){
-
-	var input = $('.id_input');
-	input.on("input", idCheck);
-				});
-
-function idCheck(){
-	var value = $(this).val();
-	console.log(value);
+		var input = $('#u_id');
+		input.on("input", idCheck);
+	});
 	
-	$.ajax({
-		url : 'signUp.com',
-		type : 'post',
-		data : {
-			user_id : value
-				},
-		success : function(res){
-		/*console.log(res);*/
+	function idCheck(){
 		
-		var p = $('.idCheck');
-							
-		if(res == "true"){
-			// 사용가능한 아이디입니다.
-			p.html('사용이 가능한 이메일 입니다.');
-			p.css("color", "green"); // css("style 이름", "값")
-		}else {
-			// 사용 불가능한 아이디입니다.
-			p.html("사용이 불가능한 아이디 입니다.").css("color", "red");
+		var value = $(this).val();
+		/*console.log(value);*/
+		
+		$.ajax({
+			url : 'idCheck.com',
+			type : 'post',
+			data : {
+				"u_id" : value
+			},
+			success : function(res){
+				/*console.log(res);*/
+				
+				var p = $('#id_check');
+				
+				if(res == "true"){
+					p.html('사용이 가능한 아이디 입니다.');
+					p.css("color", "green"); // css("style 이름", "값")
+				}else {
+					p.html("사용이 불가능한 아이디 입니다.").css("color", "red");
 				}
-							
-		},
-		error : function(e){
-			alert("요청 실패");
+				
+			},
+			error : function(e){
+				alert("요청 실패");
+			}
+		});
+	}
+	
+
+/*비밀번호 재확인*/
+$('#u_pw_confirm').keyup(function(){
+			let pass1 = $('#u_pw').val();
+			let pass2 = $('#u_pw_confirm').val();
+			
+			if(pass1 != "" || pass2 != ""){
+				if(pass1 == pass2){
+					$('#confirmMsg').html("비밀번호 일치");
+					$('#confirmMsg').css('color', 'green');
+				} else {
+					$('#confirmMsg').html("비밀번호 불일치");
+					$('#confirmMsg').css('color', 'red');
 				}
-					});
-};
+			}
+		})
+		
+		
+/*이메일 인증*/
+$('#mail-Check-Btn').click(function(){
+			var email = $('#u_email').val();
+			console.log(email);
+			var checkEmail = $('.mail-check-input');
+			
+			$.ajax({
+				url : 'checkEmail.com',
+				type : 'post',
+				data : {"u_email" : email},
+				success : function(data){
+					console.log(data);
+					checkEmail.attr('disabled', false);
+					code = data;
+					alert('인증번호가 전송되었습니다.');
+				}
+			})
+		})
+		
+	// 인증번호 비교 
+	// blur -> focus가 벗어나는 경우 발생
+	$('.mail-check-input').blur(function () {
+		const inputCode = $(this).val();
+		const $resultMsg = $('#mail-check-warn');
+		
+		if(inputCode === code){
+			$resultMsg.html('인증번호가 일치합니다.');
+			$resultMsg.css('color','green');
+			$('#mail-Check-Btn').attr('disabled',true);
+			$('#userEamil1').attr('readonly',true);
+			$('#userEamil2').attr('readonly',true);
+			$('#userEmail2').attr('onFocus', 'this.initialSelect = this.selectedIndex');
+	         $('#userEmail2').attr('onChange', 'this.selectedIndex = this.initialSelect');
+		}else{
+			$resultMsg.html('인증번호가 불일치 합니다. 다시 확인해주세요!.');
+			$resultMsg.css('color','red');
+		}
+	});

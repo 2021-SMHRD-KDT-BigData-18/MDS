@@ -16,12 +16,11 @@ public class User {
 
 	    // 회원 비밀번호 
 	    private String u_pw;
+	    private String u_pw_confirm;
 
 	    // 회원 이메일 
 	    private String u_email;
-
-	    // 회원 농장주소 
-	    private String u_addr;
+	    private int u_email_num;
 
 	    // 회원 알림설정 
 	    private String u_alarm;
@@ -31,5 +30,11 @@ public class User {
 
 	    // 회원 유형 
 	    private String u_type;
+	    
+	    // 회원 농장주소 
+	    private int farm_zip_code;
+	    private String farm_detailed_addr;
+	    private String farm_addr;
+	    private String farm_add_addr;
 
 }

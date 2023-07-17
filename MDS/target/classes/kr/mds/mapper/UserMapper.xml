@@ -5,20 +5,43 @@
 	<insert id="signUp" parameterType="kr.mds.entity.User">
 		INSERT INTO tb_user
 		    (u_id, 
-		    u_pw, 
-		    u_email, 
-		    u_addr, 
+		    u_pw,
+		    u_pw_confirm, 
+		    u_email,
+		    u_email_num,
 		    u_alarm, 
 		    u_joindate, 
-		    u_type)
+		    u_type,
+		    farm_zip_code,
+	    	farm_detailed_addr,
+	    	farm_addr,
+	    	farm_add_addr)
 		VALUES
 		    (#{u_id}, 
 		    #{u_pw}, 
+		    #{u_pw_confirm},
 		    #{u_email}, 
-		    #{u_addr}, 
+		    #{u_email_num},
 		    'ON', 
 		    NOW(), 
-		    'U');
+		    'U',
+		    #{farm_zip_code},
+		    #{farm_detailed_addr},
+		    #{farm_addr},
+		    #{farm_add_addr })
 	</insert>
+	
+	<!-- 로그인 -->
+	<select id="signIn" 
+	parameterType="kr.mds.entity.User"
+	resultType="kr.mds.entity.User">
+	select * from tb_user where U_ID=#{u_id} and U_PW=#{u_pw}
+	</select>
+	
+	<!-- 아이디 중복 체크 -->
+	<select id="idCheck"
+	resultType="kr.mds.entity.User">
+		SELECT * FROM tb_user WHERE U_ID=#{u_id}
+	</select>
 
 </mapper>
