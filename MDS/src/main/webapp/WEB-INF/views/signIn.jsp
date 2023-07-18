@@ -37,5 +37,7 @@
 		</div>
 
 	</div>
+	
+	<script type="text/javascript" src="resources/JS/chat.js"></script>
 </body>
 </html>

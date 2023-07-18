@@ -164,3 +164,14 @@ $('#mail-Check-Btn').click(function(){
 			$resultMsg.css('color','red');
 		}
 	});
+
+
+/* button 클릭 시 회원정보수정 화면으로*/
+$(document).ready(function(){
+        $('.checkUser').on('click', function(){
+            console.log($(this).text())
+            
+            location.href = "checkUser";
+});
+});
+	
