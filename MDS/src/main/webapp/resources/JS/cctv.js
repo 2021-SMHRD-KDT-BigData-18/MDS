@@ -1,8 +1,6 @@
-
-  
-
 const Stream = require('node-rtsp-stream');
-const streamUrl1 = "${list.rtsp_address}"; // rtsp 영상 주소가 없다면 아래 첨부해놓은 주소 쓰면됨
+
+const streamUrl1 = "${rtsp 주소}"; // rtsp 영상 주소가 없다면 아래 첨부해놓은 주소 쓰면됨
 
 stream1 = new Stream({
   name: 'foscam_stream',
@@ -11,7 +9,8 @@ stream1 = new Stream({
   width: 720,
   height: 480
 });
-const streamUrl2 = "${list.rtsp_address2}"; // rtsp 영상 주소가 없다면 아래 첨부해놓은 주소 쓰면됨
+
+const streamUrl2 = "${rtsp 주소2}"; // rtsp 영상 주소가 없다면 아래 첨부해놓은 주소 쓰면됨
 
 stream1 = new Stream({
   name: 'foscam_stream',
@@ -20,5 +19,3 @@ stream1 = new Stream({
   width: 640,
   height: 480
 });
-
-

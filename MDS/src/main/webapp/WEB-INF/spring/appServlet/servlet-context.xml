@@ -41,7 +41,7 @@
 		</beans:property>
 	</beans:bean>
 	
-	<!-- email component 등록해주기 -->
+	<!-- component 등록해주기 -->
 	<context:component-scan base-package="spring.service" />
 	
 	
