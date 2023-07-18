@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="cpath" value="${pageContext.request.contextPath}"/>	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="cpath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +11,10 @@
 </head>
 <body>
 	<div class="wrapper">
-
+		<div class="ocean">
+			<div class="wave"></div>
+			<div class="wave"></div>
+		</div>
 		<div class="wrap">
 			<form action="${cpath}/" method="post">
 				<div class="logo_wrap">
@@ -19,13 +22,15 @@
 				</div>
 				<div class="login_wrap">
 					<div class="id_wrap">
+						<div class="id_name">아이디</div>
 						<div class="id_input_box">
 							<input class="id_input" type="text" name="u_id">
 						</div>
 					</div>
 					<div class="pw_wrap">
+						<div class="pw_name">비밀번호</div>
 						<div class="pw_input_box">
-							<input class="pw_iput" type="password" name="u_pw">
+							<input class="pw_input" type="password" name="u_pw">
 						</div>
 					</div>
 					<div class="login_button_wrap">
@@ -37,7 +42,5 @@
 		</div>
 
 	</div>
-	
-	<script type="text/javascript" src="resources/JS/chat.js"></script>
 </body>
 </html>
