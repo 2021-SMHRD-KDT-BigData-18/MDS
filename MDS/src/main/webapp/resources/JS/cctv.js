@@ -1,17 +1,5 @@
-var client1 = new WebSocket('ws://localhost:9999');
-  var canvas1 = document.getElementById('video1');
-  var player1 = new jsmpeg(client1, {
-    canvas: canvas1, autoplay:true, audio:false, loop:true
-  });
-  
-  var client2 = new WebSocket('ws://localhost:10000');
-  var canvas2 = document.getElementById('video2');
-  var player2 = new jsmpeg(client2, {
-    canvas: canvas2, autoplay:true, audio:false, loop:true
-  });
-  
-  
 
+  
 
 const Stream = require('node-rtsp-stream');
 const streamUrl1 = "${list.rtsp_address}"; // rtsp 영상 주소가 없다면 아래 첨부해놓은 주소 쓰면됨
