@@ -1,5 +1,7 @@
 package kr.mds.mapper;
 
+import java.util.ArrayList;
+
 import kr.mds.entity.CCTV;
 
 public interface CCTVMapper {

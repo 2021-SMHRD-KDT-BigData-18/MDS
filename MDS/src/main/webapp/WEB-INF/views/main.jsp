@@ -32,16 +32,19 @@
   	
   </div>
   
+  
   <div class="videoPlayer">
   	<c:choose>
 	  	<c:when test="${result.u_id eq list.u_id && result ne null}">
-			<canvas id="video"></canvas>
+			<canvas id="video1"></canvas>
+			<canvas id="video2"></canvas>
 		</c:when>
 		<c:otherwise>
 			<div>로그인이 필요한 서비스 or CCTV rtsp 주소를 등록해주라는 요청 페이지 필요</div>
 		</c:otherwise>
   	</c:choose>
   </div>
+  
   
   
   

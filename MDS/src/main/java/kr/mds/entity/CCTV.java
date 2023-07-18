@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class CCTV {
 	private String u_id;
 	private String rtsp_address;
+	private String rtsp_address2;
 	private String cctv_loc;
 	private String cctv_id;
 }
