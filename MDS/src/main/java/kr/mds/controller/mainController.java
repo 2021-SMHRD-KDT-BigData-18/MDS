@@ -26,10 +26,13 @@ public class mainController {
 	@Autowired
 	private SHA256Util pwEncoder;
 	
-	
-	
-	// 메인페이지
+	// 시작페이지
 	@RequestMapping("/")
+	public String start() {
+		return "start";
+	}
+	// 메인페이지
+	@RequestMapping("/main")
 	public String main() {
 		return "main";
 	}
