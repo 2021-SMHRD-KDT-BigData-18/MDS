@@ -38,7 +38,7 @@
 				<canvas class="canvas" id="mirrored"></canvas>
 			</div>
 		</c:when>
-
+	
 	</c:choose>
 
 
