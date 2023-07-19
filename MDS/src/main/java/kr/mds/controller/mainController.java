@@ -26,16 +26,19 @@ public class mainController {
 	@Autowired
 	private SHA256Util pwEncoder;
 	
-	
-	
-	// 메인페이지
+	// 시작페이지
 	@RequestMapping("/")
+	public String start() {
+		return "start";
+	}
+	// 메인페이지
+	@RequestMapping("/main.com")
 	public String main() {
 		return "main";
 	}
 
 	// 로그인 후 메인페이지로 이동
-	@PostMapping("/")
+	@PostMapping("/main.com")
 	public String main(User user, Model model) {
 
 		// 암호화된 비밀번호로 로그인
@@ -54,7 +57,7 @@ public class mainController {
 		if (result != null)
 			return "main";
 		else
-			return "redirect:/signIn.com";
+			return "redirect:/";
 
 	}
 
