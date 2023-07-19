@@ -22,30 +22,41 @@
 </head>
 <body>
 
-	<c:choose>
-		<c:when test="${result.u_id eq list.u_id && result ne null}">
+	<div class="container">
+		<div class="logo_img">
+			<a class="logo" href="main.com"> <img alt="MDS로고"
+				src="resources/images/MDS_logo.png" width="400px" height="140px">
+			</a>
 			<div class="header">
-				<h1>${result.u_id}님,환영합니다!</h1>
-				<a href="logout.com">로그아웃</a>
+				<c:choose>
+					<c:when test="${result ne null}">
+						<h1>${result.u_id}님,환영합니다!</h1>
+						<a href="logout.com">로그아웃</a>
+					</c:when>
+				</c:choose>
 			</div>
-			
+		</div>
 
-			<div class="category"></div>
+		<div class="category"></div>
 
-			<div class="videoPlayer">
-				<video autoplay="true" id="videoElement"></video>
-				<canvas class="canvas" id="mirrored"></canvas>
-			</div>
-		</c:when>
-	</c:choose>
 
+		<div class="videoPlayer">
+			<c:choose>
+				<c:when test="${result.u_id eq list.u_id && result ne null}">
+					<video autoplay="true" id="videoElement"></video>
+					<canvas class="canvas" id="mirrored"></canvas>
+				</c:when>
+			</c:choose>
+		</div>
+
+
+
+	</div>
 
 	<script type="text/javascript" src="resources/JS/account.js"></script>
 	<script type="text/javascript" src="resources/JS/chat.js"></script>
 	<script type="text/javascript" src="resources/JS/webCam.js"></script>
 	<script src="resources/JS/cctv.js"></script>
-
-
 
 </body>
 </html>
