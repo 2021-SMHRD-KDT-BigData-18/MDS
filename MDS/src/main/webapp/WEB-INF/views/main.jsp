@@ -40,6 +40,7 @@
 		<div class="category"></div>
 
 
+
 		<div class="videoPlayer">
 			<c:choose>
 				<c:when test="${result.u_id eq list.u_id && result ne null}">
@@ -48,7 +49,6 @@
 				</c:when>
 			</c:choose>
 		</div>
-
 
 
 	</div>

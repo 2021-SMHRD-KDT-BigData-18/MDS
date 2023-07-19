@@ -3,10 +3,15 @@ package kr.mds.controller;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import kr.mds.entity.CCTV;
 import kr.mds.entity.User;
@@ -60,5 +65,7 @@ public class mainController {
 			return "redirect:/";
 
 	}
+	
+	// 웹에서의 실시간 알림
 
 }
