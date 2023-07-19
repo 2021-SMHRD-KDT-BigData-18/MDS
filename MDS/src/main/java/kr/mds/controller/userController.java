@@ -31,12 +31,6 @@ public class userController {
 	@Autowired
 	private SHA256Util pwEncoder;
 
-	
-	// 회원가입
-	@RequestMapping("/signUp.com")
-	public String singUp() {
-		return "signUp";
-	}
 
 	// 회원가입 후 로그인 페이지로 이동
 	@PostMapping("/signUp.com")
@@ -55,9 +49,9 @@ public class userController {
 		int result = mapper.signUp(user);
 
 		if (result > 0)
-			return "redirect:/signIn.com";
+			return "redirect:/";
 		else
-			return "signUp";
+			return "redirect:/";
 	}
 
 	// 회원가입 아이디중복 체크
@@ -79,18 +73,11 @@ public class userController {
 		return mailService.joinEmail(u_email);
 	}
 
-	// 로그인
-	@RequestMapping("/signIn.com")
-	public String singIn() {
-		return "signIn";
-	}
-
-
 	// 로그아웃
 	@GetMapping("/logout.com")
 	public String logout() {
 
-		return "main";
+		return "redirect:/";
 	}
 
 	// 회원정보수정 페이지 이동

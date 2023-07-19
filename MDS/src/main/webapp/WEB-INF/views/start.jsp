@@ -44,7 +44,7 @@
 		<div class="modal-content">
 			<span class="close-button">&times;</span>
 			<h2>로그인</h2>
-			<form action="${cpath}/main" method="post">
+			<form action="main.com" method="post">
 				<div class="login_wrap">
 					<div class="id_wrap">
 						<div class="id_name">아이디</div>
@@ -71,7 +71,7 @@
 		<div class="modal-content">
 			<span class="close-button">&times;</span>
 			<h2>회원가입</h2>
-			<form action="${cpath}/" method="post">
+			<form action="signUp.com" method="post">
 				<div class="wrap">
 					<div class="id_wrap">
 						<div class="id_name">아이디</div>
