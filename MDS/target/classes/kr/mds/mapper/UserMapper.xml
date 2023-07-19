@@ -60,6 +60,11 @@
 	</update>
 	
 
-
-
+	<!-- ID/PW 본인인증시 이메일 전송 -->
+	<select id="userSearch" parameterType="String"
+		resultType="kr.mds.entity.User">
+		SELECT * FROM tb_user
+		WHERE U_EMAIL=#{u_email}
+		LIMIT 1
+	</select>
 </mapper>
