@@ -230,28 +230,7 @@
 		    <version>5.3.18</version>
 		</dependency>
 		
-		<!-- SSE -->
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-core</artifactId>
-		    <version>5.3.20</version>
-		</dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-web</artifactId>
-		    <version>5.3.20</version>
-		</dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-		<dependency>
-		    <groupId>org.springframework</groupId>
-		    <artifactId>spring-webmvc</artifactId>
-		    <version>5.3.20</version>
-		</dependency>
-
+		
 		
 		      
 	</dependencies>
