@@ -21,8 +21,8 @@
 </style>
 </head>
 <body>
-	<c:choose>
 
+	<c:choose>
 		<c:when test="${result.u_id eq list.u_id && result ne null}">
 			<div class="header">
 				<h1>${result.u_id}님,환영합니다!</h1>
@@ -31,13 +31,11 @@
 
 			<div class="category"></div>
 
-
 			<div class="videoPlayer">
 				<video autoplay="true" id="videoElement"></video>
 				<canvas class="canvas" id="mirrored"></canvas>
 			</div>
 		</c:when>
-
 	</c:choose>
 
 
