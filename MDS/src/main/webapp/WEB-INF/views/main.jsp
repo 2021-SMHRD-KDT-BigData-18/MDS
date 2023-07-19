@@ -28,6 +28,7 @@
 				<h1>${result.u_id}님,환영합니다!</h1>
 				<a href="logout.com">로그아웃</a>
 			</div>
+			
 
 			<div class="category"></div>
 
