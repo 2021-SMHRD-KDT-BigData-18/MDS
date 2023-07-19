@@ -42,3 +42,81 @@ table {
 img {
    border-style: none;
 }
+
+#videoElement, #mirrored {
+	width: 500px;
+	height: 375px;
+	background-color: #666;
+	display: inline-block;
+}
+
+/* 전체 컨테이너 스타일 */
+.container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* 로고 이미지 스타일 */
+.logo_img {
+  margin-bottom: 10px;
+}
+
+/* 로고 스타일 */
+.logo {
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* 헤더 스타일 */
+.header {
+  flex: 1;
+  text-align: right;
+
+}
+
+/* 환영 문구 스타일 */
+.header h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* 로그아웃 링크 스타일 */
+.header a {
+  color: #000;
+  margin-left: 10px;
+}
+
+/* 카테고리 스타일 */
+.category {
+  /* 카테고리 스타일을 적용하세요 */
+}
+
+/* 비디오 플레이어 스타일 */
+.videoPlayer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  
+}
+
+/* 비디오 요소 스타일 */
+#videoElement,
+#mirrored {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 비디오 요소 스타일 */
+#videoElement {
+  margin-right: 20px; /* 오른쪽 간격 설정 */
+}
+
+/* 캔버스 스타일 */
+#mirrored {
+  margin-left: 20px; /* 왼쪽 간격 설정 */
+}
+
+
