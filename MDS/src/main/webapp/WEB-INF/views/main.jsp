@@ -11,14 +11,6 @@
 <link href="resources/css/main.css" rel="stylesheet" type="text/css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmpeg/0.1/jsmpg.js"></script>
 <title>메인페이지</title>
-<style type="text/css">
-#videoElement, #mirrored {
-	width: 500px;
-	height: 375px;
-	background-color: #666;
-	display: inline-block;
-}
-</style>
 </head>
 <body>
 
