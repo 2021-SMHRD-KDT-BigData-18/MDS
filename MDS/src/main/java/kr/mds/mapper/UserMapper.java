@@ -16,6 +16,8 @@ public interface UserMapper {
 	// 회원정보 수정
 	public int Updateuser(User user);
 
+	public User userSearch(String email);
+
 	
 	
 	

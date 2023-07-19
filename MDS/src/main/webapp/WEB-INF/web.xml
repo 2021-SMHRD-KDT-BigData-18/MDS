@@ -28,6 +28,7 @@
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
+		<async-supported>true</async-supported>
 	</servlet>
 	<!-- FrontController 생성하는 구간 -->
 
@@ -54,5 +55,6 @@
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
+	
 
 </web-app>
