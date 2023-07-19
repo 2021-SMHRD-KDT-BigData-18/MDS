@@ -11,6 +11,14 @@
   <link href="resources/css/main.css" rel="stylesheet" type="text/css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jsmpeg/0.1/jsmpg.js"></script>
   <title>메인페이지</title>
+  <style type="text/css">
+  	#videoElement {
+		width: 500px;
+		height: 375px;
+		background-color: #666;
+		display: inline-block;
+	}
+  </style>
 </head>
 <body>
   
@@ -36,8 +44,7 @@
   <div class="videoPlayer">
   	<c:choose>
 	  	<c:when test="${result.u_id eq list.u_id && result ne null}">
-			<canvas id="video1"></canvas>
-			<canvas id="video2"></canvas>
+			<video autoplay="true" id="videoElement">
 		</c:when>
 		<c:otherwise>
 			<div>로그인이 필요한 서비스 or CCTV rtsp 주소를 등록해주라는 요청 페이지 필요</div>
@@ -47,11 +54,9 @@
   
   
   
-  
-  
-  
   <script type="text/javascript" src="resources/JS/account.js"></script>
   <script type="text/javascript" src="resources/JS/chat.js"></script> 
+  <script type="text/javascript" src="resources/JS/webCam.js"></script>
   <script src="resources/JS/cctv.js"></script> 
 
   
