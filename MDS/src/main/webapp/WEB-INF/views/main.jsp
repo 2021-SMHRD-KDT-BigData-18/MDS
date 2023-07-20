@@ -31,7 +31,7 @@
 	<div class="container">
 		<div class="head_con">
 			<div class="logo_img">
-				<a class="logo" href="main.com"> <img alt="MDS로고"
+				<a class="logo" href="javascript:listView('${result.u_id}')"> <img alt="MDS로고"
 					src="resources/images/MDS_logo.png" width="150px" height="75px">
 				</a>
 			</div>

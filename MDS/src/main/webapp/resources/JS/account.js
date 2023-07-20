@@ -174,4 +174,21 @@ $(document).ready(function(){
             location.href = "checkUser";
 });
 });
+
 	
+/* 로고 클릭 시 로그인된 메인페이지로 이동 */
+function listView(userid){
+	    let f = document.createElement('form');
+	    
+	    let obj;
+	    obj = document.createElement('input');
+	    obj.setAttribute('type', 'hidden');
+	    obj.setAttribute('name', 'u_id');
+	    obj.setAttribute('value', u_id);
+	    
+	    f.appendChild(obj);
+	    f.setAttribute('method', 'post');
+	    f.setAttribute('action', 'main.com');
+	    document.body.appendChild(f);
+	    f.submit();
+	}
