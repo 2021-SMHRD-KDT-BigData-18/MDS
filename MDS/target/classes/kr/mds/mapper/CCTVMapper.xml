@@ -3,7 +3,7 @@
 <mapper namespace="kr.mds.mapper.CCTVMapper">
 	
 	<!-- cctv 정보 조회 -->
-	<select id="listSelect" resultType="kr.mds.entity.CCTV">
+	<select id="listSelect" resultType="kr.mds.entity.tb_CCTV1">
 		SELECT * FROM tb_cctv1
 		WHERE U_ID = #{u_id}
 	</select>
