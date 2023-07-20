@@ -118,9 +118,6 @@
 		</div>
 
 
-
-
-
 	</div>
 
 	<script type="text/javascript" src="resources/JS/main.js"></script>
