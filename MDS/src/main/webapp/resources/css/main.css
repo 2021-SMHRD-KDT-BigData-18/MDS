@@ -72,6 +72,9 @@ img {
 .logo {
   display: inline-block;
   text-decoration: none;
+  position: absolute;
+  left: 45%;
+  top: 25px;
 }
 
 /* 헤더 스타일 */
@@ -245,9 +248,11 @@ input[id=radio-5]:checked ~ .glider {
 /* 다크모드 요소 스타일 */
 
 #darkmode-label {
-    width: 500px;
-    height: 200px;
-    position: relative;
+    width: 185px;
+    height: 76px;
+    position: absolute;
+    top: 28px;
+    left: 27px;
     display: block;
     background: #ebebeb;
     border-radius: 200px;
@@ -258,10 +263,10 @@ input[id=radio-5]:checked ~ .glider {
 
 #darkmode-label:after {
     content: "";
-    width: 180px;
-    height: 180px;
+    width: 65px;
+    height: 65px;
     position: absolute;
-    top: 10px;
+    top: 7px;
     left: 10px;
     background: linear-gradient(180deg, #ffcc89, #d8860b);
     border-radius: 180px;

@@ -7,10 +7,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class CCTV {
+public class tb_User_car {
+	private String car_no;
 	private String u_id;
-	private String rtsp_address;
-	private String rtsp_address2;
-	private String cctv_loc;
-	private String cctv_id;
+	private String car_info;
+	private String car_img;
 }

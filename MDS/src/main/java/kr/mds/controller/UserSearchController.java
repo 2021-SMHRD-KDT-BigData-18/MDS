@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.mds.entity.User;
+import kr.mds.entity.tb_User;
 import kr.mds.mapper.UserMapper;
 
 @Controller
@@ -27,7 +27,7 @@ public class UserSearchController {
     @PostMapping("/userSearch")
     @ResponseBody
     public String searchIdAndPassword(@RequestParam("u_email") String email) {
-        User user = userMapper.userSearch(email);
+        tb_User user = userMapper.userSearch(email);
         if (user != null) {
             String u_id = user.getU_id();
             String u_pw = user.getU_pw();

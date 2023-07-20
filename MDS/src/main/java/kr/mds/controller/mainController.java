@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
-import kr.mds.entity.CCTV;
-import kr.mds.entity.User;
+import kr.mds.entity.tb_CCTV1;
+import kr.mds.entity.tb_User;
 import kr.mds.mapper.CCTVMapper;
 import kr.mds.mapper.UserMapper;
 
@@ -44,7 +44,7 @@ public class mainController {
 
 	// 로그인 후 메인페이지로 이동
 	@PostMapping("/main.com")
-	public String main(User user, Model model) {
+	public String main(tb_User user, Model model) {
 
 		// 암호화된 비밀번호로 로그인
 		System.out.println("첫번째:" + user.getU_pw());
@@ -52,11 +52,11 @@ public class mainController {
 		user.setU_pw(u_pw);
 		System.out.println("두번째:" + user.getU_pw());
 
-		User result = mapper.signIn(user);
+		tb_User result = mapper.signIn(user);
 		model.addAttribute("result", result);
 
 		// 메인페이지에서 아이디에 맞게 rtsp 영상 송신
-		CCTV list = cctvmapper.listSelect(user.getU_id());
+		tb_CCTV1 list = cctvmapper.listSelect(user.getU_id());
 		model.addAttribute("list", list);
 
 		if (result != null)
