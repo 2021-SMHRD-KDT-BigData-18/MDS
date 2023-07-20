@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.mds.entity.CCTV;
-import kr.mds.entity.User;
+import kr.mds.entity.tb_CCTV1;
+import kr.mds.entity.tb_User;
 import kr.mds.mapper.CCTVMapper;
 import kr.mds.mapper.UserMapper;
 
@@ -34,7 +34,7 @@ public class userController {
 
 	// 회원가입 후 로그인 페이지로 이동
 	@PostMapping("/signUp.com")
-	public String singUp(User user) {
+	public String singUp(tb_User user) {
 		// 비밀번호 암호화
 		System.out.println("첫번째:" + user.getU_pw());
 		System.out.println("첫번째:" + user.getU_pw_confirm());
@@ -89,7 +89,7 @@ public class userController {
 
 	// 회원정보 수정
 	@PostMapping("/updateuUser")
-	public String updateUser(User user, Model model) {
+	public String updateUser(tb_User user, Model model) {
 
 		int result = mapper.Updateuser(user);
 

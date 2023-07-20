@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class User {
+public class tb_User {
 
 	    // 회원 아이디 
 	    private String u_id;
