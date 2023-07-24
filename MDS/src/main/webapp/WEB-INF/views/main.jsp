@@ -67,7 +67,7 @@
 				<input type="radio" id="radio-4" name="tabs" />
 					<label class="tab" for="radio-4">출입기록</label>
 				<input type="radio" id="radio-5" name="tabs" />
-					<label class="tab" for="radio-5">
+					<label class="tab" for="radio-5" id="radio-5">
 						<img src="resources/images/bell.svg" alt="알림" name="bell">
 							<span class="notification">2</span>
 					</label> 
@@ -128,5 +128,8 @@
 	<script type="text/javascript" src="resources/JS/chat.js"></script>
 	<script type="text/javascript" src="resources/JS/webCam.js"></script>
 	<script src="resources/JS/cctv.js"></script>
+	<script type="text/javascript">
+		var id = '${result.u_id}';
+	</script>
 </body>
 </html>
