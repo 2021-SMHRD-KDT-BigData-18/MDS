@@ -144,6 +144,7 @@
 				success : function(result){
 					/*console.log(result);
 					console.log(result[0].car_num);*/
+					
 					for(let i = 0; i < result.length; i++){
 						$('#page5-content').append(
 								`<table>
