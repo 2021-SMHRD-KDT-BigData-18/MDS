@@ -44,7 +44,6 @@
 	<resources mapping="/resources/**" location="/resources/" />
     <resources mapping="/img/**" location="C:\Users\smhrd\git\MDS\MDS\src\main\webapp\resources\images" />
 	
-	
 	<!-- component 등록해주기 -->
 	<context:component-scan base-package="spring.service" />
 	
