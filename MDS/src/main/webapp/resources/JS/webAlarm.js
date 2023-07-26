@@ -3,20 +3,20 @@
  */
 
 /* 알림 클릭 시 알림 데이터 확인*/
-	$("#radio-5").click(function(){
+	$("#webAlarm").click(function(){
 			$.ajax({
 				type:'post',
 				url : "http://127.0.0.1:9000/webAlarm",
 				/*data : JSON.stringify(postdata),*/
 				data : {'u_id':data},
-				dataType : 'JSON',
+				dataType : 'json',
 				contentType : 'application/json',
 				success : function(result){
 					console.log(result);
 					console.log((result[0][0]).cctv_id);
 					
 					for(let i = 0; i < result.length; i++){
-						$('#page5-content').append(
+						$('#page4-content').append(
 								`<table>
 									<tr>
 										<td>자동차 이미지</td>

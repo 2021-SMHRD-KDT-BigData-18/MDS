@@ -64,9 +64,9 @@
 				<input type="radio" id="radio-2" name="tabs" />
 				<label class="tab" for="radio-2">데이터조회</label>
 				<input type="radio" id="radio-3" name="tabs" />
-				<label class="tab" for="radio-3">출입기록</label>
+				<label class="tab" for="radio-3" id="entryLog">출입기록</label>
 				<input type="radio" id="radio-4" name="tabs" />
-				<label class="tab" for="radio-4">
+				<label class="tab" for="radio-4" id="webAlarm">
 				<img src="resources/images/bell.svg" alt="알림" name="bell">
 				<span class="notification">2</span>
 				</label> <span class="glider"></span>
@@ -104,16 +104,9 @@
 		
 		</div>
 
-		<div class="" id="page3-content" style="display: none;">
 		
-		<h1>정보수정</h1>
-		
-		
-		
-		
-		</div>
 
-		<div class="" id="page4-content" style="display: none;">
+		<div class="" id="page3-content" style="display: none;">
 		
 		<h1>출입기록</h1>
 		
@@ -121,7 +114,7 @@
 		
 		</div>
 
-		<div class="" id="page5-content" style="display: none;">
+		<div class="" id="page4-content" style="display: none;">
 		
 		<h1>알람</h1>
 		
@@ -133,7 +126,7 @@
 	</div>
 	
 	<script type="text/javascript">
-		var data = '${result.u_id}';
+		let data = '${result.u_id}';
 	</script>
 	<script type="text/javascript" src="resources/JS/main.js"></script>
 	<script type="text/javascript" src="resources/JS/account.js"></script>
