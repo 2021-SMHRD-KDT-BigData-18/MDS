@@ -426,6 +426,6 @@ table tr:nth-child(even) {
 
 /* 이미지 스타일링 */
 table img {
-  max-width: 100px;
-  max-height: 100px;
+  max-width: 150px;
+  max-height: auto;
 }
