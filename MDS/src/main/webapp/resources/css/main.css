@@ -324,8 +324,8 @@ input[id=radio-5]:checked ~ .glider {
 }
 
 .calendar_page {
- margin-top: 80px;
- margin-right: 43%;
+ margin-top: 60px;
+ margin-right: 40%;
 }
 /* 캘린더 css */
 #calendar{
