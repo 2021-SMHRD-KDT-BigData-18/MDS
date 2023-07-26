@@ -10,7 +10,7 @@
 				/*data : JSON.stringify(postdata),*/
 				data : {'u_id':data},
 				dataType : 'JSON',
-				/*contentType : 'application/json',*/
+				contentType : 'application/json',
 				success : function(result){
 					console.log(result);
 					console.log((result[0][0]).cctv_id);
