@@ -49,7 +49,7 @@
 				<c:choose>
 					<c:when test="${result ne null}">
 						<h1>${result.u_id}님,환영합니다!</h1>
-						<a href="">개인정보수정</a>
+						<a href="#">개인정보수정</a>
 						<a href="logout.com">로그아웃</a>
 					</c:when>
 				</c:choose>
