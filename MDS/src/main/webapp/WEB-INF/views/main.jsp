@@ -126,7 +126,7 @@
 	</div>
 	
 	<script type="text/javascript">
-		let data = '${result.u_id}';
+		var data = '${result.u_id}';
 	</script>
 	<script type="text/javascript" src="resources/JS/main.js"></script>
 	<script type="text/javascript" src="resources/JS/account.js"></script>

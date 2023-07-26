@@ -42,6 +42,8 @@ public class mainRestController {
 		return entryList;
 	}
 	
+	
+	// 이미지 JSP에 보이게 하는 비동기 기능
 	@GetMapping("/showImage.com")
 	public ResponseEntity<byte[]>view(String fileName) throws Exception {
 		
