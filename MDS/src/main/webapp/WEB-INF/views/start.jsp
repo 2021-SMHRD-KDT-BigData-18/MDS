@@ -63,6 +63,8 @@
 					</div>
 				</div>
 			</form>
+			<a href="#" id="bo">아이디찾기</a>
+			<a href="#" id="bo">비밀번호변경</a>
 		</div>
 	</div>
 

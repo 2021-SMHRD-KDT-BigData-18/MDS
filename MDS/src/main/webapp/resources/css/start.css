@@ -38,6 +38,14 @@ table {
    border-collapse: collapse;
 }
 
+#bo {
+	margin-right:10px;
+}
+
+#bo:hover {
+	color: blue;
+}
+
 /*수정할 코드  */
 img {
 	border-style: none;

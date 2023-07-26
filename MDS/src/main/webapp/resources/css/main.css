@@ -404,3 +404,28 @@ i[class^=icon-chevron]{
 	width: 50px;
 	background-color: black;
 }
+
+/* 출입기록 css */
+
+/* 테이블 기본 스타일링 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* 이미지 스타일링 */
+table img {
+  max-width: 150px;
+  max-height: auto;
+}
