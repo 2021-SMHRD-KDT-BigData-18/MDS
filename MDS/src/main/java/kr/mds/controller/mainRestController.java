@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import kr.mds.entity.tb_Security_alarm_car;
 import kr.mds.entity.tb_User;
 import kr.mds.mapper.Security_alarm_carMapper;
+import kr.mds.mapper.Security_alarm_humanMapper;
 import kr.mds.mapper.UserMapper;
 
 @RestController
@@ -30,6 +31,9 @@ public class mainRestController {
 	
 	@Autowired
 	private Security_alarm_carMapper sacmapper;
+	
+	@Autowired
+	private Security_alarm_humanMapper sahmapper;
 	
 	
 	@PostMapping("/getEntryLog")
@@ -74,5 +78,19 @@ public class mainRestController {
 	}
 	
 	
+	// 알람 읽었을 때 'Y'로 업데이트
+	@PostMapping("/sac_numUpdate.com")
+	public int sac_numUpdate(@RequestParam("sac_num") String sac_num) {
+		int result = sacmapper.sac_numUpdate(sac_num);
+		
+		return result;
+	}
+	
+	@PostMapping("/sah_numUpdate.com")
+	public int sah_numUpdate(@RequestParam("sah_num") String sah_num) {
+		int result = sahmapper.sah_numUpdate(sah_num);
+		
+		return result;
+	}
 	
 }

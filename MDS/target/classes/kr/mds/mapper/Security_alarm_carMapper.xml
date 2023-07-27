@@ -8,5 +8,13 @@
 		  from tb_security_alarm_car 
 		 where u_id = #{u_id}
 	</select>
+	
+	<!-- 알람 읽었을 때 업데이트 -->
+	<update id="sac_numUpdate" parameterType="kr.mds.entity.tb_Security_alarm_car">
+		update tb_security_alarm_car
+		   set sac_read = 'Y'
+		   and sac_read_at = now()
+		 where sac_num = #{sac_num}
+	</update>
 
 </mapper>

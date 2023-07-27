@@ -14,8 +14,10 @@
 				/*contentType : 'application/json',*/
 				success : function(result){
 					console.log(result);
-					console.log(result[0][0].sah_img_link);
-					console.log(result[1][0].sac_img_link);
+					/*console.log(result[0][0].sah_img_link);
+					console.log(result[1][0].sac_img_link);*/
+					console.log(result[0][0].sah_num);
+					console.log(result[1][0].sac_num);
 					
 					for(let i = 0; i < result.length; i++){
 						$('#page4-content').append(
@@ -25,34 +27,29 @@
 										<td>자동차 번호</td>
 										<td>알림 내용</td>
 										<td>알림 시간</td>
-										<td>알림 읽음 여부</td>
-										<td>알림 읽음 일시</td>
 									</tr>
 									<tr>
 										<td><img src="showImage.com?fileName=${(result[1][i]).sac_img_link}"></td>
 										<td>${(result[1][i]).car_num}</td>
 										<td>${(result[1][i]).sac_content}</td>
 										<td>${(result[1][i]).sac_at}</td>
-										<td>${(result[1][i]).sac_read}</td>
-										<td>${(result[1][i]).sac_read_at}</td>
 									</tr>
 									<tr>
 										<td>사람 이미지</td>
 										<td>침입 인원 수</td>
 										<td>알림 내용</td>
 										<td>알림 시간</td>
-										<td>알림 읽음 여부</td>
-										<td>알림 읽음 일시</td>
 									</tr>
 									<tr>
 										<td><img src="showImage.com?fileName=${(result[0][i]).sah_img_link}"></td>
 										<td>${(result[0][i]).sah_total}</td>
 										<td>${(result[0][i]).sah_content}</td>
 										<td>${(result[0][i]).sah_at}</td>
-										<td>${(result[0][i]).sah_read}</td>
-										<td>${(result[0][i]).sah_read_at}</td>
 									</tr>
-								</table>`)
+								</table>
+								
+								
+								`)
 					}
 					
 				},

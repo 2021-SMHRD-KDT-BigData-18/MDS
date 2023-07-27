@@ -1,5 +1,6 @@
 package kr.mds.entity;
 
+import java.math.BigInteger;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
@@ -10,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class tb_Security_alarm_human {
-	private int sah_num;
+	private Long sah_num;
 	private String cctv_id;
 	private String sah_content;
 	private String sah_at;
