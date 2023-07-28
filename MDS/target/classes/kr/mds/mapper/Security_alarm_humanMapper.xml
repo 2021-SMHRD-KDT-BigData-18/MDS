@@ -5,8 +5,8 @@
 	<!-- 알람 읽었을 때 업데이트 -->
 	<update id="sah_numUpdate" parameterType="kr.mds.entity.tb_Security_alarm_human">
 		update tb_security_alarm_human
-		   set sah_read = 'Y'
-		   and sah_read_at = now()
+		   set sah_read = 'Y',
+		   	   sah_read_at = now()
 		 where sah_num = #{sah_num}
 	</update>
 

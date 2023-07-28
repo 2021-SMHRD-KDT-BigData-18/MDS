@@ -16,10 +16,12 @@
 					console.log(result);
 					/*console.log(result[0][0].sah_img_link);
 					console.log(result[1][0].sac_img_link);*/
-					console.log(result[0][0].sah_num);
+					/*console.log(result[0][0].sah_num);
 					console.log(result[1][0].sac_num);
+					console.log(result[1][1].sac_num);*/
 					
-					for(let i = 0; i < result.length; i++){
+					for(let i = 0; i < result[1].length; i++){
+						/*result[1][i].sac_num = BigInt(result[1][i].sac_num);*/
 						$('#page4-content').append(
 								`<table>
 									<tr>
@@ -34,6 +36,31 @@
 										<td>${(result[1][i]).sac_content}</td>
 										<td>${(result[1][i]).sac_at}</td>
 									</tr>
+								</table>`)
+								
+								
+									let sac_num = (result[1][i]).sac_num;
+									console.log(sac_num);
+									
+									$.ajax({
+										type : 'post',
+										url : 'sac_numUpdate.com',
+										data : {'sac_num' : sac_num},
+										success : function(res){
+											console.log(res);
+										},
+										error : function(e){
+											console.log("요청 실패");
+										}
+									})
+								
+								
+					}
+					
+					for(let i = 0; i < result[0].length; i++){
+						/*result[0][i].sah_num = BigInt(result[0][i].sah_num);*/
+						$('#page4-content').append(
+								`<table>
 									<tr>
 										<td>사람 이미지</td>
 										<td>침입 인원 수</td>
@@ -46,10 +73,25 @@
 										<td>${(result[0][i]).sah_content}</td>
 										<td>${(result[0][i]).sah_at}</td>
 									</tr>
-								</table>
+								</table>`)
 								
 								
-								`)
+									let sah_num = (result[0][i]).sah_num;
+									console.log(sah_num);
+									
+									$.ajax({
+										type : 'post',
+										url : 'sah_numUpdate.com',
+										data : {'sah_num' : sah_num},
+										success : function(res){
+											console.log(res);
+										},
+										error : function(e){
+											console.log("요청 실패");
+										}
+									})
+							
+								
 					}
 					
 				},

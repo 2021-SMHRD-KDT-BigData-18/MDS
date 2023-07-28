@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class tb_Security_alarm_car {
-	private Long sac_num;
+	private String sac_num;
 	private String cctv_id;
 	private String car_num;
 	private String car_inout_at;
