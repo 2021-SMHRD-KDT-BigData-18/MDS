@@ -64,7 +64,7 @@ img {
 
 /* 로고 이미지 스타일 */
 .logo_img {
-  margin-bottom: 10px;
+  margin-bottom: 100px;
   padding-left: 15px;
 }
 
@@ -134,6 +134,7 @@ body {
   box-shadow: 0 0 1px 0 rgba(247, 44, 12, 0.15), 0 4px 10px 0 rgba(247, 44, 12, 0.15);
   padding: 0.75rem;
   border-radius: 99px;
+  
 }
 .tabs * {
   z-index: 2;
@@ -320,4 +321,111 @@ input[id=radio-5]:checked ~ .glider {
 }
 #darkmode-toggle:checked + .tabs {
     background: #242424;
+}
+
+.calendar_page {
+ margin-top: 60px;
+ margin-right: 40%;
+}
+/* 캘린더 css */
+#calendar{
+  margin-left: auto;
+  margin-right: auto;
+  width: 320px;
+  font-family: 'Lato', sans-serif;
+}
+#calendar_weekdays div{
+  display:inline-block;
+  vertical-align:top;
+}
+#calendar_content, #calendar_weekdays, #calendar_header{
+  position: relative;
+  width: 320px;
+  overflow: hidden;
+  float: left;
+  z-index: 10;
+}
+#calendar_weekdays div, #calendar_content div{
+  width:40px;
+  height: 40px;
+  overflow: hidden;
+  text-align: center;
+  background-color: #FFFFFF;
+  color: #787878;
+}
+#calendar_content{
+  -webkit-border-radius: 0px 0px 12px 12px;
+  -moz-border-radius: 0px 0px 12px 12px; 
+  border-radius: 0px 0px 12px 12px;
+}
+#calendar_content div{
+  float: left;
+}
+#calendar_content div:hover{
+  background-color: #F8F8F8;
+}
+#calendar_content div.blank{
+  background-color: #E8E8E8;
+}
+#calendar_header, #calendar_content div.today{
+  zoom: 1;
+  filter: alpha(opacity=70);
+  opacity: 0.7;
+}
+#calendar_content div.today{
+  color: #FFFFFF;
+}
+#calendar_header{
+  width: 100%;
+  height: 37px;
+  text-align: center;
+  background-color: #FF6860;
+  padding: 18px 0;
+  -webkit-border-radius: 12px 12px 0px 0px;
+  -moz-border-radius: 12px 12px 0px 0px; 
+  border-radius: 12px 12px 0px 0px;
+}
+#calendar_header h1{
+  font-size: 1.5em;
+  color: #FFFFFF;
+  float:left;
+  width:70%;
+}
+i[class^=icon-chevron]{
+  color: #FFFFFF;
+  float: left;
+  width:15%;
+  border-radius: 50%;
+}
+
+.icon-chevron-left,
+.icon-chevron-right {
+	height: 100px;
+	width: 50px;
+	background-color: black;
+}
+
+/* 출입기록 css */
+
+/* 테이블 기본 스타일링 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table td {
+  padding: 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* 이미지 스타일링 */
+table img {
+  max-width: 150px;
+  max-height: auto;
 }

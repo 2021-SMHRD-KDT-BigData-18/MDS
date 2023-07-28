@@ -41,14 +41,15 @@
 		<div class="head_con">
 			<div class="logo_img">
 				<a class="logo" href="javascript:listView('${result.u_id}')"> <img
-					alt="MDS로고" src="resources/images/MDS_logo.png" width="150px"
-					height="75px">
+					alt="MDS로고" src="resources/images/MDS_logo.png" width="250px"
+					height="100px">
 				</a>
 			</div>
 			<div class="header">
 				<c:choose>
 					<c:when test="${result ne null}">
 						<h1>${result.u_id}님,환영합니다!</h1>
+						<a href="#">개인정보수정</a>
 						<a href="logout.com">로그아웃</a>
 					</c:when>
 				</c:choose>
@@ -59,19 +60,16 @@
 		<div class="menu_container">
 			<div class="tabs">
 				<input type="radio" id="radio-1" name="tabs" checked />
-					<label class="tab" for="radio-1">영상조회</label>
+				<label class="tab" for="radio-1">영상조회</label>
 				<input type="radio" id="radio-2" name="tabs" />
-					<label class="tab" for="radio-2">데이터조회</label>
+				<label class="tab" for="radio-2">데이터조회</label>
 				<input type="radio" id="radio-3" name="tabs" />
-					<label class="tab" for="radio-3">정보수정/차량등록</label>
+				<label class="tab" for="radio-3" id="entryLog">출입기록</label>
 				<input type="radio" id="radio-4" name="tabs" />
-					<label class="tab" for="radio-4">출입기록</label>
-				<input type="radio" id="radio-5" name="tabs" />
-					<label class="tab" for="radio-5" id="radio-5">
-						<img src="resources/images/bell.svg" alt="알림" name="bell">
-							<span class="notification">2</span>
-					</label> 
-				<span class="glider"></span>
+				<label class="tab" for="radio-4" id="webAlarm">
+				<img src="resources/images/bell.svg" alt="알림" name="bell">
+				<span class="notification">2</span>
+				</label> <span class="glider"></span>
 			</div>
 		</div>
 
@@ -83,25 +81,32 @@
 				</c:when>
 			</c:choose>
 		</div>
+		
+		<div class="calendar_page" id="page2-content" style="display: none;">
 
-		<div class="" id="page2-content"style="display: none;">
-		
-		<h1>데이터조회</h1>
-		
-		
+			<div id="calendar">
+				<div id="calendar_header">
+					<i class="icon-chevron-left"></i>
+					<h1></h1>
+					<i class="icon-chevron-right"></i>
+				</div>
+				<div id="calendar_weekdays"></div>
+				<div id="calendar_content"></div>
+			</div>
+
+		</div>
+
+		<div id="date_content" style="display: none;">
+			<h1>이거나오나</h1>
+			
 		
 		</div>
+		
+		</div>
+
+		
 
 		<div class="" id="page3-content" style="display: none;">
-		
-		<h1>정보수정</h1>
-		
-		
-		
-		
-		</div>
-
-		<div class="" id="page4-content" style="display: none;">
 		
 		<h1>출입기록</h1>
 		
@@ -109,7 +114,7 @@
 		
 		</div>
 
-		<div class="" id="page5-content" style="display: none;">
+		<div class="" id="page4-content" style="display: none;">
 		
 		<h1>알람</h1>
 		
@@ -118,83 +123,20 @@
 		</div>
 
 
-
-
-
 	</div>
-
+	
+	<script type="text/javascript">
+		var data = '${result.u_id}';
+	</script>
 	<script type="text/javascript" src="resources/JS/main.js"></script>
 	<script type="text/javascript" src="resources/JS/account.js"></script>
 	<script type="text/javascript" src="resources/JS/chat.js"></script>
 	<script type="text/javascript" src="resources/JS/webCam.js"></script>
 	<script src="resources/JS/cctv.js"></script>
-	<script type="text/javascript">
-	/* 알림 클릭 시 알림 데이터 확인*/
-	$("#radio-5").click(function(){
-			var id = '${result.u_id}';
-			var postdata = {'u_id':id};
-			
-			$.ajax({
-				type:'post',
-				url : "http://127.0.0.1:9000/webAlarm",
-				/*data : JSON.stringify(postdata),*/
-				data : postdata,
-				dataType : 'JSON',
-				/*contentType : 'application/json',*/
-				success : function(result){
-					console.log(result);
-					console.log((result[0][0]).cctv_id);
-					
-					for(let i = 0; i < result.length; i++){
-						$('#page5-content').append(
-								`<table>
-									<tr>
-										<td>자동차 이미지</td>
-										<td>자동차 번호</td>
-										<td>알림 내용</td>
-										<td>알림 시간</td>
-										<td>알림 읽음 여부</td>
-										<td>알림 읽음 일시</td>
-									<tr>
-									<tr>
-										<td>\${(result[1][i]).car_img_link}</td>
-										<td>\${(result[1][i]).car_num}</td>
-										<td>\${(result[1][i]).sac_content}</td>
-										<td>\${(result[1][i]).sac_at}</td>
-										<td>\${(result[1][i]).sac_read}</td>
-										<td>\${(result[1][i]).sac_read_at}</td>
-									</tr>
-								</table>`)
-					}
-					
-					for(let i = 0; i < result.length; i++){
-						$('#page5-content').append(
-								`<table>
-									<tr>
-										<td>사람 이미지</td>
-										<td>침입 인원 수</td>
-										<td>알림 내용</td>
-										<td>알림 시간</td>
-										<td>알림 읽음 여부</td>
-										<td>알림 읽음 일시</td>
-									<tr>
-									<tr>
-										<td>\${(result[0][i]).human_img_link}</td>
-										<td>\${(result[0][i]).sah_total}</td>
-										<td>\${(result[0][i]).sah_content}</td>
-										<td>\${(result[0][i]).sah_at}</td>
-										<td>\${(result[0][i]).sah_read}</td>
-										<td>\${(result[0][i]).sah_read_at}</td>
-									</tr>
-								</table>`)
-					}
-				},
-				error : function(e){
-					alert("요청 실패");
-				}
-			})
-		}); 
+	<script src="resources/JS/entryLog.js"></script>
+	<script type="text/javascript" src="resources/JS/entryLog.js"></script>
+	<script type="text/javascript" src="resources/JS/webAlarm.js"></script>
 	
-	</script>
+	
 </body>
 </html>

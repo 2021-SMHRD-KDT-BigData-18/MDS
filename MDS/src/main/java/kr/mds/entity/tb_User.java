@@ -26,7 +26,7 @@ public class tb_User {
 	    private String u_alarm;
 
 	    // 회원 가입일자 
-	    private Date u_joindate;
+	    private String u_joindate;
 
 	    // 회원 유형 
 	    private String u_type;
