@@ -80,19 +80,20 @@ public class mainRestController {
 	
 	// 알람 읽었을 때 'Y'로 업데이트
 	@PostMapping("/sac_numUpdate.com")
-	public int sac_numUpdate(@RequestParam("sac_num") String sac_num) {
-		System.out.println("1번"+sac_num);
+	public int sac_numUpdate(@RequestParam("sac_num") long sac_num) {
+		System.out.println("sac_num "+sac_num);
 		int result = sacmapper.sac_numUpdate(sac_num);
-		System.out.println("2번"+result);
+		System.out.println("sac_num 업데이트 결과 "+result);
 		
 		return result;
+		
 	}
 	
 	@PostMapping("/sah_numUpdate.com")
-	public int sah_numUpdate(@RequestParam("sah_num") String sah_num) {
-		//System.out.println(sah_num);
+	public int sah_numUpdate(@RequestParam("sah_num") long sah_num) {
+		 System.out.println("sah_num " + sah_num);
 		 int result = sahmapper.sah_numUpdate(sah_num);
-		 //System.out.println(result);
+		 System.out.println("sah_num 업데이트 결과 "+result);
 		return result;
 	}
 	

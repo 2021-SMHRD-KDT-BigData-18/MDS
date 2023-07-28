@@ -10,6 +10,6 @@ public interface Security_alarm_carMapper {
 	public ArrayList<tb_Security_alarm_car> entryLogList(String u_id);
 
 	// 알림 읽었을 시 업데이트
-	public int sac_numUpdate(String sac_num);
+	public int sac_numUpdate(long sac_num);
 
 }
