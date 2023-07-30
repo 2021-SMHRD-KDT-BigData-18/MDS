@@ -69,13 +69,14 @@
                 </nav>
             </div>
             
-            <div id="">
-            
-            
-            </div>
             
             <div id="layoutSidenav_content">
                 <main>
+		            <div id="HeaderMain_image">
+		            	<img alt="" src="#">
+		            	이미지 들어갈 공간
+		            </div>
+		            
                 	<div class="videoPlayer" id="page1-content">
 						<c:choose>
 							<c:when test="${result.u_id eq list.u_id && result ne null}">
