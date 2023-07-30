@@ -65,7 +65,7 @@ public class mainController {
 		model.addAttribute("list", list);
 		
 		if (result != null)
-			return "main";
+			return "BT_index";
 		else
 			return "redirect:/";
 
