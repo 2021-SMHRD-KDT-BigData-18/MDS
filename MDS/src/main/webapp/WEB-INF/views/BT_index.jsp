@@ -92,7 +92,7 @@
                 	
                 	<div class="calendar_page" id="page2-content" style="display: none;" value="데이터조회">
 
-						<div id="calendar" style="width: 80%;"></div>
+						<div id="calendar" style="width: 1300px; height:700px;" ></div>
 			
 					</div>
 					
