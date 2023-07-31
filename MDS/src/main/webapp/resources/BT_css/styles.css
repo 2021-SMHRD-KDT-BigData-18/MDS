@@ -11085,3 +11085,9 @@ footer{
 		margin: 10px;
 	}
 }
+
+/* 캘린더 사이즈 조정하는곳 */
+.calendar_size{
+	width: 1300px !important;
+	height: 700px !important;
+}
