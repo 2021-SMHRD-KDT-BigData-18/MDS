@@ -16,12 +16,12 @@
 					console.log(result);
 					/*console.log(result[0][0].sah_img_link);
 					console.log(result[1][0].sac_img_link);*/
-					/*console.log(result[0][0].sah_num);
-					console.log(result[1][0].sac_num);
-					console.log(result[1][1].sac_num);*/
+					/*console.log(BigInt(result[0][0].sah_num));
+					console.log(BigInt(result[1][0].sac_num));*/
+					/*console.log(result[1][1].sac_num);*/
 					
 					for(let i = 0; i < result[1].length; i++){
-						/*result[1][i].sac_num = BigInt(result[1][i].sac_num);*/
+						result[1][i].sac_num = BigInt(result[1][i].sac_num);
 						$('#page4-content').append(
 								`<table>
 									<tr>
@@ -39,7 +39,7 @@
 								</table>`)
 								
 								
-									let sac_num = (result[1][i]).sac_num;
+									let sac_num = BigInt((result[1][i]).sac_num);
 									console.log(sac_num);
 									
 									$.ajax({
@@ -49,8 +49,8 @@
 										success : function(res){
 											console.log(res);
 										},
-										error : function(e){
-											console.log("요청 실패");
+										error : function(request,status,error){
+											console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 										}
 									})
 								
@@ -58,7 +58,7 @@
 					}
 					
 					for(let i = 0; i < result[0].length; i++){
-						/*result[0][i].sah_num = BigInt(result[0][i].sah_num);*/
+						result[0][i].sah_num = BigInt(result[0][i].sah_num);
 						$('#page4-content').append(
 								`<table>
 									<tr>
@@ -76,7 +76,7 @@
 								</table>`)
 								
 								
-									let sah_num = (result[0][i]).sah_num;
+									let sah_num = BigInt((result[0][i]).sah_num);
 									console.log(sah_num);
 									
 									$.ajax({
@@ -86,10 +86,10 @@
 										success : function(res){
 											console.log(res);
 										},
-										error : function(e){
-											console.log("요청 실패");
+										error : function(request,status,error){
+											console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 										}
-									})
+									});
 							
 								
 					}
