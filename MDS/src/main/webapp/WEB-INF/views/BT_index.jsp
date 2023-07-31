@@ -234,20 +234,21 @@
     var calendar = new FullCalendar.Calendar(calendarEl, {
     	// contentHeight: 600,
         height: '500px', // calendar 높이 설정
-    	width : '1200px',
     	// 너비가 높이의 두 배
         expandRows: true, // 화면에 맞게 높이 재설정
         slotMinTime: '08:00', // Day 캘린더에서 시작 시간
         slotMaxTime: '20:00', // Day 캘린더에서 종료 시간
         // 해더에 표시할 툴바
         headerToolbar: {
-            left: 'prev,next today',
+            //left: 'prev,next today',
+            left: '',
             center: 'title',
-            right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+            right:'prev,next today'
+            //right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
         },
         initialView: 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
  //       initialDate: '2023-05-11', // 초기 날짜 설정 (설정하지 않으면 오늘 날짜가 보인다.)
-        navLinks: true, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
+        navLinks: false, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
         editable: true, // 수정 가능?
         selectable: true, // 달력 일자 드래그 설정가능
         nowIndicator: true, // 현재 시간 마크

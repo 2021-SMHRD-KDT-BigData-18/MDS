@@ -9,5 +9,13 @@
 		   	   sah_read_at = now()
 		 where sah_num = #{sah_num}
 	</update>
+	
+	<!-- 알림 개수 세기 -->
+	<select id="countSah" resultType="Integer">
+		select count(*) 
+		  from tb_security_alarm_human
+		 where sah_read="N"
+		   and u_id = #{u_id};
+	</select>
 
 </mapper>

@@ -68,8 +68,8 @@ public class mainController {
 			return "BT_index";
 		else
 			return "redirect:/";
-
 	}
+	
 	
 	
 

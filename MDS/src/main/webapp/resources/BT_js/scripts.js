@@ -37,5 +37,6 @@ iconButton.addEventListener('click', () => {
 
 // 모달 닫기
 modalCloseBtn.addEventListener('click', () => {
+  $("#webAlarm_content").remove();
   modalBg.style.display = 'none';
 });
