@@ -194,7 +194,7 @@
 			<div class="modal-content">
 				<!-- 모달 내용 추가 -->
 				<h2>알림</h2>
-				<p>이곳에 알림 내용이 들어갑니다.</p>
+				<p id="webAlarm_content"></p>
 				<button type="button" class="modal-close-btn" id="modal-close-btn">&times;</button>
 			</div>
 		</div>
@@ -227,7 +227,6 @@
 	<script src="resources/JS/entryLog.js"></script>
 	<script type="text/javascript" src="resources/JS/entryLog.js"></script>
 	<script type="text/javascript" src="resources/JS/webAlarm.js"></script>
-	<script src="fullcalendar/fullcalendar.css"></script>
 	<script>
 	var calendarEl = $('#calendar')[0];
     var calendar = new FullCalendar.Calendar(calendarEl, {
