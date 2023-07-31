@@ -156,8 +156,10 @@
 
 				</div>
 
-				<div class="" id="page4-content" style="display: none;"
-					value="마이페이지">마이페이지</div>
+				<div class="" id="page4-content" style="display: none;" value="마이페이지">
+					
+				
+				</div>
 
 
 			</main>
