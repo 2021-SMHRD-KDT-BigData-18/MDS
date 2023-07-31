@@ -3,7 +3,7 @@
  */
 
 /* 알림 클릭 시 알림 데이터 확인*/
-	$("#webAlarm").click(function(){
+	$("#icon-button").click(function(){
 		/*console.log(data);*/
 			$.ajax({
 				type:'post',
@@ -22,21 +22,11 @@
 					
 					for(let i = 0; i < result[1].length; i++){
 						result[1][i].sac_num = BigInt(result[1][i].sac_num);
-						$('#page4-content').append(
-								`<table>
-									<tr>
-										<td>자동차 이미지</td>
-										<td>자동차 번호</td>
-										<td>알림 내용</td>
-										<td>알림 시간</td>
-									</tr>
-									<tr>
-										<td><img src="showImage.com?fileName=${(result[1][i]).sac_img_link}"></td>
-										<td>${(result[1][i]).car_num}</td>
-										<td>${(result[1][i]).sac_content}</td>
-										<td>${(result[1][i]).sac_at}</td>
-									</tr>
-								</table>`)
+						$('#webAlarm_content').append(
+								`<p>${(result[1][i]).car_num}</p>
+								 <p>${(result[1][i]).sac_content}</p>
+								 <p>${(result[1][i]).sac_at}</p>
+									`)
 								
 								
 									let sac_num = BigInt((result[1][i]).sac_num);
@@ -59,21 +49,11 @@
 					
 					for(let i = 0; i < result[0].length; i++){
 						result[0][i].sah_num = BigInt(result[0][i].sah_num);
-						$('#page4-content').append(
-								`<table>
-									<tr>
-										<td>사람 이미지</td>
-										<td>침입 인원 수</td>
-										<td>알림 내용</td>
-										<td>알림 시간</td>
-									</tr>
-									<tr>
-										<td><img src="showImage.com?fileName=${(result[0][i]).sah_img_link}"></td>
-										<td>${(result[0][i]).sah_total}</td>
-										<td>${(result[0][i]).sah_content}</td>
-										<td>${(result[0][i]).sah_at}</td>
-									</tr>
-								</table>`)
+						$('#webAlarm_content').append(
+								`<p>${(result[0][i]).sah_total}명</p>
+								 <p>${(result[0][i]).sah_content}</p>
+								 <p>${(result[0][i]).sah_at}</p>
+								`)
 								
 								
 									let sah_num = BigInt((result[0][i]).sah_num);
@@ -99,4 +79,8 @@
 					alert("요청 실패");
 				}
 			})
+			
 		});
+		
+/*<p><img src="showImage.com?fileName=${(result[0][i]).sah_img_link}"></p>*/
+/*<p><img src="showImage.com?fileName=${(result[1][i]).sac_img_link}"></p>*/
