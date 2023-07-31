@@ -44,7 +44,7 @@ public class mainController {
 	// 메인페이지
 	@RequestMapping("/main.com")
 	public String main() {
-		return "main";
+		return "BT_index";
 	}
 
 	// 로그인 후 메인페이지로 이동

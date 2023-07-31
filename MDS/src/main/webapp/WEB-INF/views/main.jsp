@@ -73,7 +73,7 @@
 			</div>
 		</div>
 
-		<div class="videoPlayer" id="page1-content">
+		<div class="videoPlayer" id="page1-content" value="메인페이지">
 			<c:choose>
 				<c:when test="${result.u_id eq list.u_id && result ne null}">
 					<video autoplay="true" id="videoElement"></video>
@@ -82,7 +82,7 @@
 			</c:choose>
 		</div>
 		
-		<div class="calendar_page" id="page2-content" style="display: none;">
+		<div class="calendar_page" id="page2-content" style="display: none;" value="데이터조회">
 
 			<div id="calendar">
 				<div id="calendar_header">
@@ -97,7 +97,7 @@
 		</div>
 
 		<div id="date_content" style="display: none;">
-			<h1>이거나오나</h1>
+			<h1>데이터조회</h1>
 			
 		
 		</div>
@@ -106,17 +106,17 @@
 
 		
 
-		<div class="" id="page3-content" style="display: none;">
+		<div class="" id="page3-content" style="display: none;" value="데이터분석">
 		
-		<h1>출입기록</h1>
+		<h1>데이터분석</h1>
 		
 		
 		
 		</div>
 
-		<div class="" id="page4-content" style="display: none;">
+		<div class="" id="page4-content" style="display: none;" value="마이페이지">
 		
-		<h1>알람</h1>
+		<h1>마이페이지</h1>
 		
 		
 		
