@@ -24,3 +24,18 @@ window.addEventListener('DOMContentLoaded', event => {
     }
 
 });
+
+// 모달 열기
+const iconButton = document.getElementById('icon-button');
+const modalBg = document.getElementById('modal-bg');
+const modal = document.getElementById('modal');
+const modalCloseBtn = document.getElementById('modal-close-btn');
+
+iconButton.addEventListener('click', () => {
+  modalBg.style.display = 'block';
+});
+
+// 모달 닫기
+modalCloseBtn.addEventListener('click', () => {
+  modalBg.style.display = 'none';
+});
