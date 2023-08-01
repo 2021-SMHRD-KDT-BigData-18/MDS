@@ -39,8 +39,9 @@
 		</div>
 		<div class="header">
 			<button type="button" class="icon-button" id="icon-button">
-				<img src="resources/images/bell.svg" alt="알림" name="bell"> <span
-					class="glider">25</span> <span class="notification"></span>
+				<img src="resources/images/bell.svg" alt="알림" name="bell"> 
+				<span class="glider" id="countAlarm"></span> 
+				<span class="notification"></span>
 			</button>
 			<a href="logout.com">로그아웃</a>
 		</div>
