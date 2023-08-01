@@ -11168,6 +11168,7 @@ footer{
 }
 
 /* 모달 알림창 css */
+<<<<<<< HEAD
 #webAlarm_content p {
 	
 }
@@ -11212,4 +11213,9 @@ footer{
 /* 알림,로그아웃 위치 CSS */
 .header {
 	
+=======
+#webAlarm_content p{
+	font-size: 16px;
+	border-bottom: 1px solid black;
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/MDS.git
 }
