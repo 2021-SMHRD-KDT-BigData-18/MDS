@@ -313,8 +313,6 @@
             console.log(obj);
         },
         
-        
-        
     });
 
 
@@ -346,6 +344,10 @@
         var formattedDate = year + '-' + month + '-' + day;
         return timeFlag ? formattedDate + ' ' + hours + ':' + minutes + ':' + seconds : formattedDate
     }
+    
+    $('.fc-daygrid-day').click(function(){
+    	console.log("캘린더 날짜 클릭");
+    })
 
     calendar.render();
     // selectRvList(getDate());
