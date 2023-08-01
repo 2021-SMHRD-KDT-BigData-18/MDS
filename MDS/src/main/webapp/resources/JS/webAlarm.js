@@ -9,7 +9,7 @@ const modr = document.getElementById('modr');
 			data : {'u_id':data},
 			dataType: 'text',
 			success:function(res){
-				console.log(res);
+				/*console.log(res);*/
 				modr.style.display = 'block';
 				$('#countAlarm').append(res);
 				$('#modal-close-btn').click(function(){

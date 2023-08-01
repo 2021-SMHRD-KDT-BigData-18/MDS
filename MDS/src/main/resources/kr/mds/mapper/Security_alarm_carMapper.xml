@@ -26,7 +26,7 @@
 	</select>
 	
 	<!-- 캘린더 DB 연동 -->
-	<select id="calenderSac" resultType="kr.mds.entity.tb_Security_alarm_car">
+	<select id="calendarSac" resultType="kr.mds.entity.tb_Security_alarm_car">
 		select * from tb_security_alarm_car where u_id = #{u_id}
 	</select>
 

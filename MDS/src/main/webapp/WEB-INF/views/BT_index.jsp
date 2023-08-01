@@ -107,9 +107,6 @@
 
 		<div id="layoutSidenav_content">
 			<main>
-				<div id="HeaderMain_image">
-					<img alt="" src="#"> 이미지 들어갈 공간
-				</div>
 
 				<div class="videoPlayer" id="page1-content">
 					<c:choose>
@@ -287,55 +284,56 @@
 	<script type="text/javascript" src="resources/JS/entryLog.js"></script>
 	<script type="text/javascript" src="resources/JS/webAlarm.js"></script>
 	<script>
-	document.addEventListener('DOMContentLoaded', function () {
-		$(function () {
-	        var request = $.ajax({
-	            url: "/full-calendar/calendar-admin", // 변경하기
-	            type: "post",
-	            dataType: "json"
-	    });
-		request.done(function (data) {
-			var calendarEl = $('#calendar')[0];
-		    var calendar = new FullCalendar.Calendar(calendarEl, {
-		    	// contentHeight: 600,
-		        height: '500px', // calendar 높이 설정
-		    	// 너비가 높이의 두 배
-		        expandRows: true, // 화면에 맞게 높이 재설정
-		        slotMinTime: '08:00', // Day 캘린더에서 시작 시간
-		        slotMaxTime: '20:00', // Day 캘린더에서 종료 시간
-		        // 해더에 표시할 툴바
-		        headerToolbar: {
-		            //left: 'prev,next today',
-		            left: '',
-		            center: 'title',
-		            right:'prev,next today'
-		            //right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-		        },
-		        initialView: 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
-		 //       initialDate: '2023-05-11', // 초기 날짜 설정 (설정하지 않으면 오늘 날짜가 보인다.)
-		        navLinks: false, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
-		        editable: true, // 수정 가능?
-		        selectable: true, // 달력 일자 드래그 설정가능
-		        nowIndicator: true, // 현재 시간 마크
-		        dayMaxEvents: true, // 이벤트가 오버되면 높이 제한 (+ 몇 개식으로 표현)
-		        locale: 'ko', // 한국어 설정
-		        eventAdd: function(obj) { // 이벤트가 추가되면 발생하는 이벤트
-		            console.log(obj);
-		        },
-		        
-		        // 날짜 클릭 시 리스트 출력
-				dateClick: function (info) {
-				   $('#nows').html(info.dateStr);
-				   $('#nows').html = "";
-				}
-		        
-		    });
-		    
-		    calendar.render();
-			});
-		});
-	 
+	var calendarEl = $('#calendar')[0];
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+    	// contentHeight: 600,
+        height: '500px', // calendar 높이 설정
+    	// 너비가 높이의 두 배
+        expandRows: true, // 화면에 맞게 높이 재설정
+        slotMinTime: '08:00', // Day 캘린더에서 시작 시간
+        slotMaxTime: '20:00', // Day 캘린더에서 종료 시간
+        // 해더에 표시할 툴바
+        headerToolbar: {
+            //left: 'prev,next today',
+            left: '',
+            center: 'title',
+            right:'prev,next today'
+            //right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+        },
+        initialView: 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
+ //       initialDate: '2023-05-11', // 초기 날짜 설정 (설정하지 않으면 오늘 날짜가 보인다.)
+        navLinks: false, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
+        editable: false, // 수정 가능?
+        selectable: true, // 달력 일자 드래그 설정가능
+        nowIndicator: true, // 현재 시간 마크
+        dayMaxEvents: true, // 이벤트가 오버되면 높이 제한 (+ 몇 개식으로 표현)
+        locale: 'ko', // 한국어 설정
+        eventAdd: function(obj) { // 이벤트가 추가되면 발생하는 이벤트
+            console.log(obj);
+        },
+        events:function(info, successCallback, failureCallback){
+        	$.ajax({
+        		url : 'countAlarm.com',
+        		type : 'post',
+        		data : {'u_id':data},
+        		dataType : 'text',
+        		success : function(res){
+        			console.log(res);
+        		}
+        	})
+        },
+        
+        // 날짜 클릭 시 리스트 출력
+		dateClick: function (info) {
+		   $('#nows').html(info.dateStr);
+		   $('#nows').html = "";
+		}
+        
     });
+    
+    
+
+    calendar.render();
 	</script>
 
 </body>

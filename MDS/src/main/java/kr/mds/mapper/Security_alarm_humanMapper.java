@@ -9,6 +9,6 @@ public interface Security_alarm_humanMapper {
 	public int countSah(String u_id);
 
 	// 캘린더 DB연동
-	public String calenderrSah(String u_id);
+	public String calendarSah(String u_id);
 	
 }
