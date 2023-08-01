@@ -21,6 +21,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.google.gson.Gson;
+import com.mysql.cj.xdevapi.JsonArray;
+
 import kr.mds.entity.tb_Security_alarm_car;
 import kr.mds.entity.tb_Security_alarm_human;
 import kr.mds.entity.tb_User;
@@ -104,32 +108,34 @@ public class mainRestController {
 	
 	// 알림 개수 카운트
 	@PostMapping("/countAlarm.com")
-	public String countAlarm(@RequestParam("u_id") String u_id, Model model) {
+	public String countAlarm(@RequestParam("u_id") String u_id) {
 		int count_sah = sahmapper.countSah(u_id);
 		int count_sac = sacmapper.countSac(u_id);
 		int result = count_sac + count_sah;
 		/*System.out.println(count_sac);
 		System.out.println(count_sah);
 		System.out.println(result);*/
-		model.addAttribute("count_sah", count_sah);
-		model.addAttribute("count_sac", count_sac);
 		return String.valueOf(result);
 	}
 	
 	
-	// 캘린더 DB연동 
+	// 캘린더 DB연동
 	@GetMapping("/calendarDB.com")
-	public Map<String, List<?>> calendarDB(@RequestParam("u_id") String u_id) {
+	public String calendarDB(@RequestParam("u_id") String u_id) {
 		Map<String, List<?>> result = new HashMap<>();
 		System.out.println(u_id);
-		ArrayList<tb_Security_alarm_human> sah = sahmapper.calendarSah(u_id);
+		List<tb_Security_alarm_human> sah = sahmapper.calendarSah(u_id);
 		result.put("sah", sah);
-		ArrayList<tb_Security_alarm_car> sac = sacmapper.calendarSac(u_id);
+		List<tb_Security_alarm_car> sac = sacmapper.calendarSac(u_id);
 		result.put("sac", sac);
 		System.out.println(result);
-		return result;
-	}
-	
+		
+		// List 배열을 json으로 데이터변환
+		String json = new Gson().toJson(result);
+		System.out.println(json);
+		
+		return json;
+	}	
 	
 	
 	

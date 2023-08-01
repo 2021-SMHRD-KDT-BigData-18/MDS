@@ -320,7 +320,25 @@
         		url: 'calendarDB.com',
         		type: 'get',
         		data: {'u_id':data},
-        		dataType: 'json'
+        		contentType: "application/json; charset=utf-8;",
+        		dataType: 'json',
+        		success:function(res){
+        			/*console.log(res);
+        			console.log(res.sac[0]);
+        			console.log(res.sah[0]);*/
+        			console.log(calendar);
+        			
+        			for(var i=0; i<(res.sac).length; i++){
+        				/*console.log(res.sac[i]);*/
+        			}
+        			
+        			for(var i=0; i<(res.sah).length; i++){
+        				/*console.log(res.sah[i]);*/
+        			}
+        			
+        			
+        			successCallback(res.events);
+        		}
         	});
         	
         },

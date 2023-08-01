@@ -239,7 +239,12 @@
 		    <version>5.3.18</version>
 		</dependency>
 		
-		
+		<!-- List 배열을 json으로 바꿔주는 라이브러리 -->
+		<dependency>
+		  <groupId>com.google.code.gson</groupId>
+		  <artifactId>gson</artifactId>
+		  <version>2.10.1</version>
+		</dependency>
 		
 		      
 	</dependencies>

@@ -1,6 +1,9 @@
 package kr.mds.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,13 +14,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import kr.mds.entity.tb_CCTV1;
 import kr.mds.entity.tb_Security_alarm_car;
+import kr.mds.entity.tb_Security_alarm_human;
 import kr.mds.entity.tb_User;
 import kr.mds.mapper.CCTVMapper;
 import kr.mds.mapper.Security_alarm_carMapper;
+import kr.mds.mapper.Security_alarm_humanMapper;
 import kr.mds.mapper.UserMapper;
 
 @Controller
@@ -28,6 +35,12 @@ public class mainController {
 	
 	@Autowired
 	private CCTVMapper cctvmapper;
+	
+	@Autowired
+	private Security_alarm_carMapper sacmapper;
+	
+	@Autowired
+	private Security_alarm_humanMapper sahmapper;
 	
 
 	// 비밀번호 암호화 의존성 주입
@@ -71,6 +84,4 @@ public class mainController {
 	}
 	
 	
-	
-
 }

@@ -15,6 +15,6 @@ public interface Security_alarm_humanMapper {
 	public int countSah(String u_id);
 
 	// 캘린더 DB연동
-	public ArrayList<tb_Security_alarm_human> calendarSah(String u_id);
+	public List<tb_Security_alarm_human> calendarSah(String u_id);
 	
 }
