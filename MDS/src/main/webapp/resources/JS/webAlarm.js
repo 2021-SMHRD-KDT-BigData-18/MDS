@@ -23,7 +23,7 @@ const modr = document.getElementById('modr');
 
 /* 알림 클릭 시 알림 데이터 확인*/
 	$("#icon-button").click(function(){
-		/*console.log(data);*/
+		console.log(data);
 			$.ajax({
 				type:'post',
 				url : "http://127.0.0.1:9000/webAlarm",

@@ -166,11 +166,15 @@
 						<table>
 							<tr>
 								<th>ID</th>
-								<td><span id=id><c:choose>
-							<c:when test="${result ne null}">
-						${result.u_id}
-					</c:when>
-						</c:choose></span></td>
+								<td>
+								<span id=id>
+								<c:choose>
+									<c:when test="${result ne null}">
+										${result.u_id}
+									</c:when>
+								</c:choose>
+								</span>
+								</td>
 							</tr>
 							<tr>
 								<th>PW</th>
@@ -311,16 +315,17 @@
         eventAdd: function(obj) { // 이벤트가 추가되면 발생하는 이벤트
             console.log(obj);
         },
-        events:function(info, successCallback, failureCallback){
+        
+        
+        events: function(info, successCallback, failureCallback){
+        	
         	$.ajax({
-        		url : 'countAlarm.com',
-        		type : 'post',
-        		data : {'u_id':data},
-        		dataType : 'text',
-        		success : function(res){
-        			console.log(res);
-        		}
-        	})
+        		url: 'calendarDB.com',
+        		type: 'get',
+        		data: {'u_id':data},
+        		dataType: 'json'
+        	});
+        	
         },
         
         // 날짜 클릭 시 리스트 출력

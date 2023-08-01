@@ -16,6 +16,6 @@ public interface Security_alarm_carMapper {
 	public int countSac(String u_id);
 
 	// 캘린더 DB 연동
-	public String calendarSac(String u_id);
+	public ArrayList<tb_Security_alarm_car> calendarSac(String u_id);
 
 }

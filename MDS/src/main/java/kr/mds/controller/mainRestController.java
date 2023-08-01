@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -19,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import kr.mds.entity.tb_Security_alarm_car;
+import kr.mds.entity.tb_Security_alarm_human;
 import kr.mds.entity.tb_User;
 import kr.mds.mapper.Security_alarm_carMapper;
 import kr.mds.mapper.Security_alarm_humanMapper;
@@ -114,19 +118,18 @@ public class mainRestController {
 	
 	
 	// 캘린더 DB연동 
-	@PostMapping("/calendarDBSah.com")
-	public String calendarDBSah(@RequestParam("u_id") String u_id, Model model) {
-		String sah = sahmapper.calendarSah(u_id);
-		model.addAttribute("sah", sah);
-		return sah;
+	@GetMapping("/calendarDB.com")
+	public Map<String, List<?>> calendarDB(@RequestParam("u_id") String u_id) {
+		Map<String, List<?>> result = new HashMap<>();
+		System.out.println(u_id);
+		ArrayList<tb_Security_alarm_human> sah = sahmapper.calendarSah(u_id);
+		result.put("sah", sah);
+		ArrayList<tb_Security_alarm_car> sac = sacmapper.calendarSac(u_id);
+		result.put("sac", sac);
+		System.out.println(result);
+		return result;
 	}
 	
-	@PostMapping("/calendarDBSac.com")
-	public String calendarDBSac(@RequestParam("u_id") String u_id, Model model) {
-		String sac = sacmapper.calendarSac(u_id);
-		model.addAttribute("sac", sac);
-		return sac;
-	}
 	
 	
 	
