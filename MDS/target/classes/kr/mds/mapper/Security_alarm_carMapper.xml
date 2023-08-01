@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.mds.mapper.Security_alarm_carMapper">
+	
+	<!-- 출입기록 리스트 조회 -->
+	<select id="entryLogList" resultType="kr.mds.entity.tb_Security_alarm_car">
+		select car_num, car_inout_at, sac_img_link 
+		  from tb_security_alarm_car 
+		 where u_id = #{u_id}
+	</select>
+	
+	<!-- 알람 읽었을 때 업데이트 -->
+	<update id="sac_numUpdate" parameterType="kr.mds.entity.tb_Security_alarm_car">
+		update tb_security_alarm_car
+			set sac_read = 'Y',
+		    	sac_read_at = now()
+		 where sac_num = #{sac_num}
+	</update>
+	
+	<!-- 알림 개수 세기 -->
+	<select id="countSac" resultType="Integer">
+		select count(*) 
+		  from tb_security_alarm_car
+		 where sac_read="N"
+		   and u_id = #{u_id};
+	</select>
+
+</mapper>

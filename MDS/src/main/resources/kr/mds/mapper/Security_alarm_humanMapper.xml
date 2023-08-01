@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.mds.mapper.Security_alarm_humanMapper">
+
+	<!-- 알람 읽었을 때 업데이트 -->
+	<update id="sah_numUpdate" parameterType="kr.mds.entity.tb_Security_alarm_human">
+		update tb_security_alarm_human
+		   set sah_read = 'Y',
+		   	   sah_read_at = now()
+		 where sah_num = #{sah_num}
+	</update>
+	
+	<!-- 알림 개수 세기 -->
+	<select id="countSah" resultType="Integer">
+		select count(*) 
+		  from tb_security_alarm_human
+		 where sah_read="N"
+		   and u_id = #{u_id};
+	</select>
+
+</mapper>

@@ -1,0 +1,239 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: 0;
+	outline: 0;
+	vertical-align: baseline;
+}
+
+ul, li, ol, dl, dd, dt {
+	list-style: none;
+}
+
+img, video {
+	vertical-align: top;
+	border: 0;
+}
+
+input, select, textarea, button {
+	font: inherit;
+	color: inherit;
+	vertical-align: middle;
+	border-radius: 0;
+}
+
+a, a:hover, a:focus {
+	text-decoration: none;
+	color: inherit;
+}
+
+address {
+	font-style: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+img {
+	border-style: none;
+}
+
+/* 전체 영역 스타일 */
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.con {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 5px;
+  width: 80%px;
+  z-index: 999;
+  opacity: 1;
+}
+
+/* 로고 스타일 */
+.logo_wrap {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo_wrap span {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+/* 입력란 스타일 */
+.wrap {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.id_wrap,
+.pw_wrap,
+.mail_wrap,
+.address_wrap {
+  margin-bottom: 20px;
+}
+
+.id_name,
+.pw_name,
+.pwck_name,
+.mail_name,
+.address_name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.id_input_box,
+.pw_input_box,
+.pwck_input_box
+{
+  display: flex;
+  align-items: center;
+}
+
+.id_input,
+.pw_input,
+.pwck_input,
+.mail_input_box input {
+  width: 100%;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+.id_input_box input:focus,
+.pw_input_box input:focus,
+.pwck_input_box input:focus,
+.mail_input_box input:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+.id_check,
+.mail_check_wrap {
+  margin-left: 10px;
+  transform: translateY(5px);
+}
+
+.mail_check_wrap .mail_check_button {
+  margin-bottom: 10px;
+}
+
+.mail_check_input_box input {
+  width: 100%;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  margin-left: -11px;
+}
+
+.mail_check_input_box input[disabled] {
+  background-color: #f2f2f2;
+}
+
+.mail-check-warn {
+  color: #dc3545;
+  font-size: 14px;
+  margin-top: 5px;
+  display: block;
+}
+
+/* 주소 입력란 스타일 */
+#sample6_postcode,
+#sample6_address,
+#sample6_detailAddress,
+#sample6_extraAddress {
+  width: 100%;
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+}
+
+#sample6_postcode:focus,
+#sample6_address:focus,
+#sample6_detailAddress:focus,
+#sample6_extraAddress:focus {
+  outline: none;
+  border-color: #007bff;
+}
+
+/* 회원가입 버튼 스타일 */
+.join_button_wrap {
+  text-align: center;
+}
+
+.join_button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.join_button:hover {
+  background-color: #0069d9;
+}
+
+
+html, body { height: 100%; }
+body {
+  background:radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, #B7E8EB 100%);
+  overflow: hidden;
+}
+
+.ocean { 
+  height: 0%;
+  width:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  background: #015871;
+  transform: scaleY(-1);
+}
+
+.wave {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; 
+  position: absolute;
+  top: -198px;
+  width: 6400px;
+  height: 198px;
+  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.wave:nth-of-type(2) {
+  top: -175px;
+  animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+  opacity: 0.8;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
+
+@keyframes swell {
+  0%, 100% {
+    transform: translate3d(0,-25px,0);
+  }
+  50% {
+    transform: translate3d(0,5px,0);
+  }
+}

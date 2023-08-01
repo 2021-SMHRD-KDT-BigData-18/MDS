@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.mds.mapper.UserMapper">
+	<!-- 회원가입 -->
+	<insert id="signUp" parameterType="kr.mds.entity.tb_User">
+		INSERT INTO tb_user
+		    (u_id, 
+		    u_pw,
+		    u_pw_confirm, 
+		    u_email,
+		    u_email_num,
+		    u_alarm, 
+		    u_joindate, 
+		    u_type,
+		    farm_zip_code,
+	    	farm_detailed_addr,
+	    	farm_addr,
+	    	farm_add_addr)
+		VALUES
+		    (#{u_id}, 
+		    #{u_pw}, 
+		    #{u_pw_confirm},
+		    #{u_email}, 
+		    #{u_email_num},
+		    'ON', 
+		    NOW(), 
+		    'U',
+		    #{farm_zip_code},
+		    #{farm_detailed_addr},
+		    #{farm_addr},
+		    #{farm_add_addr })
+	</insert>
+	
+	<!-- 로그인 -->
+	<select id="signIn" 
+	parameterType="kr.mds.entity.tb_User"
+	resultType="kr.mds.entity.tb_User">
+	select * from tb_user where U_ID=#{u_id} and U_PW=#{u_pw}
+	</select>
+	
+	<!-- 아이디 중복 체크 -->
+	<select id="idCheck"
+	resultType="kr.mds.entity.tb_User">
+		SELECT * FROM tb_user WHERE U_ID=#{u_id}
+	</select>
+
+	<!-- 회원 정보 조회 -->
+	<select id="checkUser"
+	resultType="kr.mds.entity.tb_User">
+	SELECT u_id,u_pw FROM tb_user
+	WHERE U_ID = #{u_id}  
+	
+	</select>
+	<!-- 회원 정보 수정 -->
+	<update id="updateUser">
+        UPDATE tb_user
+        SET U_PW = #{u_pw}, U_PW_CONFIRM = #{u_pw_confirm},
+        U_EMAIL = #{u_email}, U_ALARM = #{u_alarm}, FARM_DETAILED_ADDR = #{farm_detailed_addr}
+        WHERE U_ID = #{u_id}
+	</update>
+	
+
+	<!-- ID/PW 본인인증시 이메일 전송 -->
+	<select id="userSearch" parameterType="String"
+		resultType="kr.mds.entity.tb_User">
+		SELECT * FROM tb_user
+		WHERE U_EMAIL=#{u_email}
+		LIMIT 1
+	</select>
+</mapper>
