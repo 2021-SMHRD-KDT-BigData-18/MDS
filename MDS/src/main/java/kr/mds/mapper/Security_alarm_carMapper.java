@@ -15,4 +15,7 @@ public interface Security_alarm_carMapper {
 	// 알림 개수 카운트
 	public int countSac(String u_id);
 
+	// 캘린더 DB 연동
+	public String calenderSac(String u_id);
+
 }

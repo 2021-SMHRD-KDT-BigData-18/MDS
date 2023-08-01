@@ -124,6 +124,7 @@
 					value="데이터조회">
 
 					<div id="calendar" class="calendar_size"></div>
+					<p class="date" id="nows"></p>
 
 				</div>
 
@@ -286,72 +287,55 @@
 	<script type="text/javascript" src="resources/JS/entryLog.js"></script>
 	<script type="text/javascript" src="resources/JS/webAlarm.js"></script>
 	<script>
-	var calendarEl = $('#calendar')[0];
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-    	// contentHeight: 600,
-        height: '500px', // calendar 높이 설정
-    	// 너비가 높이의 두 배
-        expandRows: true, // 화면에 맞게 높이 재설정
-        slotMinTime: '08:00', // Day 캘린더에서 시작 시간
-        slotMaxTime: '20:00', // Day 캘린더에서 종료 시간
-        // 해더에 표시할 툴바
-        headerToolbar: {
-            //left: 'prev,next today',
-            left: '',
-            center: 'title',
-            right:'prev,next today'
-            //right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
-        },
-        initialView: 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
- //       initialDate: '2023-05-11', // 초기 날짜 설정 (설정하지 않으면 오늘 날짜가 보인다.)
-        navLinks: false, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
-        editable: true, // 수정 가능?
-        selectable: true, // 달력 일자 드래그 설정가능
-        nowIndicator: true, // 현재 시간 마크
-        dayMaxEvents: true, // 이벤트가 오버되면 높이 제한 (+ 몇 개식으로 표현)
-        locale: 'ko', // 한국어 설정
-        eventAdd: function(obj) { // 이벤트가 추가되면 발생하는 이벤트
-            console.log(obj);
-        },
-        
+	document.addEventListener('DOMContentLoaded', function () {
+		$(function () {
+	        var request = $.ajax({
+	            url: "/full-calendar/calendar-admin", // 변경하기
+	            type: "post",
+	            dataType: "json"
+	    });
+		request.done(function (data) {
+			var calendarEl = $('#calendar')[0];
+		    var calendar = new FullCalendar.Calendar(calendarEl, {
+		    	// contentHeight: 600,
+		        height: '500px', // calendar 높이 설정
+		    	// 너비가 높이의 두 배
+		        expandRows: true, // 화면에 맞게 높이 재설정
+		        slotMinTime: '08:00', // Day 캘린더에서 시작 시간
+		        slotMaxTime: '20:00', // Day 캘린더에서 종료 시간
+		        // 해더에 표시할 툴바
+		        headerToolbar: {
+		            //left: 'prev,next today',
+		            left: '',
+		            center: 'title',
+		            right:'prev,next today'
+		            //right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+		        },
+		        initialView: 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
+		 //       initialDate: '2023-05-11', // 초기 날짜 설정 (설정하지 않으면 오늘 날짜가 보인다.)
+		        navLinks: false, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
+		        editable: true, // 수정 가능?
+		        selectable: true, // 달력 일자 드래그 설정가능
+		        nowIndicator: true, // 현재 시간 마크
+		        dayMaxEvents: true, // 이벤트가 오버되면 높이 제한 (+ 몇 개식으로 표현)
+		        locale: 'ko', // 한국어 설정
+		        eventAdd: function(obj) { // 이벤트가 추가되면 발생하는 이벤트
+		            console.log(obj);
+		        },
+		        
+		        // 날짜 클릭 시 리스트 출력
+				dateClick: function (info) {
+				   $('#nows').html(info.dateStr);
+				   $('#nows').html = "";
+				}
+		        
+		    });
+		    
+		    calendar.render();
+			});
+		});
+	 
     });
-
-
-    function getDate() {
-        var today = new Date();
-        var year = today.getFullYear(); // 년도
-        var month = String(today.getMonth() + 1).padStart(2, '0'); // 월 (0부터 시작하므로 1을 더해줌)
-        return year + '-' + month;
-    }
-
-    function dateTimeFormat(date) {
-        return getDateFormat(date, true);
-    }
-
-    function dateFormat(date) {
-        return getDateFormat(date, false);
-    }
-
-    function getDateFormat(date, timeFlag) {
-        var dateObj = new Date(date);
-
-        var year = dateObj.getFullYear(); // 연도
-        var month = String(dateObj.getMonth() + 1).padStart(2, '0'); // 월 (0부터 시작하므로 1을 더해줌)
-        var day = String(dateObj.getDate()).padStart(2, '0'); // 일
-        var hours = String(dateObj.getHours()).padStart(2, '0'); // 시간
-        var minutes = String(dateObj.getMinutes()).padStart(2, '0'); // 분
-        var seconds = String(dateObj.getSeconds()).padStart(2, '0'); // 초
-
-        var formattedDate = year + '-' + month + '-' + day;
-        return timeFlag ? formattedDate + ' ' + hours + ':' + minutes + ':' + seconds : formattedDate
-    }
-    
-    $('.fc-daygrid-day').click(function(){
-    	console.log("캘린더 날짜 클릭");
-    })
-
-    calendar.render();
-    // selectRvList(getDate());
 	</script>
 
 </body>

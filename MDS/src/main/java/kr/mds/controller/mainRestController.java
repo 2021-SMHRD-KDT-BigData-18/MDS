@@ -104,11 +104,28 @@ public class mainRestController {
 		int count_sah = sahmapper.countSah(u_id);
 		int count_sac = sacmapper.countSac(u_id);
 		int result = count_sac + count_sah;
-		System.out.println(count_sac);
+		/*System.out.println(count_sac);
 		System.out.println(count_sah);
-		System.out.println(result);
+		System.out.println(result);*/
 		return String.valueOf(result);
 	}
+	
+	// 캘린더 DB연동
+	@PostMapping("/calenderDBSah.com")
+	public String calenderDBSah(@RequestParam("u_id") String u_id, Model model) {
+		String sah = sahmapper.calenderrSah(u_id);
+		model.addAttribute("sah", sah);
+		return sah;
+	}
+	
+	@PostMapping("/calenderDBSac.com")
+	public String calenderDBSac(@RequestParam("u_id") String u_id, Model model) {
+		String sac = sacmapper.calenderSac(u_id);
+		model.addAttribute("sac", sac);
+		return sac;
+	}
+	
+	
 	
 	
 }
