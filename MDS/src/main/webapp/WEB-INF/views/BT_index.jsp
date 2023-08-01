@@ -251,7 +251,8 @@
 			<div class="modal-content">
 				<!-- 모달 내용 추가 -->
 				<h2>알림</h2>
-				<p id="webAlarm_content"></p>
+				<div id="modr" style="display: block;">침입 내역이 없습니다.</div>
+				<div id="webAlarm_content"></div>
 				<button type="button" class="modal-close-btn" id="modal-close-btn">&times;</button>
 			</div>
 		</div>
@@ -313,8 +314,6 @@
             console.log(obj);
         },
         
-        
-        
     });
 
 
@@ -346,6 +345,10 @@
         var formattedDate = year + '-' + month + '-' + day;
         return timeFlag ? formattedDate + ' ' + hours + ':' + minutes + ':' + seconds : formattedDate
     }
+    
+    $('.fc-daygrid-day').click(function(){
+    	console.log("캘린더 날짜 클릭");
+    })
 
     calendar.render();
     // selectRvList(getDate());
