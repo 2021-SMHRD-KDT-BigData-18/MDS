@@ -7,5 +7,8 @@ public interface Security_alarm_humanMapper {
 
 	// 알람 카운트
 	public int countSah(String u_id);
+
+	// 캘린더 DB연동
+	public String calendarSah(String u_id);
 	
 }

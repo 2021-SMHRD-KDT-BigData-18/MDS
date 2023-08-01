@@ -11088,8 +11088,8 @@ footer{
 
 /* 캘린더 사이즈 조정하는곳 */
 .calendar_size{
-	width: 1300px !important;
-	height: 700px !important;
+	width: 800px !important;
+	height: 650px !important;
 }
 
 /* 내정보수정 CSS */

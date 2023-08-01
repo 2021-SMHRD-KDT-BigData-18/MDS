@@ -107,9 +107,6 @@
 
 		<div id="layoutSidenav_content">
 			<main>
-				<div id="HeaderMain_image">
-					<img alt="" src="#"> 이미지 들어갈 공간
-				</div>
 
 				<div class="videoPlayer" id="page1-content">
 					<c:choose>
@@ -124,6 +121,7 @@
 					value="데이터조회">
 
 					<div id="calendar" class="calendar_size"></div>
+					<p class="date" id="nows"></p>
 
 				</div>
 
@@ -305,7 +303,7 @@
         initialView: 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
  //       initialDate: '2023-05-11', // 초기 날짜 설정 (설정하지 않으면 오늘 날짜가 보인다.)
         navLinks: false, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
-        editable: true, // 수정 가능?
+        editable: false, // 수정 가능?
         selectable: true, // 달력 일자 드래그 설정가능
         nowIndicator: true, // 현재 시간 마크
         dayMaxEvents: true, // 이벤트가 오버되면 높이 제한 (+ 몇 개식으로 표현)
@@ -313,43 +311,29 @@
         eventAdd: function(obj) { // 이벤트가 추가되면 발생하는 이벤트
             console.log(obj);
         },
+        events:function(info, successCallback, failureCallback){
+        	$.ajax({
+        		url : 'countAlarm.com',
+        		type : 'post',
+        		data : {'u_id':data},
+        		dataType : 'text',
+        		success : function(res){
+        			console.log(res);
+        		}
+        	})
+        },
         
-        
+        // 날짜 클릭 시 리스트 출력
+		dateClick: function (info) {
+		   $('#nows').html(info.dateStr);
+		   $('#nows').html = "";
+		}
         
     });
-
-
-    function getDate() {
-        var today = new Date();
-        var year = today.getFullYear(); // 년도
-        var month = String(today.getMonth() + 1).padStart(2, '0'); // 월 (0부터 시작하므로 1을 더해줌)
-        return year + '-' + month;
-    }
-
-    function dateTimeFormat(date) {
-        return getDateFormat(date, true);
-    }
-
-    function dateFormat(date) {
-        return getDateFormat(date, false);
-    }
-
-    function getDateFormat(date, timeFlag) {
-        var dateObj = new Date(date);
-
-        var year = dateObj.getFullYear(); // 연도
-        var month = String(dateObj.getMonth() + 1).padStart(2, '0'); // 월 (0부터 시작하므로 1을 더해줌)
-        var day = String(dateObj.getDate()).padStart(2, '0'); // 일
-        var hours = String(dateObj.getHours()).padStart(2, '0'); // 시간
-        var minutes = String(dateObj.getMinutes()).padStart(2, '0'); // 분
-        var seconds = String(dateObj.getSeconds()).padStart(2, '0'); // 초
-
-        var formattedDate = year + '-' + month + '-' + day;
-        return timeFlag ? formattedDate + ' ' + hours + ':' + minutes + ':' + seconds : formattedDate
-    }
+    
+    
 
     calendar.render();
-    // selectRvList(getDate());
 	</script>
 
 </body>
