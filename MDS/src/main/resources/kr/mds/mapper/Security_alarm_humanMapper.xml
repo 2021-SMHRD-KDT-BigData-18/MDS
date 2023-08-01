@@ -18,4 +18,8 @@
 		   and u_id = #{u_id};
 	</select>
 
+	<!-- 캘린더 DB 연동 -->
+	<select id="calendarSah" resultType="kr.mds.entity.tb_Security_alarm_human">
+		select * from tb_security_alarm_human where u_id = #{u_id}
+	</select>
 </mapper>
