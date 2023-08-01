@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import kr.mds.entity.tb_Security_alarm_car;
@@ -95,6 +96,18 @@ public class mainRestController {
 		 int result = sahmapper.sah_numUpdate(sah_num);
 		 System.out.println("sah_num 업데이트 결과 "+result);
 		return result;
+	}
+	
+	// 알림 개수 카운트
+	@PostMapping("/countAlarm.com")
+	public String countAlarm(@RequestParam("u_id") String u_id) {
+		int count_sah = sahmapper.countSah(u_id);
+		int count_sac = sacmapper.countSac(u_id);
+		int result = count_sac + count_sah;
+		System.out.println(count_sac);
+		System.out.println(count_sah);
+		System.out.println(result);
+		return String.valueOf(result);
 	}
 	
 	
