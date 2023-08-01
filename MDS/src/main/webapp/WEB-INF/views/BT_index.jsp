@@ -127,7 +127,7 @@
 				</div>
 
 
-				<div class="" id="page3-content" style="display: none;"
+				<div class="analyze" id="page3-content" style="display: none;"
 					value="데이터분석">
 
 					<div class="row">
@@ -157,9 +157,63 @@
 
 				</div>
 
-				<div class="" id="page4-content" style="display: none;" value="마이페이지">
+				<div class="myinfo" id="page4-content" style="display: none;" value="마이페이지">
 					
-				
+					<div class="containerbody">
+				<div class=middle>
+					<form method=post action="updateinfoSuccess.com">
+						<br>
+						<h2>내 정보 수정</h2>
+						<table>
+							<tr>
+								<th>ID</th>
+								<td><span id=id><c:choose>
+							<c:when test="${result ne null}">
+						${result.u_id}
+					</c:when>
+						</c:choose></span></td>
+							</tr>
+							<tr>
+								<th>PW</th>
+								<td><input type=password name=pw id=pw disabled
+									placeholder="필수 입력 사항입니다." value="2">
+									<input type=button id=pw_button value="변경"
+									onclick="change_pw();"></td>
+								<input type=hidden name="user_pw" id=pw2
+									value="3">
+							</tr>
+							<tr>
+								<th>E-mail</th>
+								<td><input type=text name=name id=name disabled
+									placeholder="필수 입력 사항입니다." value="4">
+									<input type=button id=name_button value="변경"
+									onclick="change_name();"></td>
+								<input type=hidden name="user_name" id=name2
+									value="5">
+							</tr>
+							<tr>
+								<th>농장주소</th>
+								<td><input type="text" name=phone id=phone disabled
+									value="6"> <input type=button
+									id=phone_button value="변경" onclick="change_phone();"></td>
+								<input type=hidden name="user_phone" id=phone2
+									value="7">
+							</tr>
+							<tr>
+								<th>자동차 등록</th>
+								<td><input type="text" name=intro id=intro disabled
+									value="8"> <input
+									type=button id=intro_button value="변경"
+									onclick="change_intro();"></td>
+								<input type=hidden name="user_v_account" id=intro2
+									value="9">
+							</tr>
+						</table>
+						<input disabled id=submit type="submit" value="변경사항 확정하기">
+					</form>
+				</div>
+			</div>
+					
 				</div>
 
 

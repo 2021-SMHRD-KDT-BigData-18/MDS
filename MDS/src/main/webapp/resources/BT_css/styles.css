@@ -11091,3 +11091,74 @@ footer{
 	width: 1300px !important;
 	height: 700px !important;
 }
+
+/* 내정보수정 CSS */
+
+.containerbody {
+	margin-left: 15%;
+	margin-right: 15%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 90vh;
+	height: 100%; /* 부모 요소인 .allcontainer의 높이에 맞춤 */
+}
+
+.containerbody .middle {
+	width: 100%;
+	max-width: 1200px;
+	padding: 20px;
+	border: 1px solid rgb(187, 7, 11);
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	margin: 0 auto; /* 가운데 정렬을 위해 추가 */
+	text-align: center; /* 가운데 정렬을 추가 */
+}
+
+.containerbody form {
+	margin-top: 10px;
+}
+
+.containerbody h2 {
+	margin-bottom: 20px;
+	margin-top: -10px;
+}
+
+.containerbody table {
+	width: 100%;
+	margin-bottom: 20px;
+	border-collapse: collapse;
+}
+
+.containerbody th, .containerbody td {
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+
+.containerbody input[type="password"], .containerbody input[type="text"]
+	{
+	width: 80%; /* 입력칸의 너비를 조정 */
+	height: 40px; /* 입력칸의 높이를 조정 */
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	font-size: 14px;
+	vertical-align: middle; /* 입력칸을 수직 정렬 */
+}
+
+.containerbody input[type="button"], .containerbody input[type="submit"]
+	{
+	padding: 8px 16px;
+	background-color: rgb(187, 7, 11);
+	color: #fff;
+	border: none;
+	border-radius: 3px;
+	cursor: pointer;
+	float: right; /* 버튼들을 오른쪽으로 정렬하여 옆에 붙임 */
+	vertical-align: middle; /* 버튼들을 수직 정렬하여 입력칸과 같은 위치에 표시 */
+	display: inline; /* 버튼을 인라인 요소로 표시하여 입력칸 옆에 위치 */
+}
+
+.containerbody input[type="button"]:hover, .containerbody input[type="submit"]:hover
+	{
+	background-color: #45a049;
+}
