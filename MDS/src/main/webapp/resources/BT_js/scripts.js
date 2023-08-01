@@ -39,6 +39,7 @@ iconButton.addEventListener('click', () => {
 modalCloseBtn.addEventListener('click', () => {
   $("#webAlarm_content").remove();
   modalBg.style.display = 'none';
+  modr.style.display = 'block';
 });
 
 

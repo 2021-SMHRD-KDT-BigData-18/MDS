@@ -1,7 +1,7 @@
 /**
  * 
  */
-
+const modr = document.getElementById('modr');
 /* 알림 개수 카운트 */
 		$.ajax({
 			type:'post',
@@ -10,6 +10,7 @@
 			dataType: 'text',
 			success:function(res){
 				console.log(res);
+				modr.style.display = 'block';
 				$('#countAlarm').append(res);
 				$('#modal-close-btn').click(function(){
 					$('#countAlarm').html("0");
@@ -31,6 +32,7 @@
 				dataType : 'json',
 				/*contentType : 'application/json',*/
 				success : function(result){
+				modr.style.display = 'none';
 					console.log(result);
 					/*console.log(result[0][0].sah_img_link);
 					console.log(result[1][0].sac_img_link);*/
@@ -42,10 +44,8 @@
 					for(let i = 0; i < result[1].length; i++){
 						result[1][i].sac_num = BigInt(result[1][i].sac_num);
 						$('#webAlarm_content').append(
-								`<p>${(result[1][i]).car_num}</p>
-								 <p>${(result[1][i]).sac_content}</p>
-								 <p>${(result[1][i]).sac_at}</p>
-									`)
+								`<p>${(result[1][i]).car_num}가 ${(result[1][i]).sac_at}에 ${(result[1][i]).sac_content}</p>
+								 `)
 								
 								
 									let sac_num = BigInt((result[1][i]).sac_num);
@@ -66,9 +66,9 @@
 					for(let i = 0; i < result[0].length; i++){
 						result[0][i].sah_num = BigInt(result[0][i].sah_num);
 						$('#webAlarm_content').append(
-								`<p>${(result[0][i]).sah_total}명</p>
-								 <p>${(result[0][i]).sah_content}</p>
-								 <p>${(result[0][i]).sah_at}</p>
+								`<p>${(result[0][i]).sah_total}명이
+								 ${(result[0][i]).sah_at}에
+								 ${(result[0][i]).sah_content}</p>
 								`)
 								
 								
