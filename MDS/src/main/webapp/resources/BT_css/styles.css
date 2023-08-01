@@ -3771,7 +3771,6 @@ textarea.form-control-lg {
   padding: var(--bs-navbar-padding-y) var(--bs-navbar-padding-x);
 }
 .navbar > .container,
-.navbar > .container-fluid,
 .navbar > .container-sm,
 .navbar > .container-md,
 .navbar > .container-lg,
@@ -11086,6 +11085,11 @@ footer{
 	}
 }
 
+.socialIcons a img {
+	width: 35px;
+	height: 35px;
+}
+
 /* 캘린더 사이즈 조정하는곳 */
 .calendar_size{
 	width: 800px !important;
@@ -11164,7 +11168,54 @@ footer{
 }
 
 /* 모달 알림창 css */
+<<<<<<< HEAD
+#webAlarm_content p {
+	
+}
+
+.icon-button {
+    position: relative;
+    width: 55px;
+    height: 55px;
+    color: #333333;
+    background: #dddddd;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+}
+
+.glider {
+    position: absolute;
+    top: 0px;
+    right: -10px;
+    width: 25px;
+    height: 25px;
+    background: red;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+
+@media (max-width: 700px) {
+  .tabs {
+    transform: scale(0.6);
+  }
+}
+
+.icon-button img {
+    width: 35px;
+    height: 35px;
+}
+
+/* 알림,로그아웃 위치 CSS */
+.header {
+	
+=======
 #webAlarm_content p{
 	font-size: 16px;
 	border-bottom: 1px solid black;
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/MDS.git
 }
