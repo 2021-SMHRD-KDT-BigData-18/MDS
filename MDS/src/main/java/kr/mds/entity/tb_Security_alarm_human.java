@@ -14,7 +14,6 @@ public class tb_Security_alarm_human {
 	private long sah_num;
 	private String cctv_id;
 	private String sah_content;
-	private String sah_at;
 	private String sah_read;
 	private String sah_read_at;
 	private String sah_img_link;
