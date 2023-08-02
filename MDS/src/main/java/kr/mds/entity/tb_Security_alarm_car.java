@@ -21,4 +21,9 @@ public class tb_Security_alarm_car {
 	private String sac_read_at;
 	private String sac_img_link;
 	private String u_id;
+	private String sac_video_link;
+	private int sac_in_count;
+	private int sac_out_count;
+	private String sac_in_at;
+	private String sac_out_at;
 }

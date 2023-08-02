@@ -304,7 +304,7 @@
         initialView: 'dayGridMonth', // 초기 로드 될때 보이는 캘린더 화면(기본 설정: 달)
  //       initialDate: '2023-05-11', // 초기 날짜 설정 (설정하지 않으면 오늘 날짜가 보인다.)
         navLinks: false, // 날짜를 선택하면 Day 캘린더나 Week 캘린더로 링크
-        editable: false, // 수정 가능?
+        editable: true, // 수정 가능?
         selectable: true, // 달력 일자 드래그 설정가능
         nowIndicator: true, // 현재 시간 마크
         dayMaxEvents: true, // 이벤트가 오버되면 높이 제한 (+ 몇 개식으로 표현)
@@ -314,41 +314,22 @@
         },
         
         
-        events: function(info, successCallback, failureCallback){
-        	
-        	$.ajax({
-        		url: 'calendarDB.com',
-        		type: 'get',
-        		data: {'u_id':data},
-        		contentType: "application/json; charset=utf-8;",
-        		dataType: 'json',
-        		success:function(res){
-        			/*console.log(res);
-        			console.log(res.sac[0]);
-        			console.log(res.sah[0]);*/
-        			console.log(calendar);
-        			
-        			for(var i=0; i<(res.sac).length; i++){
-        				/*console.log(res.sac[i]);*/
-        			}
-        			
-        			for(var i=0; i<(res.sah).length; i++){
-        				/*console.log(res.sah[i]);*/
-        			}
-        			
-        			
-        			successCallback(res.events);
-        		}
-        	});
-        	
-        },
+        
+        events: [
+        	{
+        		id:1,
+        		title: 'test1',
+        		start:'2019-08-22',
+        		end: '2019-08-24'
+        	}
+        ],
+        
         
         // 날짜 클릭 시 리스트 출력
 		dateClick: function (info) {
 		   $('#nows').html(info.dateStr);
 		   $('#nows').html = "";
 		}
-        
     });
     
     
