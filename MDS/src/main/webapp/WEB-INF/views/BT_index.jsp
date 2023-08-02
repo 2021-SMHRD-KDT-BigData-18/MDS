@@ -12,9 +12,7 @@
 <meta name="description" content="" />
 <meta name="author" content="" />
 <title>Dashboard - SB Admin</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
-	rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
 <link href="resources/BT_css/styles.css" rel="stylesheet" />
 <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
 <link href="resources/images/cam.png" rel="shortcut icon"
@@ -31,21 +29,29 @@
 </head>
 <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-		<div class="logo_img">
-			<a class="logo" href="javascript:listView('${result.u_id}')"> <img
-				alt="MDS로고" src="resources/images/MDS_logo.png" width="180px"
-				height="60px">
-			</a>
-		</div>
-		<div class="header">
-			<button type="button" class="icon-button" id="icon-button">
-				<img src="resources/images/bell.svg" alt="알림" name="bell"> 
-				<span class="glider" id="countAlarm"></span> 
-				<span class="notification"></span>
-			</button>
-			<a href="logout.com">로그아웃</a>
-		</div>
-	</nav>
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-6">
+                <div class="logo_img">
+                    <a class="logo" href="javascript:listView('${result.u_id}')">
+                        <img alt="MDS로고" src="resources/images/MDS_logo.png" width="180px" height="60px">
+                    </a>
+                </div>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+                <div class="header">
+                    <button type="button" class="icon-button" id="icon-button">
+                        <img src="resources/images/bell.svg" alt="알림" name="bell"> 
+                        <span class="glider" id="countAlarm"></span> 
+                        <span class="notification"></span>
+                    </button>
+                    <a href="logout.com">로그아웃</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
 	<div id="layoutSidenav">
 		<div id="layoutSidenav_nav">
 			<nav class="sb-sidenav accordion sb-sidenav-dark"
@@ -166,11 +172,15 @@
 						<table>
 							<tr>
 								<th>ID</th>
-								<td><span id=id><c:choose>
-							<c:when test="${result ne null}">
-						${result.u_id}
-					</c:when>
-						</c:choose></span></td>
+								<td>
+								<span id=id>
+								<c:choose>
+									<c:when test="${result ne null}">
+										${result.u_id}
+									</c:when>
+								</c:choose>
+								</span>
+								</td>
 							</tr>
 							<tr>
 								<th>PW</th>
@@ -223,19 +233,10 @@
 			<footer>
 				<div class="footerContainer">
 					<div class="socialIcons">
-						<a href=""><i class="fa-brands fa-facebook"></i></a> <a href=""><i
-							class="fa-brands fa-instagram"></i></a> <a href=""><i
-							class="fa-brands fa-twitter"></i></a> <a href=""><i
-							class="fa-brands fa-youtube"></i></a>
-					</div>
-					<div class="footerNav">
-						<ul>
-							<li><a href="">Home</a></li>
-							<li><a href="">News</a></li>
-							<li><a href="">About</a></li>
-							<li><a href="">Contact Us</a></li>
-							<li><a href="">Our Team</a></li>
-						</ul>
+						<a href=""><img class="fa-brands fa-facebook" src="resources/images/youtube_icon.png"></img></a>
+						<a href=""><img class="fa-brands fa-instagram" src="resources/images/blogger_icon.png"></img></a>
+						<a href=""><img class="fa-brands fa-twitter" src="resources/images/instagram_icon.png"></img></a>
+						<a href=""><img class="fa-brands fa-youtube" src="resources/images/github_icon.png"></img></a>
 					</div>
 				</div>
 			</footer>
@@ -311,16 +312,35 @@
         eventAdd: function(obj) { // 이벤트가 추가되면 발생하는 이벤트
             console.log(obj);
         },
-        events:function(info, successCallback, failureCallback){
+        
+        
+        events: function(info, successCallback, failureCallback){
+        	
         	$.ajax({
-        		url : 'countAlarm.com',
-        		type : 'post',
-        		data : {'u_id':data},
-        		dataType : 'text',
-        		success : function(res){
-        			console.log(res);
+        		url: 'calendarDB.com',
+        		type: 'get',
+        		data: {'u_id':data},
+        		contentType: "application/json; charset=utf-8;",
+        		dataType: 'json',
+        		success:function(res){
+        			/*console.log(res);
+        			console.log(res.sac[0]);
+        			console.log(res.sah[0]);*/
+        			console.log(calendar);
+        			
+        			for(var i=0; i<(res.sac).length; i++){
+        				/*console.log(res.sac[i]);*/
+        			}
+        			
+        			for(var i=0; i<(res.sah).length; i++){
+        				/*console.log(res.sah[i]);*/
+        			}
+        			
+        			
+        			successCallback(res.events);
         		}
-        	})
+        	});
+        	
         },
         
         // 날짜 클릭 시 리스트 출력

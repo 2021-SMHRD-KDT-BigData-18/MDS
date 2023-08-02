@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -18,7 +21,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.google.gson.Gson;
+import com.mysql.cj.xdevapi.JsonArray;
+
 import kr.mds.entity.tb_Security_alarm_car;
+import kr.mds.entity.tb_Security_alarm_human;
 import kr.mds.entity.tb_User;
 import kr.mds.mapper.Security_alarm_carMapper;
 import kr.mds.mapper.Security_alarm_humanMapper;
@@ -100,33 +108,34 @@ public class mainRestController {
 	
 	// 알림 개수 카운트
 	@PostMapping("/countAlarm.com")
-	public String countAlarm(@RequestParam("u_id") String u_id, Model model) {
+	public String countAlarm(@RequestParam("u_id") String u_id) {
 		int count_sah = sahmapper.countSah(u_id);
 		int count_sac = sacmapper.countSac(u_id);
 		int result = count_sac + count_sah;
 		/*System.out.println(count_sac);
 		System.out.println(count_sah);
 		System.out.println(result);*/
-		model.addAttribute("count_sah", count_sah);
-		model.addAttribute("count_sac", count_sac);
 		return String.valueOf(result);
 	}
 	
 	
-	// 캘린더 DB연동 
-	@PostMapping("/calendarDBSah.com")
-	public String calendarDBSah(@RequestParam("u_id") String u_id, Model model) {
-		String sah = sahmapper.calendarSah(u_id);
-		model.addAttribute("sah", sah);
-		return sah;
-	}
-	
-	@PostMapping("/calendarDBSac.com")
-	public String calendarDBSac(@RequestParam("u_id") String u_id, Model model) {
-		String sac = sacmapper.calendarSac(u_id);
-		model.addAttribute("sac", sac);
-		return sac;
-	}
+	// 캘린더 DB연동
+	@GetMapping("/calendarDB.com")
+	public String calendarDB(@RequestParam("u_id") String u_id) {
+		Map<String, List<?>> result = new HashMap<>();
+		System.out.println(u_id);
+		List<tb_Security_alarm_human> sah = sahmapper.calendarSah(u_id);
+		result.put("sah", sah);
+		List<tb_Security_alarm_car> sac = sacmapper.calendarSac(u_id);
+		result.put("sac", sac);
+		System.out.println(result);
+		
+		// List 배열을 json으로 데이터변환
+		String json = new Gson().toJson(result);
+		System.out.println(json);
+		
+		return json;
+	}	
 	
 	
 	

@@ -1,6 +1,7 @@
 package kr.mds.mapper;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import kr.mds.entity.tb_Security_alarm_car;
 
@@ -16,6 +17,6 @@ public interface Security_alarm_carMapper {
 	public int countSac(String u_id);
 
 	// 캘린더 DB 연동
-	public String calendarSac(String u_id);
+	public List<tb_Security_alarm_car> calendarSac(String u_id);
 
 }
