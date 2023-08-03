@@ -367,7 +367,7 @@
 	     },
         
 	     // 날짜 클릭 시 리스트 출력
-	     eventClick: function(date, allDay, jsEvent, view){
+	     eventClick: function(info, successCallback, failureCallback){
 	    	 $.ajax({
 	    		 url:'calendarDB.com',
 		        	type: 'post',
@@ -379,64 +379,29 @@
 		        		
 		        		for(var i = 0; i < res.sac.length; i++){
 			        		$('#nows').append(`
-<<<<<<< HEAD
 			        				<div class="epqlf">
-=======
-<<<<<<< HEAD
-			        				<div value="차량, 사람 전체 태그">
-			        					<div value="차량 알림 태그">
-					        				<div><img src="showImage.com?fileName=\${res.sac[i].sac_img_link}"></div>
-					        				<div>차량침입</div>
-					        				<div>차량번호 : \${res.sac[i].car_num}</div>
-					        				<div>침입시간 : \${res.sac[i].sac_in_at}</div>
-				        				</div>
-=======
-			        				<div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/MDS.git
 			        				<div><img src="showImage.com?fileName=\${res.sac[i].sac_img_link}" width="230px" height="150px"></div>
 			        				<div class="tkdcn">
 			        				<div>차량침입</div>
 			        				<div>차량번호 : \${res.sac[i].car_num}</div>
 			        				<div>침입시간 : \${res.sac[i].sac_in_at}</div>
 			        				</div>
-<<<<<<< HEAD
 			        				</div>
-=======
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/MDS.git
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/MDS.git
 			        				`);
 		        		}
 		        		
 		        		for(var i = 0; i< res.sah.length; i++){
 		        			$('#nows').append(`
-<<<<<<< HEAD
 			        				<div class="epqlf">
-=======
-<<<<<<< HEAD
-		        						<div value="사람 알림 태그">
-					        				<div><img src="showImage.com?fileName=\${res.sah[i].sah_img_link}"></div>
-					        				<div>사람침입</div>
-					        				<div>\${res.sah[i].sah_in_count}명 침입</div>
-					        				<div>침입시간 : \${res.sah[i].sah_in_at}</div>
-			        					</div>
-=======
-			        				<div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/MDS.git
 			        				<div><img src="showImage.com?fileName=\${res.sah[i].sah_img_link}" width="230px" height="150px"></div>
 			        				<div class="tkdcn">
 			        				<div>사람침입</div>
 			        				<div>\${res.sah[i].sah_in_count}명 침입</div>
 			        				<div>침입시간 : \${res.sah[i].sah_in_at}</div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/MDS.git
 			        				</div>
 			        				</div>
 			        				`);
 		        		}
-		        		
-		        		$('#nows').append(`
-		        				<button onclick="$('#nows').hide()">
-		        				`);
-		        		
 		        	}
 	    	 })
 	     },
