@@ -127,9 +127,7 @@ public class mainRestController {
 	
 	// 캘린더 DB연동
 	@GetMapping("/calendarDB.com")
-	public ResponseEntity<String> calendarDB(@RequestParam("u_id") String u_id, HttpServletResponse response) {
-		response.setCharacterEncoding("UTF-8");
-		
+	public ResponseEntity<String> calendarDB(@RequestParam("u_id") String u_id) {
 		Map<String, List<?>> result = new HashMap<>();
 		
 //		System.out.println(u_id);

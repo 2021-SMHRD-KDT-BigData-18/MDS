@@ -336,23 +336,23 @@
                 
                  var events = [];
                  for(var i = 0; i < (res.sac).length; i++){
-                    res.sac[i].sac_in_at = (res.sac[i].sac_in_at).substring(0,10);
+                    /*res.sac[i].sac_in_at = (res.sac[i].sac_in_at).substring(0,10);*/
                     
                     events.push({
-                       title : '차량번호 '+res.sac[i].car_num+'침입',
-                       start : res.sac[i].sac_in_at,
-                       end : res.sac[i].sac_in_at,
+                       title : '차량침입 '+(res.sac[i].sac_in_at).substring(11,),
+                       start : (res.sac[i].sac_in_at).substring(0,10),
+                       end : (res.sac[i].sac_in_at).substring(0,10),
                        color : "#FF0000"
                     })
                  }
                  
                  for(var i = 0; i < (res.sah).length; i++) {
-                    res.sah[i].sah_in_at = (res.sah[i].sah_in_at).substring(0,10);
+                    /*res.sah[i].sah_in_at = (res.sah[i].sah_in_at).substring(0,10);*/
                     
                     events.push({
-                       title : '사람 '+res.sah[i].sah_in_count+'명 침입',
-                       start : res.sah[i].sah_in_at,
-                       end : res.sah[i].sah_in_at,
+                       title : '사람침입 '+(res.sah[i].sah_in_at).substring(11, ),
+                       start : (res.sah[i].sah_in_at).substring(0,10),
+                       end : (res.sah[i].sah_in_at).substring(0,10),
                        color : "#FFFF00",
                        textColor : 'black'
                     })
