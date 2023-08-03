@@ -319,10 +319,54 @@
         },
         
         
+	    events: function(info, successCallback, failureCallback){
+			
+	        $.ajax({
+	        	url:'calendarDB.com',
+	        	type: 'get',
+	        	dataType: 'json',
+	        	data: {'u_id':data},
+	        	success: function(res){
+	        		/*console.log(res);
+	        		console.log((res.sac[0].car_num));
+	        		console.log(res.sac[0].sac_in_at);
+	        		console.log(typeof(res.sac[0].sac_in_at));
+	        		console.log((res.sac[0].sac_in_at).substring(0,10));*/
+	    			
+	        		var events = [];
+	        		for(var i = 0; i < (res.sac).length; i++){
+		        		res.sac[i].sac_in_at = (res.sac[i].sac_in_at).substring(0,10);
+		        		
+		        		events.push({
+		        			title : '차량 '+res.sac[i].sac_in_count+'대 침입',
+		        			start : res.sac[i].sac_in_at,
+		        			end : res.sac[i].sac_in_at,
+		        			color : "#FF0000"
+		        		})
+	        		}
+	        		
+	        		for(var i = 0; i < (res.sah).length; i++) {
+	        			res.sah[i].sah_in_at = (res.sah[i].sah_in_at).substring(0,10);
+	        			
+	        			events.push({
+	        				title : '사람 '+res.sah[i].sah_in_count+'명 침입',
+		        			start : res.sah[i].sah_in_at,
+		        			end : res.sah[i].sah_in_at,
+		        			color : "#FFFF00",
+		        			textColor : 'black'
+	        			})
+	        		}
+	        		console.log(events)
+	        		successCallback(events);
+	        		
+	        	},
+	        	error: function(e){
+	        		alert("요청 실패");
+	        	}
+	        })
+	     },
         
-        events: function(info, successCallback, failureCallback),
-        
-        
+	     
         // 날짜 클릭 시 리스트 출력
 		dateClick: function (info) {
 		   $('#nows').html(info.dateStr);
