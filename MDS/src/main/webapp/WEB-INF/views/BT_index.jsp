@@ -379,22 +379,26 @@
 		        		
 		        		for(var i = 0; i < res.sac.length; i++){
 			        		$('#nows').append(`
-			        				<div>
+			        				<div class="epqlf">
 			        				<div><img src="showImage.com?fileName=\${res.sac[i].sac_img_link}" width="230px" height="150px"></div>
+			        				<div class="tkdcn">
 			        				<div>차량침입</div>
 			        				<div>차량번호 : \${res.sac[i].car_num}</div>
 			        				<div>침입시간 : \${res.sac[i].sac_in_at}</div>
+			        				</div>
 			        				</div>
 			        				`);
 		        		}
 		        		
 		        		for(var i = 0; i< res.sah.length; i++){
 		        			$('#nows').append(`
-			        				<div>
+			        				<div class="epqlf">
 			        				<div><img src="showImage.com?fileName=\${res.sah[i].sah_img_link}" width="230px" height="150px"></div>
+			        				<div class="tkdcn">
 			        				<div>사람침입</div>
 			        				<div>\${res.sah[i].sah_in_count}명 침입</div>
 			        				<div>침입시간 : \${res.sah[i].sah_in_at}</div>
+			        				</div>
 			        				</div>
 			        				`);
 		        		}
