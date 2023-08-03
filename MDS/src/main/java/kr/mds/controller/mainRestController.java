@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -18,6 +20,7 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -123,7 +126,7 @@ public class mainRestController {
 	
 	// 캘린더 DB연동
 	@PostMapping("/calendarDB.com")
-	public String calendarDB(@RequestParam("u_id") String u_id) {
+	public String calendarDB(@RequestParam("u_id") String u_id, HttpServletResponse response) {
 		Map<String, List<?>> result = new HashMap<>();
 		
 		System.out.println(u_id);

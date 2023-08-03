@@ -61,5 +61,21 @@
 		SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
 	 -->
 	 
-	
+	 
+	 <!-- ResponseBody 어노테이션의 설정에 인코딩을 UTF-8로 바꾸는 코드 -->
+	 <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+	 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>text/html;charset=UTF-8</value>
+			</list>
+		</property>
+	 			</bean>
+			</list>
+		</property>
+
+	</bean>
+	 
 </beans>
