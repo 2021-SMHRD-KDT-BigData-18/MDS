@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.mysql.cj.xdevapi.JsonArray;
 
 import kr.mds.entity.tb_Security_alarm_car;
@@ -120,9 +122,10 @@ public class mainRestController {
 	
 	
 	// 캘린더 DB연동
-	@GetMapping("/calendarDB.com")
+	@PostMapping("/calendarDB.com")
 	public String calendarDB(@RequestParam("u_id") String u_id) {
 		Map<String, List<?>> result = new HashMap<>();
+		
 		System.out.println(u_id);
 		List<tb_Security_alarm_human> sah = sahmapper.calendarSah(u_id);
 		result.put("sah", sah);

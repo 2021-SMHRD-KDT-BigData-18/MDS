@@ -132,7 +132,7 @@
 					value="데이터조회">
 
 					<div id="calendar" class="calendar_size"></div>
-					<p class="date" id="nows"></p>
+					<div class="date" id="nows"></div>
 
 				</div>
 
@@ -318,20 +318,120 @@
             console.log(obj);
         },
         
+        // 달력에 DB 데이터 연동
+	    events: function(info, successCallback, failureCallback){
+			
+	        $.ajax({
+	        	url:'calendarDB.com',
+	        	type: 'post',
+	        	dataType: 'json',
+	        	data: {'u_id':data},
+	        	success: function(res){
+	        		/*console.log(res);
+	        		console.log((res.sac[0].car_num));
+	        		console.log(res.sac[0].sac_in_at);
+	        		console.log(typeof(res.sac[0].sac_in_at));
+	        		console.log((res.sac[0].sac_in_at).substring(0,10));*/
+	    			
+	        		var events = [];
+	        		for(var i = 0; i < (res.sac).length; i++){
+		        		res.sac[i].sac_in_at = (res.sac[i].sac_in_at).substring(0,10);
+		        		
+		        		events.push({
+		        			title : '차량번호 '+res.sac[i].car_num+'침입',
+		        			start : res.sac[i].sac_in_at,
+		        			end : res.sac[i].sac_in_at,
+		        			color : "#FF0000"
+		        		})
+	        		}
+	        		
+	        		for(var i = 0; i < (res.sah).length; i++) {
+	        			res.sah[i].sah_in_at = (res.sah[i].sah_in_at).substring(0,10);
+	        			
+	        			events.push({
+	        				title : '사람 '+res.sah[i].sah_in_count+'명 침입',
+		        			start : res.sah[i].sah_in_at,
+		        			end : res.sah[i].sah_in_at,
+		        			color : "#FFFF00",
+		        			textColor : 'black'
+	        			})
+	        		}
+	        		/*console.log(events);*/
+	        		successCallback(events);
+	        		
+	        	},
+	        	error: function(e){
+	        		alert("요청 실패");
+	        	}
+	        })
+	     },
         
-        
-        events: function(info, successCallback, failureCallback),
-        
-        
-        // 날짜 클릭 시 리스트 출력
-		dateClick: function (info) {
-		   $('#nows').html(info.dateStr);
-		   $('#nows').html = "";
-		}
+	     // 날짜 클릭 시 리스트 출력
+	     eventClick: function(date, allDay, jsEvent, view){
+	    	 $.ajax({
+	    		 url:'calendarDB.com',
+		        	type: 'post',
+		        	dataType: 'json',
+		        	data: {'u_id':data},
+		        	success: function(res){
+		        		console.log(res);
+		        		console.log(res.sac[0].sac_img_link);
+		        		
+		        		for(var i = 0; i < res.sac.length; i++){
+			        		$('#nows').append(`
+<<<<<<< HEAD
+			        				<div value="차량, 사람 전체 태그">
+			        					<div value="차량 알림 태그">
+					        				<div><img src="showImage.com?fileName=\${res.sac[i].sac_img_link}"></div>
+					        				<div>차량침입</div>
+					        				<div>차량번호 : \${res.sac[i].car_num}</div>
+					        				<div>침입시간 : \${res.sac[i].sac_in_at}</div>
+				        				</div>
+=======
+			        				<div>
+			        				<div><img src="showImage.com?fileName=\${res.sac[i].sac_img_link}" width="230px" height="150px"></div>
+			        				<div>차량침입</div>
+			        				<div>차량번호 : \${res.sac[i].car_num}</div>
+			        				<div>침입시간 : \${res.sac[i].sac_in_at}</div>
+			        				</div>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/MDS.git
+			        				`);
+		        		}
+		        		
+		        		for(var i = 0; i< res.sah.length; i++){
+		        			$('#nows').append(`
+<<<<<<< HEAD
+		        						<div value="사람 알림 태그">
+					        				<div><img src="showImage.com?fileName=\${res.sah[i].sah_img_link}"></div>
+					        				<div>사람침입</div>
+					        				<div>\${res.sah[i].sah_in_count}명 침입</div>
+					        				<div>침입시간 : \${res.sah[i].sah_in_at}</div>
+			        					</div>
+=======
+			        				<div>
+			        				<div><img src="showImage.com?fileName=\${res.sah[i].sah_img_link}" width="230px" height="150px"></div>
+			        				<div>사람침입</div>
+			        				<div>\${res.sah[i].sah_in_count}명 침입</div>
+			        				<div>침입시간 : \${res.sah[i].sah_in_at}</div>
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/MDS.git
+			        				</div>
+			        				`);
+		        		}
+		        		
+		        		$('#nows').append(`
+		        				<button onclick="$('#nows').hide()">
+		        				`);
+		        		
+		        	}
+	    	 })
+	     },
+	     
+	    /*dateClick: function(res){
+	    	console.logr(res));
+	    }*/
+	     
     });
     
-    
-
     calendar.render();
 	</script>
 
