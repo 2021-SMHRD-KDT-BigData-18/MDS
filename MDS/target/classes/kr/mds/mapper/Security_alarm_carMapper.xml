@@ -4,7 +4,7 @@
 	
 	<!-- 출입기록 리스트 조회 -->
 	<select id="entryLogList" resultType="kr.mds.entity.tb_Security_alarm_car">
-		select car_num, car_inout_at, sac_img_link, car 
+		select car_num, car_inout_at, sac_img_link 
 		  from tb_security_alarm_car 
 		 where u_id = #{u_id}
 	</select>

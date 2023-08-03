@@ -87,6 +87,11 @@
 							<div class="sb-sidenav-collapse-arrow">
 								<i class="fas fa-angle-down"></i>
 							</div>
+							<div class="collapse show", id="collapsePages">
+								<nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages"></nav>
+								<div class="nav-link collapsed">출입</div>
+								<div class="nav-link collapsed">침입</div>
+							</div>
 						</div>
 						<div class="sb-sidenav-menu-heading">정보수정</div>
 						<div id="radio-4" class="nav-link" href="tables.html">
@@ -315,14 +320,7 @@
         
         
         
-        events: [
-        	{
-        		id:1,
-        		title: 'test1',
-        		start:'2019-08-22',
-        		end: '2019-08-24'
-        	}
-        ],
+        events: function(info, successCallback, failureCallback),
         
         
         // 날짜 클릭 시 리스트 출력

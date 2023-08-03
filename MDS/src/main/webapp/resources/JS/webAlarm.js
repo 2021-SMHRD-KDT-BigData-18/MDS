@@ -44,7 +44,7 @@ const modr = document.getElementById('modr');
 					for(let i = 0; i < result[1].length; i++){
 						result[1][i].sac_num = BigInt(result[1][i].sac_num);
 						$('#webAlarm_content').append(
-								`<p>${(result[1][i]).car_num}가 ${(result[1][i]).sac_at}에 ${(result[1][i]).sac_content}</p>
+								`<p>${(result[1][i]).car_num}가 ${(result[1][i]).sac_in_at}에 ${(result[1][i]).sac_content}</p>
 								 `)
 								
 								
@@ -66,8 +66,8 @@ const modr = document.getElementById('modr');
 					for(let i = 0; i < result[0].length; i++){
 						result[0][i].sah_num = BigInt(result[0][i].sah_num);
 						$('#webAlarm_content').append(
-								`<p>${(result[0][i]).sah_total}명이
-								 ${(result[0][i]).sah_at}에
+								`<p>${(result[0][i]).sah_in_count}명이
+								 ${(result[0][i]).sah_in_at}에
 								 ${(result[0][i]).sah_content}</p>
 								`)
 								
