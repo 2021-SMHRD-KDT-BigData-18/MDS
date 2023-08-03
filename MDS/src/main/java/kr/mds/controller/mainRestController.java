@@ -14,6 +14,7 @@ import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
@@ -125,22 +126,28 @@ public class mainRestController {
 	
 	
 	// 캘린더 DB연동
-	@PostMapping("/calendarDB.com")
-	public String calendarDB(@RequestParam("u_id") String u_id, HttpServletResponse response) {
+	@GetMapping("/calendarDB.com")
+	public ResponseEntity<String> calendarDB(@RequestParam("u_id") String u_id, HttpServletResponse response) {
+		response.setCharacterEncoding("UTF-8");
+		
 		Map<String, List<?>> result = new HashMap<>();
 		
-		System.out.println(u_id);
+//		System.out.println(u_id);
 		List<tb_Security_alarm_human> sah = sahmapper.calendarSah(u_id);
 		result.put("sah", sah);
 		List<tb_Security_alarm_car> sac = sacmapper.calendarSac(u_id);
 		result.put("sac", sac);
-		System.out.println(result);
+//		System.out.println(result);
 		
 		// List 배열을 json으로 데이터변환
 		String json = new Gson().toJson(result);
 		System.out.println(json);
 		
-		return json;
+		HttpHeaders headers = new HttpHeaders();
+	    headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
+
+	    return new ResponseEntity<>(json, headers, HttpStatus.OK);
+
 	}	
 	
 	

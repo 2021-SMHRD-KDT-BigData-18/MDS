@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
+<meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport"
    content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -323,13 +323,14 @@
          
            $.ajax({
               url:'calendarDB.com',
-              type: 'post',
+              type: 'get',
               dataType: 'json',
+              contentType: "application/json;charset=UTF-8",
               data: {'u_id':data},
               success: function(res){
-                 /*console.log(res);
+                 console.log(res);
                  console.log((res.sac[0].car_num));
-                 console.log(res.sac[0].sac_in_at);
+                 /*console.log(res.sac[0].sac_in_at);
                  console.log(typeof(res.sac[0].sac_in_at));
                  console.log((res.sac[0].sac_in_at).substring(0,10));*/
                 
@@ -375,8 +376,9 @@
            
            $.ajax({
               url:'calendarDB.com',
-                 type: 'post',
+                 type: 'get',
                  dataType: 'json',
+                 contentType: "application/json; charset=UTF-8",
                  data: {'u_id':data},
                  success: function(res){
                     /*console.log(res);
