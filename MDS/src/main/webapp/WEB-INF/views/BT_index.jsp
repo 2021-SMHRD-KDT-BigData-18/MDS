@@ -414,6 +414,13 @@
 				        				`);
 		        			}
 		        		}
+		        		
+		        		$('#nows').append(`
+		        				<button id="epqlfBtn" onclick="$('.epqlf').hide();">
+		        				`);
+		        		$('#epqlfBtn').click(function(){
+		        			$('#epqlfBtn').remove();
+		        		})
 		        	}
 	    	 })
 	     },
