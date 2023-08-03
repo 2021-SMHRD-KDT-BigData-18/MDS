@@ -11216,3 +11216,23 @@ footer{
 .calendar_page{
 	display: flex;
 }
+
+.epqlf {
+	padding: 20px;
+	display: flex;
+	margin-bottom: 20px;
+}
+
+.tkdcn {
+	margin-left: 15px;
+}
+
+/* 메인 컨텐츠 부분 화면 CSS */
+main {
+	margin-top: 60px;
+}
+
+.date {
+	margin-left: 50px;
+}
+
