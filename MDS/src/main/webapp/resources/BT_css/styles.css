@@ -11211,3 +11211,8 @@ footer{
 .header {
 	
 }
+
+/* 캘린더 페이지 CSS */
+.calendar_page{
+	display: flex;
+}
