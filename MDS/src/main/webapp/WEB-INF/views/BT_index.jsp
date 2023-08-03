@@ -334,6 +334,7 @@
 	        		console.log((res.sac[0].sac_in_at).substring(0,10));*/
 	    			
 	        		var events = [];
+	        		
 	        		for(var i = 0; i < (res.sac).length; i++){
 		        		res.sac[i].sac_in_at = (res.sac[i].sac_in_at).substring(0,10);
 		        		
@@ -355,8 +356,12 @@
 		        			color : "#FFFF00",
 		        			textColor : 'black'
 	        			})
+	        			
 	        		}
-	        		/*console.log(events);*/
+	        		/*console.log(events);
+	        		console.log(events[0].start);
+	        		console.log(res.sac[0].sac_in_at);*/
+	        		
 	        		successCallback(events);
 	        		
 	        	},
@@ -367,61 +372,53 @@
 	     },
         
 	     // 날짜 클릭 시 리스트 출력
-	     eventClick: function(date, allDay, jsEvent, view){
+	     eventClick: function(date, calEvent, jsEvent, view){
+	    	 /*console.log(date);*/
+	    	 /*console.log(date.event._instance.range.start);*/
+	    	 /*const today = date.event._instance.range.start;*/
+	    	 /*console.log(today.toISOString().slice(0, 10));*/
+	    	 
 	    	 $.ajax({
 	    		 url:'calendarDB.com',
 		        	type: 'post',
 		        	dataType: 'json',
 		        	data: {'u_id':data},
 		        	success: function(res){
-		        		console.log(res);
-		        		console.log(res.sac[0].sac_img_link);
+		        		/*console.log(res);
+		        		console.log(res.sac[0].sac_img_link);*/
+				    	const today = date.event._instance.range.start.toISOString().slice(0, 10);
+		        		/*console.log(today);
+		        		console.log(res.sac[0].sac_in_at.substring(0,10));*/
 		        		
 		        		for(var i = 0; i < res.sac.length; i++){
-			        		$('#nows').append(`
-<<<<<<< HEAD
-			        				<div value="차량, 사람 전체 태그">
-			        					<div value="차량 알림 태그">
-					        				<div><img src="showImage.com?fileName=\${res.sac[i].sac_img_link}"></div>
-					        				<div>차량침입</div>
-					        				<div>차량번호 : \${res.sac[i].car_num}</div>
-					        				<div>침입시간 : \${res.sac[i].sac_in_at}</div>
+		        			if(res.sac[i].sac_in_at.substring(0,10) == today){
+				        		$('#nows').append(`
+				        				<div>
+				        				<div><img src="showImage.com?fileName=\${res.sac[i].sac_img_link}" width="230px" height="150px"></div>
+				        				<div>차량침입</div>
+				        				<div>차량번호 : \${res.sac[i].car_num}</div>
+				        				<div>침입시간 : \${res.sac[i].sac_in_at}</div>
 				        				</div>
-=======
-			        				<div>
-			        				<div><img src="showImage.com?fileName=\${res.sac[i].sac_img_link}" width="230px" height="150px"></div>
-			        				<div>차량침입</div>
-			        				<div>차량번호 : \${res.sac[i].car_num}</div>
-			        				<div>침입시간 : \${res.sac[i].sac_in_at}</div>
-			        				</div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/MDS.git
-			        				`);
+				        				`);
+		        			}
 		        		}
 		        		
 		        		for(var i = 0; i< res.sah.length; i++){
-		        			$('#nows').append(`
-<<<<<<< HEAD
-		        						<div value="사람 알림 태그">
-					        				<div><img src="showImage.com?fileName=\${res.sah[i].sah_img_link}"></div>
-					        				<div>사람침입</div>
-					        				<div>\${res.sah[i].sah_in_count}명 침입</div>
-					        				<div>침입시간 : \${res.sah[i].sah_in_at}</div>
-			        					</div>
-=======
-			        				<div>
-			        				<div><img src="showImage.com?fileName=\${res.sah[i].sah_img_link}" width="230px" height="150px"></div>
-			        				<div>사람침입</div>
-			        				<div>\${res.sah[i].sah_in_count}명 침입</div>
-			        				<div>침입시간 : \${res.sah[i].sah_in_at}</div>
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-BigData-18/MDS.git
-			        				</div>
-			        				`);
+		        			if(res.sah[i].sah_in_at.substring(0,10) == today){
+			        			$('#nows').append(`
+				        				<div>
+				        				<div><img src="showImage.com?fileName=\${res.sah[i].sah_img_link}" width="230px" height="150px"></div>
+				        				<div>사람침입</div>
+				        				<div>\${res.sah[i].sah_in_count}명 침입</div>
+				        				<div>침입시간 : \${res.sah[i].sah_in_at}</div>
+				        				</div>
+				        				`);
+		        			}
 		        		}
 		        		
 		        		$('#nows').append(`
 		        				<button onclick="$('#nows').hide()">
 		        				`);
-		        		
 		        	}
 	    	 })
 	     },
