@@ -59,7 +59,7 @@ $(function(){
 				}
 				sah_entrance_time.push(res.sah[i].sah_out_at);
 
-				for(var j = 0; j < res.sah.length; j++){
+				for(var j = 0; j < labels.length; j++){
 					if(sah_intrusion_time == labels[j]){
 						sah_intrusion_count.push(res.sah[i].sah_in_count);
 						sah_entrance_count.push(res.sah[i].sah_out_count);
