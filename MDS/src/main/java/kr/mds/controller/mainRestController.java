@@ -148,6 +148,21 @@ public class mainRestController {
 
 	}	
 	
+	// 그래프 연동
+	@PostMapping("/graph.com")
+	public String graph(@RequestParam("u_id") String u_id) {
+		Map<String, List<?>> result = new HashMap<>();
+		List<tb_Security_alarm_car> sac = sacmapper.calendarSac(u_id);
+		result.put("sac", sac);
+		List<tb_Security_alarm_human> sah = sahmapper.calendarSah(u_id);
+		result.put("sah", sah);
+		
+		// List 배열을 json으로 데이터변환
+		String json = new Gson().toJson(result);
+		System.out.println(json);
+		
+		return json;
+	}
 	
 	
 	

@@ -365,8 +365,8 @@
               contentType: "application/json;charset=UTF-8",
               data: {'u_id':data},
               success: function(res){
-                 console.log(res);
-                 console.log((res.sac[0].car_num));
+                 /*console.log(res);
+                 console.log((res.sac[0].car_num));*/
                  /*console.log(res.sac[0].sac_in_at);
                  console.log(typeof(res.sac[0].sac_in_at));
                  console.log((res.sac[0].sac_in_at).substring(0,10));*/

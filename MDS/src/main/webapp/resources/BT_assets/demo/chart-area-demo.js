@@ -33,11 +33,94 @@ function getChkbxVal(test) {
 };
 
 
+/*ajax*/
+$(function(){
+	$.ajax({
+		url : 'graph.com',
+		type : 'post',
+		data : {"u_id": data},
+		dataType : 'json',
+		success: function(res){
+			/*console.log(res);*/
+			/*console.log(res.sac[0].sac_in_count);
+			console.log(res.sac[0].sac_out_count);
+			console.log(res.sac[0].sac_in_at);*/
+			/*console.log(res.sac[0].sac_in_at.substring(10,13));*/
+			
+			let labels = ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"];
+			/*console.log(labels);*/
+			
+			/*침입 시간 -> in*/
+			let sac_intrusion_time = [];
+			let sah_intrusion_time = [];
+			/*출입 시간 -> out*/
+			let sac_entrance_time = [];
+			let sah_entrance_time = [];
+			
+			/*침입 카운트*/
+			let sac_intrusion_count = [];
+			let sah_intrusion_count = [];
+			/*출입 카운트*/
+			let sac_entrance_count = [];
+			let sah_entrance_count = [];
+			
+			for(var i = 0; i < res.sac.length; i++){
+				/*console.log(res.sac[i].sac_in_at.substring(11,13));*/
+				sac_intrusion_time.push(res.sac[i].sac_in_at.slice(11,13));
+				sac_entrance_time.push(res.sac[i].sac_out_at.slice(11,13));
+				/*console.log(sac_intrusion_time);*/
+				/*console.log(typeof(res.sac[i].sac_out_at.slice(11,13)));*/
+				
+				for(var j = 0; j < labels.length; j++){
+					if(sac_intrusion_time == labels[j]){
+						sac_intrusion_count.push(res.sac[i].sac_in_count);
+						sac_entrance_count.push(res.sac[i].sac_out_count);
+					}else{
+						sac_intrusion_count.push(0);
+						sac_entrance_count.push(0);
+					}
+
+				}
+			}
+			sac_intrusion_count = sac_intrusion_count.slice(0, 24);
+			sac_entrance_count = sac_entrance_count.slice(0, 24);
+			/*console.log(sac_intrusion_count);
+			console.log(sac_entrance_count);*/
+			
+			for(var i = 0; i < res.sah.length; i++){
+				sah_intrusion_time.push(res.sah[i].sah_in_at.slice(11,13));
+				if(res.sah[i].sah_out_at !==undefined && !isNaN(res.sah[i].sah_out_at)){
+					res.sah[i].sah_out_at = res.sah[i].sah_out_at.slice(11,13);
+				}
+				sah_entrance_time.push(res.sah[i].sah_out_at);
+
+				for(var j = 0; j < res.sah.length; j++){
+					if(sah_intrusion_time == labels[j]){
+						sah_intrusion_count.push(res.sah[i].sah_in_count);
+						sah_entrance_count.push(res.sah[i].sah_out_count);
+						console.log(sah_entrance_count);
+					}else{
+						sah_intrusion_count.push(0);
+						sah_entrance_count.push(0);
+					}
+				}
+			}
+			sah_intrusion_count = sah_intrusion_count.slice(0, 24);
+			sah_entrance_count = sah_entrance_count.slice(0, 24);
+			
+			AreaChart(labels, sac_intrusion_count, sac_entrance_count, sah_intrusion_count, sah_entrance_count);
+			
+		}
+	});
+})
+
+function AreaChart(labels, sac_intrusion_count, sac_entrance_count, sah_intrusion_count, sah_entrance_count){
+
 var ctx = document.getElementById("myAreaChart");
 var myLineChart = new Chart(ctx, {
 	type: 'line',
 	data: {
-		labels: ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"],
+		labels: labels,
 		datasets: [{
 			label: "출입:차량",
 			lineTension: 0.3,
@@ -50,7 +133,7 @@ var myLineChart = new Chart(ctx, {
 			pointHoverBackgroundColor: "rgba(201, 34, 28,1)",
 			pointHitRadius: 50,
 			pointBorderWidth: 2,
-			data: [],
+			data: sac_entrance_count,
 			pointStyle: true,
 			fill: true
 		},
@@ -66,7 +149,7 @@ var myLineChart = new Chart(ctx, {
 			pointHoverBackgroundColor: "rgba(247, 164, 20,1)",
 			pointHitRadius: 50,
 			pointBorderWidth: 2,
-			data: [],
+			data: sah_entrance_count,
 			pointStyle: true,
 			fill: true
 		},
@@ -82,7 +165,7 @@ var myLineChart = new Chart(ctx, {
 			pointHoverBackgroundColor: "rgba(247, 119, 20,1)",
 			pointHitRadius: 50,
 			pointBorderWidth: 2,
-			data: [],
+			data: sac_intrusion_count,
 			pointStyle: true,
 			fill: true
 		},
@@ -98,7 +181,7 @@ var myLineChart = new Chart(ctx, {
 			pointHoverBackgroundColor: "rgba(247, 164, 20,1)",
 			pointHitRadius: 50,
 			pointBorderWidth: 2,
-			data: [],
+			data: sah_intrusion_count,
 			pointStyle: true,
 			fill: true
 		}],
@@ -113,14 +196,14 @@ var myLineChart = new Chart(ctx, {
 					display: false
 				},
 				ticks: {
-					maxTicksLimit: 7
+					maxTicksLimit:24
 				}
 			}],
 			yAxes: [{
 				ticks: {
 					min: 0,
-					max: 40000,
-					maxTicksLimit: 5
+					max: 10,
+					maxTicksLimit: 5 //Axes에 출력할 숫자 5개로 제한
 				},
 				gridLines: {
 					color: "rgba(0, 0, 0, .125)",
@@ -135,21 +218,22 @@ var myLineChart = new Chart(ctx, {
 
 /* 전송받은 값 토대로 데이터 표시여부 설정 */
 $('.datachkbx').on('click', function() {
-	console.log("up!");
+	/*console.log("up!");*/
+	/*passing 출입*/
 	if(result.includes('passing')) {
 		if (result.includes('car') && !result.includes('human') && result.includes('passing')) {
-			myLineChart.data.datasets[0].data = [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451];
+			myLineChart.data.datasets[0].data = sac_entrance_count;
 			myLineChart.data.datasets[1].data = [];
 			myLineChart.data.datasets[2].data = [];
 			myLineChart.data.datasets[3].data = [];
 		} else if(!result.includes('car') && result.includes('human') && result.includes('passing')){
 			myLineChart.data.datasets[0].data = [];
-			myLineChart.data.datasets[1].data = [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451];
+			myLineChart.data.datasets[1].data = sah_entrance_count;
 			myLineChart.data.datasets[2].data = [];
 			myLineChart.data.datasets[3].data = [];
 		} else if(result.includes('car') && result.includes('human') && result.includes('passing')) {
-			myLineChart.data.datasets[0].data = [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451];
-			myLineChart.data.datasets[1].data = [5000, 30162, 13131, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451];
+			myLineChart.data.datasets[0].data = sac_entrance_count;
+			myLineChart.data.datasets[1].data = sah_entrance_count;
 			myLineChart.data.datasets[2].data = [];
 			myLineChart.data.datasets[3].data = [];
 		} else {
@@ -158,22 +242,23 @@ $('.datachkbx').on('click', function() {
 			myLineChart.data.datasets[2].data = [];
 			myLineChart.data.datasets[3].data = [];
 		};
+		/*intrude 침입*/
 	}else if(result.includes('intrude')){
 		if (result.includes('car') && !result.includes('human') && result.includes('intrude')) {
 			myLineChart.data.datasets[0].data = [];
 			myLineChart.data.datasets[1].data = [];
-			myLineChart.data.datasets[2].data = [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451];
+			myLineChart.data.datasets[2].data = sac_intrusion_count;
 			myLineChart.data.datasets[3].data = [];
 		} else if(!result.includes('car') && result.includes('human') && result.includes('intrude')){
 			myLineChart.data.datasets[0].data = [];
 			myLineChart.data.datasets[1].data = [];
 			myLineChart.data.datasets[2].data = [];
-			myLineChart.data.datasets[3].data = [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451];
+			myLineChart.data.datasets[3].data = sah_intrusion_count;
 		} else if(result.includes('car') && result.includes('human') && result.includes('intrude')) {
 			myLineChart.data.datasets[0].data = [];
 			myLineChart.data.datasets[1].data = [];
-			myLineChart.data.datasets[2].data = [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451];
-			myLineChart.data.datasets[3].data = [5000, 30162, 13131, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451];
+			myLineChart.data.datasets[2].data = sac_intrusion_count;
+			myLineChart.data.datasets[3].data = sah_intrusion_count;
 		} else {
 			myLineChart.data.datasets[0].data = [];
 			myLineChart.data.datasets[1].data = [];
@@ -183,3 +268,4 @@ $('.datachkbx').on('click', function() {
 	};
 	myLineChart.update();
 });
+}

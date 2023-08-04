@@ -33,13 +33,6 @@ const modr = document.getElementById('modr');
 				/*contentType : 'application/json',*/
 				success : function(result){
 				modr.style.display = 'none';
-					console.log(result);
-					/*console.log(result[0][0].sah_img_link);
-					console.log(result[1][0].sac_img_link);*/
-					/*console.log(BigInt(result[0][0].sah_num));
-					console.log(BigInt(result[1][0].sac_num));*/
-					/*console.log(result[1][1].sac_num);*/
-					/*console.log(result.length);*/
 					
 					for(let i = 0; i < result[1].length; i++){
 						result[1][i].sac_num = BigInt(result[1][i].sac_num);
