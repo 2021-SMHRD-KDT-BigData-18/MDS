@@ -1,18 +1,31 @@
-// Set new default font family and font color to mimic Bootstrap's default styling
-Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
-Chart.defaults.global.defaultFontColor = '#292b2c';
-
-// Bar Chart Example
 var ctx = document.getElementById("myBarChart");
-var myLineChart = new Chart(ctx, {
+var mySquareChart = new Chart(ctx, {
   type: 'bar',
   data: {
     labels: ["January", "February", "March", "April", "May", "June"],
     datasets: [{
       label: "Revenue",
-      backgroundColor: "rgba(2,117,216,1)",
-      borderColor: "rgba(2,117,216,1)",
-      data: [4215, 5312, 6251, 7841, 9821, 14984],
+      backgroundColor: "rgba(201, 34, 28,1)",
+      borderColor: "rgba(201, 34, 28,1)",
+      data: [],
+    },
+    {
+      label: "Revenue",
+      backgroundColor: "rgba(247, 164, 20,1)",
+      borderColor: "rgba(247, 164, 20,1)",
+      data: [],
+    },
+    {
+      label: "Revenue",
+      backgroundColor: "rgba(201, 34, 28,1)",
+      borderColor: "rgba(201, 34, 28,1)",
+      data: [],
+    },
+    {
+      label: "Revenue",
+      backgroundColor: "rgba(247, 164, 20,1)",
+      borderColor: "rgba(247, 164, 20,1)",
+      data: [],
     }],
   },
   options: {
@@ -43,4 +56,55 @@ var myLineChart = new Chart(ctx, {
       display: false
     }
   }
+});
+
+/* 전송받은 값 토대로 데이터 표시여부 설정 */
+$('.datachkbx').on('click', function() {
+	console.log("up!");
+	if(result.includes('passing')) {
+		if (result.includes('car') && !result.includes('human') && result.includes('passing')) {
+			mySquareChart.data.datasets[0].data = [1000, 2000, 3000, 8000, 12000, 14000];
+			mySquareChart.data.datasets[1].data = [];
+			mySquareChart.data.datasets[2].data = [];
+			mySquareChart.data.datasets[3].data = [];
+		} else if(!result.includes('car') && result.includes('human') && result.includes('passing')){
+			mySquareChart.data.datasets[0].data = [];
+			mySquareChart.data.datasets[1].data = [1000, 2000, 3000, 8000, 12000, 14000];
+			mySquareChart.data.datasets[2].data = [];
+			mySquareChart.data.datasets[3].data = [];
+		} else if(result.includes('car') && result.includes('human') && result.includes('passing')) {
+			mySquareChart.data.datasets[0].data = [14000, 12000, 8000, 3000, 2000, 1000];
+			mySquareChart.data.datasets[1].data = [1000, 2000, 3000, 8000, 12000, 14000];
+			mySquareChart.data.datasets[2].data = [];
+			mySquareChart.data.datasets[3].data = [];
+		} else {
+			mySquareChart.data.datasets[0].data = [];
+			mySquareChart.data.datasets[1].data = [];
+			mySquareChart.data.datasets[2].data = [];
+			mySquareChart.data.datasets[3].data = [];
+		};
+	}else if(result.includes('intrude')){
+		if (result.includes('car') && !result.includes('human') && result.includes('intrude')) {
+			mySquareChart.data.datasets[0].data = [];
+			mySquareChart.data.datasets[1].data = [];
+			mySquareChart.data.datasets[2].data = [1000, 2000, 3000, 8000, 12000, 14000];
+			mySquareChart.data.datasets[3].data = [];
+		} else if(!result.includes('car') && result.includes('human') && result.includes('intrude')){
+			mySquareChart.data.datasets[0].data = [];
+			mySquareChart.data.datasets[1].data = [];
+			mySquareChart.data.datasets[2].data = [];
+			mySquareChart.data.datasets[3].data = [1000, 2000, 3000, 8000, 12000, 14000];
+		} else if(result.includes('car') && result.includes('human') && result.includes('intrude')) {
+			mySquareChart.data.datasets[0].data = [];
+			mySquareChart.data.datasets[1].data = [];
+			mySquareChart.data.datasets[2].data = [14000, 12000, 8000, 3000, 2000, 1000];
+			mySquareChart.data.datasets[3].data = [1000, 2000, 3000, 8000, 12000, 14000];
+		} else {
+			mySquareChart.data.datasets[0].data = [];
+			mySquareChart.data.datasets[1].data = [];
+			mySquareChart.data.datasets[2].data = [];
+			mySquareChart.data.datasets[3].data = [];
+		};
+	};
+	mySquareChart.update();
 });
