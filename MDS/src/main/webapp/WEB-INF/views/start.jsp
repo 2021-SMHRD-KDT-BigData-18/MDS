@@ -49,7 +49,7 @@
 					<div class="id_wrap">
 						<div class="id_name">아이디</div>
 						<div class="id_input_box">
-							<input class="id_input" type="text" name="u_id">
+							<input class="id_input" type="text" name="u_id" id="flask_id">
 						</div>
 					</div>
 					<div class="pw_wrap">
@@ -142,7 +142,17 @@
 	<script src="resources/JS/cctv.js"></script>
 	<script
 		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-
+	<script>
+   function flaskConnect(){
+	   var flask_id = "${result.u_id}";
+	   
+		$.ajax({
+				url : 'http://127.0.0.1:9000/getID',
+				type : 'post',
+				data : {"u_id": flask_id}
+			})
+   }
+	</script>
 
 </body>
 </html>

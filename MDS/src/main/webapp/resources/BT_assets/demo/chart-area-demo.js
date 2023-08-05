@@ -98,7 +98,7 @@ $(function(){
 					if(sah_intrusion_time == labels[j]){
 						sah_intrusion_count.push(res.sah[i].sah_in_count);
 						sah_entrance_count.push(res.sah[i].sah_out_count);
-						console.log(sah_entrance_count);
+						/*console.log(sah_entrance_count);*/
 					}else{
 						sah_intrusion_count.push(0);
 						sah_entrance_count.push(0);

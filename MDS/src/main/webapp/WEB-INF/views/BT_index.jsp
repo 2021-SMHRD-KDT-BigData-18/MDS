@@ -40,10 +40,12 @@
             </div>
             <div class="col-6 d-flex justify-content-end">
                 <div class="header">
+                <!-- 
                     <button type="button" class="icon-button" id="icon-button">
                         <img src="resources/images/bell.svg" alt="알림" name="bell"> 
                         <span class="glider" id="countAlarm"></span> 
                         <span class="notification"></span>
+                 -->
                     </button>
                     <a href="logout.com">로그아웃</a>
                 </div>
@@ -126,8 +128,16 @@
             <div class="videoPlayer" id="page1-content">
                <c:choose>
                   <c:when test="${result.u_id eq list.u_id && result ne null}">
-                     <video autoplay="true" id="videoElement"></video>
-                     <canvas class="canvas" id="mirrored"></canvas>
+                     <div>
+                     	<div value="1번 카메라">
+                     		<div>1번 카메라 멘트</div>
+                     		<div id="countList">카운트 정보</div>
+                     	</div>
+                     	<div value="2번 카메라">
+                     		<div>2번 카메라 멘트</div>
+                     		<div id="intrusionList">침입정보</div>
+                     	</div>
+                     </div>
                   </c:when>
                </c:choose>
             </div>

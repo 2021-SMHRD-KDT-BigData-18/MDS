@@ -30,7 +30,7 @@ $(function(){
 			let sah_entrance_count = [];
 			
 			for(var i = 0; i < res.sac.length; i++){
-				console.log(res.sac[i].sac_in_at.substring(5,7));
+				/*console.log(res.sac[i].sac_in_at.substring(5,7));*/
 				sac_intrusion_time.push(res.sac[i].sac_in_at.slice(5,7));
 				sac_entrance_time.push(res.sac[i].sac_out_at.slice(5,7));
 				/*console.log(sac_intrusion_time);*/
@@ -63,7 +63,7 @@ $(function(){
 					if(sah_intrusion_time == labels[j]){
 						sah_intrusion_count.push(res.sah[i].sah_in_count);
 						sah_entrance_count.push(res.sah[i].sah_out_count);
-						console.log(sah_entrance_count);
+						/*console.log(sah_entrance_count);*/
 					}else{
 						sah_intrusion_count.push(0);
 						sah_entrance_count.push(0);

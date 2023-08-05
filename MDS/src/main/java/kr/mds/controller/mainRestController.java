@@ -139,7 +139,7 @@ public class mainRestController {
 		
 		// List 배열을 json으로 데이터변환
 		String json = new Gson().toJson(result);
-		System.out.println(json);
+//		System.out.println(json);
 		
 		HttpHeaders headers = new HttpHeaders();
 	    headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
@@ -159,11 +159,18 @@ public class mainRestController {
 		
 		// List 배열을 json으로 데이터변환
 		String json = new Gson().toJson(result);
-		System.out.println(json);
+//		System.out.println(json);
 		
 		return json;
 	}
 	
-	
+	// 동영상 스트리밍
+	@RequestMapping("/videoStreaming")
+	public ResponseEntity<?> videoStreaming() throws Exception{
+		HashMap<String, String> videourl = new HashMap();
+		videourl.put("url", "video1.mp4");
+		
+		return new ResponseEntity<HashMap<String, String>>(videourl, HttpStatus.OK);
+	}
 	
 }

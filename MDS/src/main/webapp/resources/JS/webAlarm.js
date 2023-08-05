@@ -1,6 +1,49 @@
 /**
  * 
  */
+ 
+/*메인페이지 침입, 카운트 수 출력*/
+
+	/*console.log(data);*/
+	$.ajax({
+		type:'post',
+		url : 'http://127.0.0.1:9000/connectMain',
+		data : {'login_id': data},
+		dataType : 'json',
+		success: function(res){
+			console.log(res[0][0].sac_out_at);
+			for(var i = 0; i < res.length; i++){
+				$('#countList').append(`
+					<div>
+						<div><img src="showImage.com?fileName=${res[i][i].sac_img_link}"></div>
+						<div>${res[i][i].car_num}<div>
+						<div>${res[i][i].sac_out_count}</div>
+						<div>${res[i][i].sac_out_at}</div>
+					<div>
+					<div>
+						<div><img src="showImage.com?fileName=${res[i][i].sah_img_link}"></div>
+						<div>${res[i][i].sah_out_count}</div>
+						<div>${res[i][i].sah_out_at}</div>
+					</div>
+				`);
+				
+				$('#intrusionList').append(`
+					<div>
+						<div><img src="showImage.com?fileName=${res[i][i].sac_img_link}"></div>
+						<div>${res[i][i].car_num}<div>
+						<div>${res[i][i].sac_out_count}</div>
+						<div>${res[i][i].sac_out_at}</div>
+					<div>
+					<div>
+						<div><img src="showImage.com?fileName=${res[i][i].sah_img_link}"></div>
+						<div>${res[i][i].sah_out_count}</div>
+						<div>${res[i][i].sah_out_at}</div>
+					</div>
+				`);
+			}
+		}
+	})
+ 
 const modr = document.getElementById('modr');
 /* 알림 개수 카운트 */
 		$.ajax({
