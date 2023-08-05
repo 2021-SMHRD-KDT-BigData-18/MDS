@@ -10627,14 +10627,16 @@ body {
 }
 .sb-nav-fixed .sb-topnav {
   z-index: 1039;
+  height: 78px;
 }
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav {
   width: 225px;
   height: 100vh;
   z-index: 1038;
+  height: 100vh;
 }
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav {
-  padding-top: 56px;
+  padding-top: 65px;
 }
 .sb-nav-fixed #layoutSidenav #layoutSidenav_nav .sb-sidenav .sb-sidenav-menu {
   overflow-y: auto;
@@ -10704,7 +10706,7 @@ body {
 }
 .sb-sidenav .sb-sidenav-menu .nav .nav-link {
   display: flex;
-  align-items: center;
+  align-items: start;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   position: relative;
@@ -11068,7 +11070,7 @@ footer{
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 60px; /* footer의 높이를 지정 (footer의 높이를 변경하려면 여기 값을 조정하세요) */
+    height: 66px; /* footer의 높이를 지정 (footer의 높이를 변경하려면 여기 값을 조정하세요) */
     background-color: #f8f9fa; /* footer 배경색 설정 (원하는 색상으로 변경 가능) */
     display: flex;
     justify-content: center;
@@ -11350,3 +11352,88 @@ main {
     transition: .375s ease;
     text-align: center;
 }
+
+/* bieberhouse css*/
+.outerhouse {
+	display: flex;
+	flex-direction: column;
+}
+.bieber_ment {
+	align-self: center;
+	text-align-last: center; 
+}
+.bieber_ment img {
+	width:25%;
+}
+.bieber_camera {
+	display: flex;
+	flex-direction: row;
+	margin-left: 42px;
+	margin-bottom: 45px;
+}
+
+.bieber_list {
+    background-color: #e9e9e9;
+    border-radius: 10px;
+    padding: 31px;
+    width: 85vw;
+    margin-right: 10rem;
+    height: 37.25vh;
+    margin-left: 50px;
+    overflow: auto;
+}
+
+.bieberhouse {
+	display: flex;
+	flex-direction: column;
+}
+
+.bieberhouse img {
+	width: 200px;
+	height: 200px;
+	opacity: 1 !important;
+}
+
+.bieberhouse > div {
+	box-sizing: content-box;
+}
+
+.bieber_content {
+	float: right;
+}
+
+.bieber_card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  margin-left: 10px;
+}
+
+/* red-light svg 깜빡깜빡 */
+@keyframes flicker {
+    0%, 100% {
+      opacity: 0.7;
+    }
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .red-light {
+    fill: red;
+    animation: flicker 1s infinite;
+  }	
+  
+  #siren1 {
+  	position: absolute;
+  	top: 115px;
+  	right: 80rem;
+  }
+  
+  #siren2 {
+  	position: absolute;
+  	top: 44.5rem;
+  	right: 116rem;
+  }
