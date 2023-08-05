@@ -126,9 +126,10 @@ var mySquareChart = new Chart(ctx, {
       }],
       yAxes: [{
         ticks: {
-          min: 0,
+          beginAtZero: true,
           max: 10,
-          maxTicksLimit: 5
+          stepSize: 2,
+          maxTicksLimit: 6 
         },
         gridLines: {
           display: true

@@ -128,14 +128,31 @@
             <div class="videoPlayer" id="page1-content">
                <c:choose>
                   <c:when test="${result.u_id eq list.u_id && result ne null}">
-                     <div>
-                     	<div value="1번 카메라">
-                     		<div>1번 카메라 멘트</div>
-                     		<div id="countList">카운트 정보</div>
+                     <div class=outerHouse>
+                     	<div class="bieber_camera" value="1번 카메라" >
+                     		<div class="bieber_ment">
+                     			<img alt="체포하겠어!" src="resources/images/siren.png">
+								<div>
+									<svg id="siren1" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+									  <circle class="red-light" cx="50" cy="50" r="20" />
+									</svg><br>
+	                     			<h4>1번 카메라에서 감시모델이 작동중입니다.</h4>
+								</div>
+                     		</div>
+                     		<div class="bieber_list" id="countList">카운트 정보
+                     		</div>
                      	</div>
-                     	<div value="2번 카메라">
-                     		<div>2번 카메라 멘트</div>
-                     		<div id="intrusionList">침입정보</div>
+                     	<div class="bieber_camera" value="2번 카메라">
+                     		<div class="bieber_ment">
+	                     		<img alt="체포하겠어!" src="resources/images/siren.png">
+									<div>
+										<svg id="siren2" width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+										  <circle class="red-light" cx="50" cy="50" r="20" />
+										</svg><br>
+		                     			<h4>2번 카메라에서 감시모델이 작동중입니다.</h4>
+									</div>
+	                     		</div>
+                     		<div class="bieber_list" id="intrusionList">침입정보</div>
                      	</div>
                      </div>
                   </c:when>
@@ -191,7 +208,7 @@
                   <div class="col-xl-6">
                      <div class="card mb-4">
                         <div class="card-header">
-                           <i class="fas fa-chart-area me-1"></i> Area Chart Example
+                           <i class="fas fa-chart-area me-1"></i> 시간대별 차트
                         </div>
                         <div class="card-body">
                            <canvas id="myAreaChart" width="100%" height="40"></canvas>
@@ -201,7 +218,7 @@
                   <div class="col-xl-6">
                      <div class="card mb-4">
                         <div class="card-header">
-                           <i class="fas fa-chart-bar me-1"></i> Bar Chart Example
+                           <i class="fas fa-chart-bar me-1"></i> 월별 차트
                         </div>
                         <div class="card-body">
                            <canvas id="myBarChart" width="100%" height="40"></canvas>

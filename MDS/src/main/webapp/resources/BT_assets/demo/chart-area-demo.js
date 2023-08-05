@@ -201,9 +201,10 @@ var myLineChart = new Chart(ctx, {
 			}],
 			yAxes: [{
 				ticks: {
-					min: 0,
-					max: 10,
-					maxTicksLimit: 5 //Axes에 출력할 숫자 5개로 제한
+		          beginAtZero: true,
+		          max: 10,
+		          stepSize: 2,
+		          maxTicksLimit: 6
 				},
 				gridLines: {
 					color: "rgba(0, 0, 0, .125)",

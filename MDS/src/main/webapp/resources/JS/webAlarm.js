@@ -14,31 +14,50 @@
 			console.log(res[0][0].sac_out_at);
 			for(var i = 0; i < res.length; i++){
 				$('#countList').append(`
-					<div>
-						<div><img src="showImage.com?fileName=${res[i][i].sac_img_link}"></div>
-						<div>${res[i][i].car_num}<div>
-						<div>${res[i][i].sac_out_count}</div>
-						<div>${res[i][i].sac_out_at}</div>
-					<div>
-					<div>
-						<div><img src="showImage.com?fileName=${res[i][i].sah_img_link}"></div>
-						<div>${res[i][i].sah_out_count}</div>
-						<div>${res[i][i].sah_out_at}</div>
+				<div class="bieberhouse">
+					<div class="bieber_card">
+						<div>
+							<img src="showImage.com?fileName=${res[i][i].sac_img_link}">
+							<div class="bieber_content">
+								<ol>${res[i][i].car_num}</ol>
+								<ol>${res[i][i].sac_out_count}</ol>
+								<ol>${res[i][i].sac_out_at}</ol>
+							</div>
+						</div>
+					</div><br>
+					<div class="bieber_card">
+						<div>
+							<img src="showImage.com?fileName=${res[i][i].sah_img_link}">
+							<div class="bieber_content">
+								<ol>${res[i][i].sah_out_count}</ol>
+								<ol>${res[i][i].sah_out_at}</ol>
+							</div>
+						</div>
 					</div>
+				</div><br>
 				`);
 				
 				$('#intrusionList').append(`
-					<div>
-						<div><img src="showImage.com?fileName=${res[i][i].sac_img_link}"></div>
-						<div>${res[i][i].car_num}<div>
-						<div>${res[i][i].sac_out_count}</div>
-						<div>${res[i][i].sac_out_at}</div>
-					<div>
-					<div>
-						<div><img src="showImage.com?fileName=${res[i][i].sah_img_link}"></div>
-						<div>${res[i][i].sah_out_count}</div>
-						<div>${res[i][i].sah_out_at}</div>
-					</div>
+				<div class="bieberhouse">
+					<div class="bieber_card">
+						<div>
+							<img src="showImage.com?fileName=${res[i][i].sac_img_link}">
+							<div class="bieber_content">
+								<ol>${res[i][i].car_num}</ol>
+								<ol>${res[i][i].sac_out_count}</ol>
+								<ol>${res[i][i].sac_out_at}</ol>
+							</div>
+						</div>
+					</div><br>
+					<div class="bieber_card">
+						<div>
+							<img src="showImage.com?fileName=${res[i][i].sah_img_link}">
+							<div class="bieber_content">
+								<ol>${res[i][i].sah_out_count}</ol>
+								<ol>${res[i][i].sah_out_at}</ol>
+							</div>
+						</div>
+					</div></br>
 				`);
 			}
 		}
