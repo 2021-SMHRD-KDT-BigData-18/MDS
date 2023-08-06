@@ -448,7 +448,7 @@
                     console.log(res.sac[0].sac_in_at.substring(0,10));*/
                     
                     for(var i = 0; i < res.sac.length; i++){
-                       if(res.sac[i].sac_in_at.substring(0,10) == today){
+                       if(res.sac[i].sac_in_at.substring(0,10) == today && res.sac[i].sac_in_count != 0 && res.sac[i].sac_out_count != 0){
                     	   $('#epqlftkdcn').append(`
                             		<div class="epqlf">
                                   <div><img src="showImage.com?fileName=\${res.sac[i].sac_img_link}" width="230px" height="150px"></div>
@@ -463,7 +463,7 @@
                     }
                     
                     for(var i = 0; i< res.sah.length; i++){
-                       if(res.sah[i].sah_in_at.substring(0,10) == today){
+                       if(res.sah[i].sah_in_at.substring(0,10) == today && res.sah[i].sah_in_count != 0 && res.sah[i].sah_out_count != 0){
                     	   $('#epqlftkdcn').append(`
                       			  <div class="epqlf">
                                       <div><img src="showImage.com?fileName=\${res.sah[i].sah_img_link}" width="230px" height="150px"></div>
