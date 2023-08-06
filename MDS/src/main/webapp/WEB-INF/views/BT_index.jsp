@@ -139,7 +139,7 @@
 	                     			<h4>1번 카메라에서 감시모델이 작동중입니다.</h4>
 								</div>
                      		</div>
-                     		<div class="bieber_list" id="countList">카운트 정보
+                     		<div class="bieber_list" id="countList">출입 정보
                      		</div>
                      	</div>
                      	<div class="bieber_camera" value="2번 카메라">
@@ -454,7 +454,8 @@
                     for(var i = 0; i < res.sac.length; i++){
                        if(res.sac[i].sac_in_at.substring(0,10) == today){
                           $('#nows').append(`
-                                <div class="epqlf">
+                       		  <div class="epqlftkdcn">
+                          		<div class="epqlf">
                                 <div><img src="showImage.com?fileName=\${res.sac[i].sac_img_link}" width="230px" height="150px"></div>
                                 <div class="tkdcn">
                                 <div>차량침입</div>
@@ -462,6 +463,7 @@
                                 <div>침입시간 : \${res.sac[i].sac_in_at}</div>
                                 </div>
                                 </div>
+                               </div>
                                 `);
                        }
                     }
@@ -469,7 +471,8 @@
                     for(var i = 0; i< res.sah.length; i++){
                        if(res.sah[i].sah_in_at.substring(0,10) == today){
                           $('#nows').append(`
-                                <div class="epqlf">
+                      		  <div class="epqlftkdcn">
+                       			<div class="epqlf">
                                 <div><img src="showImage.com?fileName=\${res.sah[i].sah_img_link}" width="230px" height="150px"></div>
                                 <div class="tkdcn">
                                 <div>사람침입</div>
@@ -477,13 +480,14 @@
                                 <div>침입시간 : \${res.sah[i].sah_in_at}</div>
                                 </div>
                                 </div>
+                               </div>
                                 `);
                        }
                     }
                     
-                    $('#nows').append(`
-                          <button id="epqlfBtn" onclick="$('.epqlf').hide();">
-                          `);
+                    $('#page2-content').append(`
+                            <button id="epqlfBtn" onclick="$('.epqlf').hide();"style="width: 30px; height: 30px; position: fixed; border-radius: 8px; right: 50rem; bottom: 13rem; opacity: 0.5;border: solid 0.5px #e9e9e9;box-shadow: inset 0px 0px 4px 2px #c4c3c3b0;background-color: #fff;}">X</button>
+                            `);
                     $('#epqlfBtn').click(function(){
                        $('#epqlfBtn').remove();
                     })
