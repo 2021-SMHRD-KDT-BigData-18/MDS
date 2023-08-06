@@ -53,29 +53,33 @@ img {
 
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   height: 100vh;
 }
 
 .interface {
-  display: flex;
+  background: linear-gradient(to left, #ffff, #ffff,#ffff,#ffff, #ffffff, #ffffff,#ffffff,#ffffffde, transparent,transparent);
+  height: 100vh;
+  width: 48vw;
+  display: flex;	
   flex-direction: column;
-  align-items: center;
-}
-
-.logo_img {
-  margin-bottom: 20px;
-}
-
-.header {
-  display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.logo_img {
+  margin-bottom: 30px;
+}
+
+.header {
+	display: block;
+    margin-block: 3rem;
+    opacity: 0.8;
+}
+
 .header a {
-  margin: 0 5px;
+  margin: 0 20px;
 }
 
 .button {
@@ -273,4 +277,20 @@ body {
   50% {
     transform: translate3d(0,5px,0);
   }
+}
+
+/* 동영상 배경 */
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.bg-video__content {
+  height: 100%;
+  width: 70%;
+  object-fit: cover; 
 }
