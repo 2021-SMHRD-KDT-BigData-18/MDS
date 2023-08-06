@@ -23,4 +23,5 @@ public class tb_Security_alarm_human {
 	private int sah_out_count;
 	private String sah_in_at;
 	private String sah_out_at;
+	private String sah_img_link_two;
 }

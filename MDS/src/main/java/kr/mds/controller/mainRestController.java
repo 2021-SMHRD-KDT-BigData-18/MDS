@@ -88,6 +88,10 @@ public class mainRestController {
 			e.printStackTrace();
 		}
 		
+		System.out.println(fileName);
+		System.out.println(file);
+		System.out.println("이거 왜 값 안넘어오냐 망할");
+		
         //마지막에 http정의 해준 부분을 넣어줌
 		return result;
 	}

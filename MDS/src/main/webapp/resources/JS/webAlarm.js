@@ -11,70 +11,60 @@
 		data : {'login_id': data},
 		dataType : 'json',
 		success: function(res){
-			console.log(res[0][0].sac_out_at);
+			/*console.log(res[0][0].sac_out_count);*/
+			console.log(res[0][0].sac_img_link);
+			
 			for(var i = 0; i < res.length; i++){
+				if(res[i][i].sac_out_count !== 0 || res[i][i].sah_out_count !== 0){
 				$('#countList').append(`
 				<div class="bieberhouse">
 					<div class="bieber_card">
-						<c:choose>
 						<div>
-							<c:when test="${res[i][i].sac_out_count} > '0'">
 							<img src="showImage.com?fileName=${res[i][i].sac_img_link}">
 							<div class="bieber_content">
 								<ol>${res[i][i].car_num}</ol>
 								<ol>${res[i][i].sac_out_count}</ol>
 								<ol>${res[i][i].sac_out_at}</ol>
 							</div>
-							</c:when>
 						</div>
-						</c:choose>
 					</div><br>
 					<div class="bieber_card">
-					<c:choose>
 						<div>
-							<c:when test="${res[i][i].sah_out_count} > '0'">
 							<img src="showImage.com?fileName=${res[i][i].sah_img_link}">
 							<div class="bieber_content">
 								<ol>${res[i][i].sah_out_count}</ol>
 								<ol>${res[i][i].sah_out_at}</ol>
 							</div>
-							</c:when>
 						</div>
-					</c:choose>
 					</div>
 				</div><br>
 				`);
+				}
 				
+				if(res[i][i].sac_in_count !== 0 || res[i][i].sah_in_count !== 0){
 				$('#intrusionList').append(`
 				<div class="bieberhouse">
 					<div class="bieber_card">
-					<c:choose>
 						<div>
-							<c:when test="${res[i][i].sac_in_count} > '0'">
 							<img src="showImage.com?fileName=${res[i][i].sac_img_link}">
 							<div class="bieber_content">
 								<ol>${res[i][i].car_num}</ol>
 								<ol>${res[i][i].sac_in_count}</ol>
 								<ol>${res[i][i].sac_in_at}</ol>
 							</div>
-							</c:when>
 						</div>
-					</c:choose>
 					</div><br>
 					<div class="bieber_card">
-					<c:choose>
 						<div>
-							<c:when test="${res[i][i].sah_in_count} > '0'">
 							<img src="showImage.com?fileName=${res[i][i].sah_img_link}">
 							<div class="bieber_content">
 								<ol>${res[i][i].sah_in_count}</ol>
 								<ol>${res[i][i].sah_in_at}</ol>
 							</div>
-							</c:when>
 						</div>
-					</c:choose>
 					</div></br>
 				`);
+				}
 			}
 		}
 	})
