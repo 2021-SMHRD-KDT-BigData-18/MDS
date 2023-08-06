@@ -15,7 +15,7 @@
 			console.log(res[0][0].sac_img_link);
 			
 			for(var i = 0; i < res.length; i++){
-				if(res[i][i].sac_out_count !== 0 || res[i][i].sah_out_count !== 0){
+				if(res[i][i].sac_out_count !== 0){
 				$('#countList').append(`
 				<div class="bieberhouse">
 					<div class="bieber_card">
@@ -27,6 +27,11 @@
 							</div>
 						</div>
 					</div><br>
+				`);
+				}
+				
+				if(res[i][i].sah_out_count !== 0){
+				$('#countList').append(`
 					<div class="bieber_card">
 						<div>
 							<img src="showImage.com?fileName=${res[i][i].sah_img_link_two}">
@@ -37,10 +42,11 @@
 						</div>
 					</div>
 				</div><br>
+				
 				`);
 				}
 				
-				if(res[i][i].sac_in_count !== 0 || res[i][i].sah_in_count !== 0){
+				if(res[i][i].sac_in_count !== 0){
 				$('#intrusionList').append(`
 				<div class="bieberhouse">
 					<div class="bieber_card">
@@ -52,6 +58,11 @@
 							</div>
 						</div>
 					</div><br>
+				`);
+				}
+				
+				if(res[i][i].sah_in_count !== 0){
+				$('#intrusionList').append(`
 					<div class="bieber_card">
 						<div>
 							<img src="showImage.com?fileName=${res[i][i].sah_img_link}">
@@ -63,6 +74,7 @@
 					</div></br>
 				`);
 				}
+				
 			}
 		}
 	})
