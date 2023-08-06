@@ -11411,7 +11411,6 @@ main {
 }
 
 .bieber_list {
-    background-color: #e9e9e9;
     border-radius: 10px;
     padding: 31px;
     width: 85vw;
@@ -11419,6 +11418,14 @@ main {
     height: 37.25vh;
     margin-left: 50px;
     overflow: auto;
+
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, .25);
+    border-radius: 25px;
+    box-shadow: 0 6px 20px -15px #000;
+    border-width: 1px 1px 0 0;
+    border-color: #fff;
+    border-style: solid;
 }
 
 .bieberhouse {
@@ -11467,13 +11474,13 @@ main {
 #siren1 {
 	position: absolute;
 	top: 115px;
-	right: 80rem;
+	right: 78.5rem;
 }
 
 #siren2 {
 	position: absolute;
-	top: 44.5rem;
-	right: 116rem;
+    bottom: 20rem;
+    right: 78.5rem;
 }
 
 /* 차트 조회 페이지 */
