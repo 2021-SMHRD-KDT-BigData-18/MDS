@@ -20,7 +20,7 @@
 				<div class="bieberhouse">
 					<div class="bieber_card">
 						<div>
-							<img src="showImage.com?fileName=${res[i][i].sac_img_link}">
+							<img src="showImage.com?fileName=${res[i][i].sac_img_link_two}">
 							<div class="bieber_content">
 								<ol>${res[i][i].car_num}</ol>
 								<ol>${res[i][i].sac_out_count}</ol>
@@ -30,7 +30,7 @@
 					</div><br>
 					<div class="bieber_card">
 						<div>
-							<img src="showImage.com?fileName=${res[i][i].sah_img_link}">
+							<img src="showImage.com?fileName=${res[i][i].sah_img_link_two}">
 							<div class="bieber_content">
 								<ol>${res[i][i].sah_out_count}</ol>
 								<ol>${res[i][i].sah_out_at}</ol>
