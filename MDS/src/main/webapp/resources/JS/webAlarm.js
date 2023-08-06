@@ -22,9 +22,8 @@
 						<div>
 							<img src="showImage.com?fileName=${res[i][i].sac_img_link_two}">
 							<div class="bieber_content">
-								<ol>${res[i][i].car_num}</ol>
-								<ol>${res[i][i].sac_out_count}</ol>
-								<ol>${res[i][i].sac_out_at}</ol>
+								<ol>차번호 : ${res[i][i].car_num}</ol>
+								<ol>출입 시간 : ${res[i][i].sac_out_at}</ol>
 							</div>
 						</div>
 					</div><br>
@@ -32,8 +31,8 @@
 						<div>
 							<img src="showImage.com?fileName=${res[i][i].sah_img_link_two}">
 							<div class="bieber_content">
-								<ol>${res[i][i].sah_out_count}</ol>
-								<ol>${res[i][i].sah_out_at}</ol>
+								<ol>출입 인원 : ${res[i][i].sah_out_count}명</ol>
+								<ol>출입 시간 : ${res[i][i].sah_out_at}</ol>
 							</div>
 						</div>
 					</div>
@@ -48,9 +47,8 @@
 						<div>
 							<img src="showImage.com?fileName=${res[i][i].sac_img_link}">
 							<div class="bieber_content">
-								<ol>${res[i][i].car_num}</ol>
-								<ol>${res[i][i].sac_in_count}</ol>
-								<ol>${res[i][i].sac_in_at}</ol>
+								<ol>차번호 : ${res[i][i].car_num}</ol>
+								<ol>침입 시간 : ${res[i][i].sac_in_at}</ol>
 							</div>
 						</div>
 					</div><br>
@@ -58,8 +56,8 @@
 						<div>
 							<img src="showImage.com?fileName=${res[i][i].sah_img_link}">
 							<div class="bieber_content">
-								<ol>${res[i][i].sah_in_count}</ol>
-								<ol>${res[i][i].sah_in_at}</ol>
+								<ol>침입 수 : ${res[i][i].sah_in_count}명</ol>
+								<ol>침입 시간 : ${res[i][i].sah_in_at}</ol>
 							</div>
 						</div>
 					</div></br>
