@@ -65,7 +65,7 @@
                      <div class="sb-nav-link-icon">
                         <i class="fas fa-tachometer-alt"></i>
                      </div>
-                     실시간 영상
+                     실시간 알림
                   </div>
                   <div class="sb-sidenav-menu-heading">데이터</div>
                   <div id="radio-2" class="nav-link collapsed"
@@ -159,19 +159,31 @@
                </c:choose>
             </div>
 
-            <div class="calendar_page" id="page2-content" style="display: none;"
+             <div class="calendar_page" id="page2-content" style="display: none;"
                value="데이터조회">
-
-               <div id="calendar" class="calendar_size"></div>
-               <div class="date" id="nows"></div>
-
+               	<div id="calendar" class="calendar_size"></div>
+               	<div class="date" id="nows">
+	               	<div class="nowsTopBar"></div>
+	           		<div class="epqlftkdcn" id="epqlftkdcn"></div>
+               	</div>
             </div>
 
 
             <div class="analyze" id="page3-content" style="display: none;"
                value="데이터분석">
-				<div><p></div>
-					<fieldset class="checkbox-group">
+				<div class="chartDiv">
+                  <div class="hourlyChart" style="width: 95rem;">
+                     <div class="card mb-4">
+                        <div class="card-header">
+                           <i class="fas fa-chart-area me-1"></i> 시간대별 차트
+                        </div>
+                        <div class="card-body">
+                           <canvas id="myAreaChart" width="1450px" height="280" style="display:block"></canvas>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="monthlyChart">
+					<div class="checkbox-group" style="margin-top: 150px;">
 						<div class="checkbox">
 							<label class="checkbox-wrapper">
 								<input type="checkbox" id="data_car" class="datachkbx" type="checkbox" name="dataanalyze" value="car" onclick="getChkbxVal(this)"/> 
@@ -201,33 +213,17 @@
 								</span>
 							</label>
 						</div>
-					</fieldset>
-					<div>
 					</div>
-               <div class="row">
-                  <div class="col-xl-6">
-                     <div class="card mb-4">
-                        <div class="card-header">
-                           <i class="fas fa-chart-area me-1"></i> 시간대별 차트
-                        </div>
-                        <div class="card-body">
-                           <canvas id="myAreaChart" width="100%" height="40"></canvas>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-xl-6">
-                     <div class="card mb-4">
+                     <div class="card mb-4" style="width: 79rem;">
                         <div class="card-header">
                            <i class="fas fa-chart-bar me-1"></i> 월별 차트
                         </div>
                         <div class="card-body">
-                           <canvas id="myBarChart" width="100%" height="40"></canvas>
+                           <canvas id="myBarChart" width="1100px" height="350" style="display:block;"></canvas>
                         </div>
                      </div>
                   </div>
                </div>
-
-
 
             </div>
 
@@ -417,7 +413,7 @@
                        title : '사람침입 '+(res.sah[i].sah_in_at).substring(11, ),
                        start : (res.sah[i].sah_in_at).substring(0,10),
                        end : (res.sah[i].sah_in_at).substring(0,10),
-                       color : "#FFFF00",
+                       color : "rgba(255, 255, 0, 0.8)",
                        textColor : 'black'
                     })
                  }
@@ -453,40 +449,36 @@
                     
                     for(var i = 0; i < res.sac.length; i++){
                        if(res.sac[i].sac_in_at.substring(0,10) == today){
-                          $('#nows').append(`
-                       		  <div class="epqlftkdcn">
-                          		<div class="epqlf">
-                                <div><img src="showImage.com?fileName=\${res.sac[i].sac_img_link}" width="230px" height="150px"></div>
-                                <div class="tkdcn">
-                                <div>차량침입</div>
-                                <div>차량번호 : \${res.sac[i].car_num}</div>
-                                <div>침입시간 : \${res.sac[i].sac_in_at}</div>
-                                </div>
-                                </div>
-                               </div>
+                    	   $('#epqlftkdcn').append(`
+                            		<div class="epqlf">
+                                  <div><img src="showImage.com?fileName=\${res.sac[i].sac_img_link}" width="230px" height="150px"></div>
+                                  <div class="tkdcn">
+                                  <div>차량침입</div>
+                                  <div>차량번호 : \${res.sac[i].car_num}</div>
+                                  <div>침입시간 : \${res.sac[i].sac_in_at}</div>
+                                  </div>
+                                 </div>
                                 `);
                        }
                     }
                     
                     for(var i = 0; i< res.sah.length; i++){
                        if(res.sah[i].sah_in_at.substring(0,10) == today){
-                          $('#nows').append(`
-                      		  <div class="epqlftkdcn">
-                       			<div class="epqlf">
-                                <div><img src="showImage.com?fileName=\${res.sah[i].sah_img_link}" width="230px" height="150px"></div>
-                                <div class="tkdcn">
-                                <div>사람침입</div>
-                                <div>\${res.sah[i].sah_in_count}명 침입</div>
-                                <div>침입시간 : \${res.sah[i].sah_in_at}</div>
-                                </div>
-                                </div>
-                               </div>
+                    	   $('#epqlftkdcn').append(`
+                      			  <div class="epqlf">
+                                      <div><img src="showImage.com?fileName=\${res.sah[i].sah_img_link}" width="230px" height="150px"></div>
+                               		<div class="tkdcn">
+                                      <div>사람침입</div>
+                                      <div>\${res.sah[i].sah_in_count}명 침입</div>
+                                      <div>침입시간 : \${res.sah[i].sah_in_at}</div>
+                                      </div>
+                                     </div>
                                 `);
                        }
                     }
                     
                     $('#page2-content').append(`
-                            <button id="epqlfBtn" onclick="$('.epqlf').hide();"style="width: 30px; height: 30px; position: fixed; border-radius: 8px; right: 50rem; bottom: 13rem; opacity: 0.5;border: solid 0.5px #e9e9e9;box-shadow: inset 0px 0px 4px 2px #c4c3c3b0;background-color: #fff;}">X</button>
+                            <button id="epqlfBtn" onclick="$('.epqlf').hide();"style="width: 30px; height: 30px; position: fixed; border-radius: 8px; right: 14rem; top: 8rem; opacity: 0.3;border: solid 0.5px #e9e9e9;box-shadow: inset 0px 0px 4px 2px #c4c3c3b0;background-color: #fff;font-weight:bold;">X</button>
                             `);
                     $('#epqlfBtn').click(function(){
                        $('#epqlfBtn').remove();
@@ -502,6 +494,7 @@
     });
     
     calendar.render();
+    calendar.updateSize();
    </script>
 
 </body>

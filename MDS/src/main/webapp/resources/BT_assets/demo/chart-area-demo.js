@@ -187,6 +187,8 @@ var myLineChart = new Chart(ctx, {
 		}],
 	},
 	options: {
+		responsive: false, // 반응형 비활성화
+        maintainAspectRatio: false, // 종횡비 유지 비활성화
 		scales: {
 			xAxes: [{
 				time: {
@@ -202,8 +204,8 @@ var myLineChart = new Chart(ctx, {
 			yAxes: [{
 				ticks: {
 		          beginAtZero: true,
-		          max: 10,
-		          stepSize: 2,
+		          max: 5,
+		          stepSize: 1,
 		          maxTicksLimit: 6
 				},
 				gridLines: {
