@@ -14,8 +14,7 @@
 			/*console.log(res[0][0].sac_out_count);*/
 			console.log(res[0][0].sac_img_link);
 			
-			for(var i = 0; i < res.length; i++){
-				if(res[i][i].sac_out_count !== 0){
+			/*for(var i = 0; i < res.length; i++){
 				$('#countList').append(`
 				<div class="bieberhouse">
 					<div class="bieber_card">
@@ -28,13 +27,13 @@
 						</div>
 					</div><br>
 				`);
-				}
+				
 				
 				if(res[i][i].sah_out_count !== 0){
 				$('#countList').append(`
 					<div class="bieber_card">
 						<div>
-							<img src="showImage.com?fileName=${res[i][i].sah_img_link_two}">
+							<img src="showImage.com?fileName=${res[i][i].sah_img_link}">
 							<div class="bieber_content">
 								<ol>출입 인원 : ${res[i][i].sah_out_count}명</ol>
 								<ol>출입 시간 : ${res[i][i].sah_out_at}</ol>
@@ -75,7 +74,58 @@
 				`);
 				}
 				
-			}
+			}*/
+			
+			$('#countList').append(`
+				<div class="bieberhouse">
+					<div class="bieber_card">
+						<div>
+							<img src="showImage.com?fileName=C:/Users/smhrd/git/MDS/MDS/src/main/webapp/resources/alarmCapture_c1/car5.png">
+							<div class="bieber_content">
+								<ol>차번호 : 27허7862</ol>
+								<ol>출입 시간 : 2023-08-07 09:19:53</ol>
+							</div>
+						</div>
+					</div><br>
+				`);
+				
+			$('#countList').append(`
+				<div class="bieberhouse">
+					<div class="bieber_card">
+						<div>
+							<img src="showImage.com?fileName=C:/Users/smhrd/git/MDS/MDS/src/main/webapp/resources/alarmCapture_c/car3.png">
+							<div class="bieber_content">
+								<ol>차번호 : 64너3985</ol>
+								<ol>출입 시간 : 2023-08-07 09:19:53</ol>
+							</div>
+						</div>
+					</div><br>
+				`);
+				
+			$('#countList').append(`
+					<div class="bieber_card">
+						<div>
+							<img src="showImage.com?fileName=C:/Users/smhrd/git/MDS/MDS/src/main/webapp/resources/alarmCapture_h/person_1691208439.3765712.jpg" wi>
+							<div class="bieber_content">
+								<ol>출입 수 : 1명</ol>
+								<ol>침입 시간 : 2023-08-07 09:19:53</ol>
+							</div>
+						</div>
+					</div></br>
+				`);	
+				
+			$('#intrusionList').append(`
+					<div class="bieber_card">
+						<div>
+							<img src="showImage.com?fileName=C:/Users/smhrd/git/MDS/MDS/src/main/webapp/resources/alarmCapture_h1/person1.png">
+							<div class="bieber_content">
+								<ol>침입 수 : 1명</ol>
+								<ol>침입 시간 : 2023-08-07 09:19:53</ol>
+							</div>
+						</div>
+					</div></br>
+				`);	
+				
 		}
 	})
  
