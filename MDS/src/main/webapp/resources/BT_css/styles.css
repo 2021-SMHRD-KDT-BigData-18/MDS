@@ -1,4 +1,10 @@
 @charset "UTF-8";
+@font-face {
+    font-family: 'SpoqaHanSansNeo-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 /*!
 * Start Bootstrap - SB Admin v7.0.7 (https://startbootstrap.com/template/sb-admin)
 * Copyright 2013-2023 Start Bootstrap
@@ -83,6 +89,10 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+*:not(.fc *) {
+	font-family: 'SpoqaHanSansNeo-Regular';
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -10710,6 +10720,7 @@ body {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   position: relative;
+  cursor: pointer;
 }
 .sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-nav-link-icon {
   font-size: 0.9rem;

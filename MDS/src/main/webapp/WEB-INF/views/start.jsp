@@ -14,9 +14,11 @@
 </head>
 <body>
 	<div class="container">
-		<div class="ocean">
-			<div class="wave"></div>
-			<div class="wave"></div>
+		<div class="bg-video">
+		  <video class="bg-video__content" autoplay muted loop>
+		    <source src="resources/images/cow.mp4" type="video/mp4" />
+		    Your browser is not supported!
+		  </video>
 		</div>
 
 		<div class="interface">
