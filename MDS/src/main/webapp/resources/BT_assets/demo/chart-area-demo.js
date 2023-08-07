@@ -5,7 +5,7 @@ Chart.defaults.global.defaultFontColor = '#292b2c';
 // Area Chart Example
 
 /* 체크박스 선택시 값 불러오기 */
-let result = [];
+let result = ['passing', 'intrude', 'car', 'human'];
 
 /* 체크박스 선택시 값 불러오기 - 출입침입선택 */
 function getNavChkbxVal(test) {

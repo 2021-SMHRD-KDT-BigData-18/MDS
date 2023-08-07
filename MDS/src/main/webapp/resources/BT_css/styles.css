@@ -11534,3 +11534,12 @@ main {
   object-fit: cover; 
 }
  
+#monthlyChart-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-evenly;
+    align-items: baseline;
+    margin-right: 5px;
+}
