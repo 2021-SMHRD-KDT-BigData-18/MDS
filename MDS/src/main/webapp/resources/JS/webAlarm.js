@@ -12,7 +12,8 @@
 		dataType : 'json',
 		success: function(res){
 			/*console.log(res[0][0].sac_out_count);*/
-			console.log(res[0][0].sac_img_link);
+			/*console.log(res[0][0].sac_img_link);*/
+			console.log(res);
 			
 			/*for(var i = 0; i < res.length; i++){
 				$('#countList').append(`
@@ -83,7 +84,7 @@
 							<img src="showImage.com?fileName=C:/Users/smhrd/git/MDS/MDS/src/main/webapp/resources/alarmCapture_c1/car5.png">
 							<div class="bieber_content">
 								<ol>차번호 : 27허7862</ol>
-								<ol>출입 시간 : 2023-08-07 09:19:53</ol>
+								<ol>출입 시간 : ${res[0][0].sah_out_at}</ol>
 							</div>
 						</div>
 					</div><br>
@@ -96,7 +97,7 @@
 							<img src="showImage.com?fileName=C:/Users/smhrd/git/MDS/MDS/src/main/webapp/resources/alarmCapture_c/car3.png">
 							<div class="bieber_content">
 								<ol>차번호 : 64너3985</ol>
-								<ol>출입 시간 : 2023-08-07 09:19:53</ol>
+								<ol>출입 시간 : ${res[0][0].sah_out_at}</ol>
 							</div>
 						</div>
 					</div><br>
@@ -105,10 +106,10 @@
 			$('#countList').append(`
 					<div class="bieber_card">
 						<div>
-							<img src="showImage.com?fileName=C:/Users/smhrd/git/MDS/MDS/src/main/webapp/resources/alarmCapture_h/person_1691208439.3765712.jpg" wi>
+							<img src="showImage.com?fileName=C:/Users/smhrd/git/MDS/MDS/src/main/webapp/resources/alarmCapture_h/person33.png" width="200" height="200">
 							<div class="bieber_content">
 								<ol>출입 수 : 1명</ol>
-								<ol>침입 시간 : 2023-08-07 09:19:53</ol>
+								<ol>침입 시간 : ${res[0][1].sah_out_at}</ol>
 							</div>
 						</div>
 					</div></br>
@@ -117,10 +118,10 @@
 			$('#intrusionList').append(`
 					<div class="bieber_card">
 						<div>
-							<img src="showImage.com?fileName=C:/Users/smhrd/git/MDS/MDS/src/main/webapp/resources/alarmCapture_h1/person1.png">
+							<img src="showImage.com?fileName=C:/Users/smhrd/git/MDS/MDS/src/main/webapp/resources/alarmCapture_h1/person333.png" width="200" height="200">
 							<div class="bieber_content">
 								<ol>침입 수 : 1명</ol>
-								<ol>침입 시간 : 2023-08-07 09:19:53</ol>
+								<ol>침입 시간 : ${res[0][0].sac_in_at}</ol>
 							</div>
 						</div>
 					</div></br>
