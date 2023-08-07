@@ -11490,14 +11490,14 @@ main {
   
 #siren1 {
 	position: absolute;
-	top: 115px;
-	right: 78.5rem;
+    top: 100px;
+    right: 78rem;
 }
 
 #siren2 {
 	position: absolute;
-    bottom: 20rem;
-    right: 78.5rem;
+    bottom: 19rem;
+    right: 78rem;
 }
 
 /* 차트 조회 페이지 */
