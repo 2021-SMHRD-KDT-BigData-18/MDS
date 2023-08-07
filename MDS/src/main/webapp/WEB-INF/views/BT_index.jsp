@@ -124,7 +124,12 @@
 
       <div id="layoutSidenav_content">
          <main>
-
+			<div class="bg-video">
+			  <video class="bg-video__content" autoplay muted loop>
+			    <source src="resources/images/cowcattle.mp4" type="video/mp4" />
+			    Your browser is not supported!
+			  </video>
+			</div>
             <div class="videoPlayer" id="page1-content">
                <c:choose>
                   <c:when test="${result.u_id eq list.u_id && result ne null}">
