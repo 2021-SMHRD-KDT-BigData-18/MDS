@@ -87,27 +87,27 @@ var mySquareChart = new Chart(ctx, {
   data: {
     labels: labels,
     datasets: [{
-      label: "Revenue",
-      backgroundColor: "rgba(201, 34, 28,1)",
-      borderColor: "rgba(201, 34, 28,1)",
+      label: "출입:차량",
+      backgroundColor: "rgba(255, 72, 33, 0.4)",
+	  borderColor: "rgba(255, 72, 33,1)",
       data: sac_entrance_count,
     },
     {
-      label: "Revenue",
-      backgroundColor: "rgba(247, 164, 20,1)",
-      borderColor: "rgba(247, 164, 20,1)",
-      data: sac_intrusion_count,
-    },
-    {
-      label: "Revenue",
-      backgroundColor: "rgba(201, 34, 28,1)",
-      borderColor: "rgba(201, 34, 28,1)",
+      label: "출입:사람",
+      backgroundColor: "rgba(255, 183, 33,0.3)",
+	  borderColor: "rgba(255, 183, 33,1)",
       data: sah_entrance_count,
     },
     {
-      label: "Revenue",
-      backgroundColor: "rgba(247, 164, 20,1)",
-      borderColor: "rgba(247, 164, 20,1)",
+      label: "침입:차량",
+      backgroundColor: "rgba(141, 33, 255,0.3)",
+	  borderColor: "rgba(141, 33, 255,1)",
+      data: sac_intrusion_count,
+    },
+    {
+      label: "침입:사람",
+      backgroundColor: "rgba(247, 164, 20,0.3)",
+	  borderColor: "rgba(247, 164, 20,1)",
       data: sah_intrusion_count,
     }],
   },
@@ -151,111 +151,29 @@ mySquareChart.data.datasets[3].data = [];
 
 /* 전송받은 값 토대로 데이터 표시여부 설정 */
 $('.datachkbx').on('click', function() {
-	console.log("up!");
+	console.log(this.value);
+	result=[];
+	result.push(this.value);
+	/*passing 출입*/
 	if(result.includes('passing')) {
-		if (result.includes('car') && !result.includes('human') && result.includes('passing')) {
-			mySquareChart.data.datasets[0].data = sac_entrance_count;
-			mySquareChart.data.datasets[1].data = [];
+			mySquareChart.data.datasets[0].data = [4,6,6,8,2,1,0,0,2,3,1,5];
+			mySquareChart.data.datasets[1].data = [8,8,2,7,5,9,9,9,1,5,8,6];
 			mySquareChart.data.datasets[2].data = [];
 			mySquareChart.data.datasets[3].data = [];
-		} else if(!result.includes('car') && result.includes('human') && result.includes('passing')){
-			mySquareChart.data.datasets[0].data = [];
-			mySquareChart.data.datasets[1].data = sah_entrance_count;
-			mySquareChart.data.datasets[2].data = [];
-			mySquareChart.data.datasets[3].data = [];
-		} else if(result.includes('car') && result.includes('human') && result.includes('passing')) {
-			mySquareChart.data.datasets[0].data = sac_entrance_count;
-			mySquareChart.data.datasets[1].data = sah_entrance_count;
-			mySquareChart.data.datasets[2].data = [];
-			mySquareChart.data.datasets[3].data = [];
-		} else {
-			mySquareChart.data.datasets[0].data = [];
-			mySquareChart.data.datasets[1].data = [];
-			mySquareChart.data.datasets[2].data = [];
-			mySquareChart.data.datasets[3].data = [];
-		};
+			mySquareChart.update();
+	/*intrude 침입*/
 	}else if(result.includes('intrude')){
-		if (result.includes('car') && !result.includes('human') && result.includes('intrude')) {
 			mySquareChart.data.datasets[0].data = [];
 			mySquareChart.data.datasets[1].data = [];
-			mySquareChart.data.datasets[2].data = sac_intrusion_count;
-			mySquareChart.data.datasets[3].data = [];
-		} else if(!result.includes('car') && result.includes('human') && result.includes('intrude')){
-			mySquareChart.data.datasets[0].data = [];
-			mySquareChart.data.datasets[1].data = [];
-			mySquareChart.data.datasets[2].data = [];
-			mySquareChart.data.datasets[3].data = sah_intrusion_count;
-		} else if(result.includes('car') && result.includes('human') && result.includes('intrude')) {
-			mySquareChart.data.datasets[0].data = [];
-			mySquareChart.data.datasets[1].data = [];
-			mySquareChart.data.datasets[2].data = sac_intrusion_count;
-			mySquareChart.data.datasets[3].data = sah_intrusion_count;
-		} else {
+			mySquareChart.data.datasets[2].data = [9,9,5,4,0,0,5,6,7,7,8,6];
+			mySquareChart.data.datasets[3].data = [3,3,5,1,1,5,5,1,0,0,1,3];
+			mySquareChart.update();
+	}else if(!result.includes('passing')&&!result.includes('intrude')){
 			mySquareChart.data.datasets[0].data = [];
 			mySquareChart.data.datasets[1].data = [];
 			mySquareChart.data.datasets[2].data = [];
 			mySquareChart.data.datasets[3].data = [];
+			mySquareChart.update();
 		};
-	}else if(result.length=0){
-			mySquareChart.data.datasets[0].data = [];
-			mySquareChart.data.datasets[1].data = [];
-			mySquareChart.data.datasets[2].data = [];
-			mySquareChart.data.datasets[3].data = [];
-	};
-	mySquareChart.update();
-});
-$('.navdatachkbx').on('click', function() {
-	console.log("up!");
-	if(result.includes('passing')) {
-		if (result.includes('car') && !result.includes('human') && result.includes('passing')) {
-			mySquareChart.data.datasets[0].data = sac_entrance_count;
-			mySquareChart.data.datasets[1].data = [];
-			mySquareChart.data.datasets[2].data = [];
-			mySquareChart.data.datasets[3].data = [];
-		} else if(!result.includes('car') && result.includes('human') && result.includes('passing')){
-			mySquareChart.data.datasets[0].data = [];
-			mySquareChart.data.datasets[1].data = sah_entrance_count;
-			mySquareChart.data.datasets[2].data = [];
-			mySquareChart.data.datasets[3].data = [];
-		} else if(result.includes('car') && result.includes('human') && result.includes('passing')) {
-			mySquareChart.data.datasets[0].data = sac_entrance_count;
-			mySquareChart.data.datasets[1].data = sah_entrance_count;
-			mySquareChart.data.datasets[2].data = [];
-			mySquareChart.data.datasets[3].data = [];
-		} else {
-			mySquareChart.data.datasets[0].data = [];
-			mySquareChart.data.datasets[1].data = [];
-			mySquareChart.data.datasets[2].data = [];
-			mySquareChart.data.datasets[3].data = [];
-		};
-	}else if(result.includes('intrude')){
-		if (result.includes('car') && !result.includes('human') && result.includes('intrude')) {
-			mySquareChart.data.datasets[0].data = [];
-			mySquareChart.data.datasets[1].data = [];
-			mySquareChart.data.datasets[2].data = sac_intrusion_count;
-			mySquareChart.data.datasets[3].data = [];
-		} else if(!result.includes('car') && result.includes('human') && result.includes('intrude')){
-			mySquareChart.data.datasets[0].data = [];
-			mySquareChart.data.datasets[1].data = [];
-			mySquareChart.data.datasets[2].data = [];
-			mySquareChart.data.datasets[3].data = sah_intrusion_count;
-		} else if(result.includes('car') && result.includes('human') && result.includes('intrude')) {
-			mySquareChart.data.datasets[0].data = [];
-			mySquareChart.data.datasets[1].data = [];
-			mySquareChart.data.datasets[2].data = sac_intrusion_count;
-			mySquareChart.data.datasets[3].data = sah_intrusion_count;
-		} else {
-			mySquareChart.data.datasets[0].data = [];
-			mySquareChart.data.datasets[1].data = [];
-			mySquareChart.data.datasets[2].data = [];
-			mySquareChart.data.datasets[3].data = [];
-		};
-	}else if(result.length=0){
-			mySquareChart.data.datasets[0].data = [];
-			mySquareChart.data.datasets[1].data = [];
-			mySquareChart.data.datasets[2].data = [];
-			mySquareChart.data.datasets[3].data = [];
-	};
-	mySquareChart.update();
-});
+	});
 }

@@ -7,33 +7,6 @@ Chart.defaults.global.defaultFontColor = '#292b2c';
 /* 체크박스 선택시 값 불러오기 */
 let result = [];
 
-/* 체크박스 선택시 값 불러오기 - 출입침입선택 */
-function getNavChkbxVal(test) {
-	if (!result.includes(test.value)) {
-		result.push(test.value);
-	} else {
-		var index = result.indexOf(test.value);
-		if (index !== -1) {
-			result.splice(index, 1);
-		};
-	};
-	console.log(result);
-};
-
-/* 체크박스 선택시 값 불러오기 - 차량사람선택 */
-function getChkbxVal(test) {
-	if (!result.includes(test.value)) {
-		result.push(test.value);
-	}else{
-	var index = result.indexOf(test.value);
-	if (index !== -1) {
-		result.splice(index, 1);
-		};
-	};
-	console.log(result);
-};
-
-
 /*ajax*/
 $(function(){
 	$.ajax({
@@ -126,13 +99,13 @@ var myLineChart = new Chart(ctx, {
 		datasets: [{
 			label: "출입:차량",
 			lineTension: 0.3,
-			backgroundColor: "rgba(201, 34, 28, 0.2)",
-			borderColor: "rgba(201, 34, 28,1)",
+			backgroundColor: "rgba(255, 72, 33, 0.4)",
+			borderColor: "rgba(255, 72, 33,1)",
 			pointRadius: 5,
-			pointBackgroundColor: "rgba(201, 34, 28,1)",
+			pointBackgroundColor: "rgba(255, 72, 33,1)",
 			pointBorderColor: "rgba(255,255,255,0.8)",
 			pointHoverRadius: 5,
-			pointHoverBackgroundColor: "rgba(201, 34, 28,1)",
+			pointHoverBackgroundColor: "rgba(255, 72, 33,1)",
 			pointHitRadius: 50,
 			pointBorderWidth: 2,
 			data: sac_entrance_count,
@@ -142,13 +115,13 @@ var myLineChart = new Chart(ctx, {
 		{
 			label: "출입:사람",
 			lineTension: 0.3,
-			backgroundColor: "rgba(247, 164, 20,0.3)",
-			borderColor: "rgba(247, 164, 20,1)",
+			backgroundColor: "rgba(255, 183, 33,0.3)",
+			borderColor: "rgba(255, 183, 33,1)",
 			pointRadius: 5,
-			pointBackgroundColor: "rgba(247, 164, 20,1)",
+			pointBackgroundColor: "rgba(255, 183, 33,1)",
 			pointBorderColor: "rgba(255,255,255,0.8)",
 			pointHoverRadius: 5,
-			pointHoverBackgroundColor: "rgba(247, 164, 20,1)",
+			pointHoverBackgroundColor: "rgba(255, 183, 33,1)",
 			pointHitRadius: 50,
 			pointBorderWidth: 2,
 			data: sah_entrance_count,
@@ -158,13 +131,13 @@ var myLineChart = new Chart(ctx, {
 		{
 			label: "침입:차량",
 			lineTension: 0.3,
-			backgroundColor: "rgba(247, 119, 20,0.2)",
-			borderColor: "rgba(247, 119, 20,1)",
+			backgroundColor: "rgba(141, 33, 255,0.3)",
+			borderColor: "rgba(141, 33, 255,1)",
 			pointRadius: 5,
-			pointBackgroundColor: "rgba(247, 119, 20,1)",
+			pointBackgroundColor: "rgba(141, 33, 255,1)",
 			pointBorderColor: "rgba(255,255,255,0.8)",
 			pointHoverRadius: 5,
-			pointHoverBackgroundColor: "rgba(247, 119, 20,1)",
+			pointHoverBackgroundColor: "rgba(141, 33, 255,1)",
 			pointHitRadius: 50,
 			pointBorderWidth: 2,
 			data: sac_intrusion_count,
@@ -227,107 +200,33 @@ myLineChart.data.datasets[2].data = [];
 myLineChart.data.datasets[3].data = [];	
 myLineChart.update();
 
+
+
 /* 전송받은 값 토대로 데이터 표시여부 설정 */
 $('.datachkbx').on('click', function() {
-	/*console.log("up!");*/
+	console.log(this.value);
+	result=[];
+	result.push(this.value);
 	/*passing 출입*/
 	if(result.includes('passing')) {
-		if (result.includes('car') && !result.includes('human') && result.includes('passing')) {
-			myLineChart.data.datasets[0].data = sac_entrance_count;
-			myLineChart.data.datasets[1].data = [];
+			myLineChart.data.datasets[0].data = [1,3,2,4,0,0,0,0,0,1,1,2,3,4,3,2,1,1,0,0,0,4,5,5];
+			myLineChart.data.datasets[1].data = [2,2,2,1,0,1,2,2,4,4,3,1,0,0,2,2,3,1,4,4,1,0,0,0];
 			myLineChart.data.datasets[2].data = [];
 			myLineChart.data.datasets[3].data = [];
-		} else if(!result.includes('car') && result.includes('human') && result.includes('passing')){
-			myLineChart.data.datasets[0].data = [];
-			myLineChart.data.datasets[1].data = sah_entrance_count;
-			myLineChart.data.datasets[2].data = [];
-			myLineChart.data.datasets[3].data = [];
-		} else if(result.includes('car') && result.includes('human') && result.includes('passing')) {
-			myLineChart.data.datasets[0].data = sac_entrance_count;
-			myLineChart.data.datasets[1].data = sah_entrance_count;
-			myLineChart.data.datasets[2].data = [];
-			myLineChart.data.datasets[3].data = [];
-		} else {
-			myLineChart.data.datasets[0].data = [];
-			myLineChart.data.datasets[1].data = [];
-			myLineChart.data.datasets[2].data = [];
-			myLineChart.data.datasets[3].data = [];
-		};
-		/*intrude 침입*/
+			myLineChart.update();
+	/*intrude 침입*/
 	}else if(result.includes('intrude')){
-		if (result.includes('car') && !result.includes('human') && result.includes('intrude')) {
 			myLineChart.data.datasets[0].data = [];
 			myLineChart.data.datasets[1].data = [];
-			myLineChart.data.datasets[2].data = sac_intrusion_count;
-			myLineChart.data.datasets[3].data = [];
-		} else if(!result.includes('car') && result.includes('human') && result.includes('intrude')){
-			myLineChart.data.datasets[0].data = [];
-			myLineChart.data.datasets[1].data = [];
-			myLineChart.data.datasets[2].data = [];
-			myLineChart.data.datasets[3].data = sah_intrusion_count;
-		} else if(result.includes('car') && result.includes('human') && result.includes('intrude')) {
-			myLineChart.data.datasets[0].data = [];
-			myLineChart.data.datasets[1].data = [];
-			myLineChart.data.datasets[2].data = sac_intrusion_count;
-			myLineChart.data.datasets[3].data = sah_intrusion_count;
-		} else {
+			myLineChart.data.datasets[2].data = [3,2,2,1,1,2,2,3,3,0,0,0,0,0,2,5,5,4,3,1,1,0,0,0];
+			myLineChart.data.datasets[3].data = [2,2,1,0,0,3,3,0,0,0,2,5,5,4,1,0,1,2,3,2,0,0,0,0];
+			myLineChart.update();
+	}else if(!result.includes('passing')&&!result.includes('intrude')){
 			myLineChart.data.datasets[0].data = [];
 			myLineChart.data.datasets[1].data = [];
 			myLineChart.data.datasets[2].data = [];
 			myLineChart.data.datasets[3].data = [];
-		};
+			myLineChart.update();
 	};
-	myLineChart.update();
-});
-$('.navdatachkbx').on('click', function() {
-	/*console.log("up!");*/
-	/*passing 출입*/
-	if(result.includes('passing')) {
-		if (result.includes('car') && !result.includes('human') && result.includes('passing')) {
-			myLineChart.data.datasets[0].data = sac_entrance_count;
-			myLineChart.data.datasets[1].data = [];
-			myLineChart.data.datasets[2].data = [];
-			myLineChart.data.datasets[3].data = [];
-		} else if(!result.includes('car') && result.includes('human') && result.includes('passing')){
-			myLineChart.data.datasets[0].data = [];
-			myLineChart.data.datasets[1].data = sah_entrance_count;
-			myLineChart.data.datasets[2].data = [];
-			myLineChart.data.datasets[3].data = [];
-		} else if(result.includes('car') && result.includes('human') && result.includes('passing')) {
-			myLineChart.data.datasets[0].data = sac_entrance_count;
-			myLineChart.data.datasets[1].data = sah_entrance_count;
-			myLineChart.data.datasets[2].data = [];
-			myLineChart.data.datasets[3].data = [];
-		} else {
-			myLineChart.data.datasets[0].data = [];
-			myLineChart.data.datasets[1].data = [];
-			myLineChart.data.datasets[2].data = [];
-			myLineChart.data.datasets[3].data = [];
-		};
-		/*intrude 침입*/
-	}else if(result.includes('intrude')){
-		if (result.includes('car') && !result.includes('human') && result.includes('intrude')) {
-			myLineChart.data.datasets[0].data = [];
-			myLineChart.data.datasets[1].data = [];
-			myLineChart.data.datasets[2].data = sac_intrusion_count;
-			myLineChart.data.datasets[3].data = [];
-		} else if(!result.includes('car') && result.includes('human') && result.includes('intrude')){
-			myLineChart.data.datasets[0].data = [];
-			myLineChart.data.datasets[1].data = [];
-			myLineChart.data.datasets[2].data = [];
-			myLineChart.data.datasets[3].data = sah_intrusion_count;
-		} else if(result.includes('car') && result.includes('human') && result.includes('intrude')) {
-			myLineChart.data.datasets[0].data = [];
-			myLineChart.data.datasets[1].data = [];
-			myLineChart.data.datasets[2].data = sac_intrusion_count;
-			myLineChart.data.datasets[3].data = sah_intrusion_count;
-		} else {
-			myLineChart.data.datasets[0].data = [];
-			myLineChart.data.datasets[1].data = [];
-			myLineChart.data.datasets[2].data = [];
-			myLineChart.data.datasets[3].data = [];
-		};
-	};
-	myLineChart.update();
 });
 }
