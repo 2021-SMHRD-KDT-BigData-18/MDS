@@ -11,16 +11,16 @@
 
 ## ⭐ 주요 기능
 - 사람과 차량의 출입 수를 카운트
-- 차량 번호판 인
-- 사람과 차량의 입 감지
-- 침입 관련 실시간 알림 전
+- 차량 번호판 인식
+- 사람과 차량의 출입 감지
+- 침입 관련 실시간 알림 전송
 
 ##  기술스택
 |구분|내용|
 |------|---|
 |Front-end|<img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white"> |
 |Back-end|<img src="https://user-images.githubusercontent.com/130940590/241096022-42acfffa-c7f3-49b6-823e-12d56a93f0bd.png"> <img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"> <img src="https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white"> <img src="https://img.shields.io/badge/flask-000000?style=for-the-badge&logo=flask&logoColor=white">|
-|Modeling|<img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white">  |
+|Modeling|<img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white"> <img src="https://img.shields.io/badge/visual studio-3776AB?style=for-the-badge&logo=visualstudio&logoColor=white"> <img src="https://img.shields.io/badge/jupyter notebook-E34F26?style=for-the-badge&logo=jupyterlogoColor=white">
 |DB|<img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"> |
 |협업|<img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> |
 
