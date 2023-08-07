@@ -11520,15 +11520,17 @@ main {
  
  /* 동영상 배경 */
 .bg-video {
-  position:absolute;
-  height: 648.75px;
+  position: absolute;
+  top: 1rem;
+  height: 856.75px;
   width: 1678px;
+  opacity: 0.15;
   z-index: -1;
 }
 
 .bg-video__content {
   height: 100%;
-  width: 70%;
+  width: 100%;
   object-fit: cover; 
 }
  
