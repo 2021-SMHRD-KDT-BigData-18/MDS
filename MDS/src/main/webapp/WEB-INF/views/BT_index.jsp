@@ -18,14 +18,22 @@
 <link href="resources/images/cam.png" rel="shortcut icon"
    type="image/png">
 <!-- fullcalendar CDN -->
-<link
-   href='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css'
-   rel='stylesheet' />
-<script
-   src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js'></script>
-<!-- fullcalendar 언어 CDN -->
-<script
-   src='https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/locales-all.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/index.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/index.global.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/index.global.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.8/index.js"></script>
+<style>
+    /* 캘린더를 가운데 정렬하기 위한 스타일 */
+    .calendar_page {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* 캘린더 컨테이너의 너비를 100%로 설정 */
+    .calendar_size {
+        width: 100%;
+    }
+</style>
 </head>
 <body class="sb-nav-fixed">
    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -360,6 +368,7 @@
    <script type="text/javascript" src="resources/JS/entryLog.js"></script>
    <script type="text/javascript" src="resources/JS/webAlarm.js"></script>
    <script>
+   $(document).on('click', function() {
    var calendarEl = $('#calendar')[0];
     var calendar = new FullCalendar.Calendar(calendarEl, {
        // contentHeight: 600,
@@ -409,10 +418,23 @@
                     /*res.sac[i].sac_in_at = (res.sac[i].sac_in_at).substring(0,10);*/
                     
                     events.push({
-                       title : '차량침입 '+(res.sac[i].sac_in_at).substring(11,),
+                       title : '차량출입 '+(res.sac[i].sac_in_at).substring(11,),
                        start : (res.sac[i].sac_in_at).substring(0,10),
                        end : (res.sac[i].sac_in_at).substring(0,10),
-                       color : "#FF0000"
+                       color : "rgb(60,179,113)",
+                       textColor : 'white'
+                    })
+                 }
+                 
+                 for(var i = 0; i < (res.sah).length; i++) {
+                    /*res.sah[i].sah_in_at = (res.sah[i].sah_in_at).substring(0,10);*/
+                    
+                    events.push({
+                       title : '사람출입 '+(res.sah[i].sah_out_at).substring(11, ),
+                       start : (res.sah[i].sah_out_at).substring(0,10),
+                       end : (res.sah[i].sah_out_at).substring(0,10),
+                       color : "rgb(32,178,170)",
+                       textColor : 'white'
                     })
                  }
                  
@@ -423,8 +445,7 @@
                        title : '사람침입 '+(res.sah[i].sah_in_at).substring(11, ),
                        start : (res.sah[i].sah_in_at).substring(0,10),
                        end : (res.sah[i].sah_in_at).substring(0,10),
-                       color : "rgba(255, 255, 0, 0.8)",
-                       textColor : 'black'
+                       color : "#FF0000"
                     })
                  }
                  /*console.log(events);*/
@@ -468,11 +489,29 @@
                                   <div>침입시간 : \${res.sac[i].sac_in_at}</div>
                                   </div>
                                  </div>
+                                 
+                                 <div class="epqlf">
+                                 <div><img src="showImage.com?fileName=C:/Users/smhrd/git/MDS/MDS/src/main/webapp/resources/alarmCapture_h/person33.png" width="230px" height="150px"></div>
+                          		<div class="tkdcn">
+                                 <div>사람출입</div>
+                                 <div>1명 침입</div>
+                                 <div>침입시간 : \${res.sah[i].sah_in_at}</div>
+                                 </div>
+                                </div>
+                                
+                                 <div class="epqlf">
+                                 <div><img src="showImage.com?fileName=C:/Users/smhrd/git/MDS/MDS/src/main/webapp/resources/alarmCapture_h1/person333.png" width="230px" height="150px"></div>
+                          		<div class="tkdcn">
+                                 <div>사람침입</div>
+                                 <div>1명 침입</div>
+                                 <div>침입시간 : \${res.sah[i].sah_in_at}</div>
+                                 </div>
+                                </div>
                                 `);
                        }
                     }
                     
-                    for(var i = 0; i< res.sah.length; i++){
+                    /*for(var i = 0; i< res.sah.length; i++){
                        if(res.sah[i].sah_in_at.substring(0,10) == today && res.sah[i].sah_in_count != 0 && res.sah[i].sah_out_count != 0){
                     	   $('#epqlftkdcn').append(`
                       			  <div class="epqlf">
@@ -485,7 +524,7 @@
                                      </div>
                                 `);
                        }
-                    }
+                    }*/
                     
                     $('#page2-content').append(`
                             <button id="epqlfBtn" onclick="$('.epqlf').hide();"style="width: 30px; height: 30px; position: fixed; border-radius: 8px; right: 14rem; top: 8rem; opacity: 0.3;border: solid 0.5px #e9e9e9;box-shadow: inset 0px 0px 4px 2px #c4c3c3b0;background-color: #fff;font-weight:bold;">X</button>
@@ -505,6 +544,7 @@
     
     calendar.render();
     calendar.updateSize();
+   });
    </script>
 
 </body>
