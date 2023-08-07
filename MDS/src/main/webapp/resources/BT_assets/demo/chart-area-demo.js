@@ -5,17 +5,24 @@ Chart.defaults.global.defaultFontColor = '#292b2c';
 // Area Chart Example
 
 /* 체크박스 선택시 값 불러오기 */
-let result = ['passing', 'intrude', 'car', 'human'];
+let result = [];
 
 /* 체크박스 선택시 값 불러오기 - 출입침입선택 */
 function getNavChkbxVal(test) {
 	if (test.checked) {
-		result = [];
-		result.push(test.value);
-		test.checked=false;
+		if (!result.includes(test.value)) {
+			result.push(test.value);
+			test.checked = false;
+		} else {
+			var index = result.indexOf(test.value);
+			if (index !== -1) {
+				result.splice(index, 1);
+			}
+			test.checked = false;
+		}
+		console.log(result);
 	}
-	console.log(result);
-};
+}
 
 /* 체크박스 선택시 값 불러오기 - 차량사람선택 */
 function getChkbxVal(test) {
@@ -24,7 +31,7 @@ function getChkbxVal(test) {
 			result.push(test.value);
 		}
 	} else {
-		const index = result.indexOf(test.value);
+		var index = result.indexOf(test.value);
 		if (index !== -1) {
 			result.splice(index, 1);
 		}
@@ -219,6 +226,12 @@ var myLineChart = new Chart(ctx, {
 	}
 });
 
+myLineChart.data.datasets[0].data = [];
+myLineChart.data.datasets[1].data = [];
+myLineChart.data.datasets[2].data = [];
+myLineChart.data.datasets[3].data = [];	
+myLineChart.update();
+
 /* 전송받은 값 토대로 데이터 표시여부 설정 */
 $('.datachkbx').on('click', function() {
 	/*console.log("up!");*/
@@ -268,6 +281,11 @@ $('.datachkbx').on('click', function() {
 			myLineChart.data.datasets[2].data = [];
 			myLineChart.data.datasets[3].data = [];
 		};
+	} else if(result.length==0){
+			myLineChart.data.datasets[0].data = [];
+			myLineChart.data.datasets[1].data = [];
+			myLineChart.data.datasets[2].data = [];
+			myLineChart.data.datasets[3].data = [];	
 	};
 	myLineChart.update();
 });

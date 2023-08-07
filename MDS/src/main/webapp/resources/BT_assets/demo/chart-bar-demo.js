@@ -144,6 +144,11 @@ var mySquareChart = new Chart(ctx, {
   }
 });
 
+mySquareChart.data.datasets[0].data = [];
+mySquareChart.data.datasets[1].data = [];
+mySquareChart.data.datasets[2].data = [];
+mySquareChart.data.datasets[3].data = [];
+
 /* 전송받은 값 토대로 데이터 표시여부 설정 */
 $('.datachkbx').on('click', function() {
 	console.log("up!");
@@ -191,6 +196,11 @@ $('.datachkbx').on('click', function() {
 			mySquareChart.data.datasets[2].data = [];
 			mySquareChart.data.datasets[3].data = [];
 		};
+	}else if(result.length=0){
+			mySquareChart.data.datasets[0].data = [];
+			mySquareChart.data.datasets[1].data = [];
+			mySquareChart.data.datasets[2].data = [];
+			mySquareChart.data.datasets[3].data = [];
 	};
 	mySquareChart.update();
 });
