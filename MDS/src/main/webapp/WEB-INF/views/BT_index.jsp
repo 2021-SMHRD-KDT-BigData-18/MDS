@@ -527,7 +527,7 @@
                     }*/
                     
                     $('#page2-content').append(`
-                            <button id="epqlfBtn" onclick="$('.epqlf').hide();"style="width: 30px; height: 30px; position: fixed; border-radius: 8px; right: 14rem; top: 8rem; opacity: 0.3;border: solid 0.5px #e9e9e9;box-shadow: inset 0px 0px 4px 2px #c4c3c3b0;background-color: #fff;font-weight:bold;">X</button>
+                            <button id="epqlfBtn" onclick="$('.epqlf').hide();"style="width: 30px; height: 30px; position: fixed; border-radius: 8px; right: 8rem; top: 8rem; opacity: 0.3;border: solid 0.5px #e9e9e9;box-shadow: inset 0px 0px 4px 2px #c4c3c3b0;background-color: #fff;font-weight:bold;">X</button>
                             `);
                     $('#epqlfBtn').click(function(){
                        $('#epqlfBtn').remove();
