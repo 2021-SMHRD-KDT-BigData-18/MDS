@@ -9,33 +9,27 @@ let result = [];
 
 /* 체크박스 선택시 값 불러오기 - 출입침입선택 */
 function getNavChkbxVal(test) {
-	if (test.checked) {
-		if (!result.includes(test.value)) {
-			result.push(test.value);
-			test.checked = false;
-		} else {
-			var index = result.indexOf(test.value);
-			if (index !== -1) {
-				result.splice(index, 1);
-			}
-			test.checked = false;
-		}
-		console.log(result);
-	}
-}
-
-/* 체크박스 선택시 값 불러오기 - 차량사람선택 */
-function getChkbxVal(test) {
-	if (test.checked) {
-		if (!result.includes(test.value)) {
-			result.push(test.value);
-		}
+	if (!result.includes(test.value)) {
+		result.push(test.value);
 	} else {
 		var index = result.indexOf(test.value);
 		if (index !== -1) {
 			result.splice(index, 1);
-		}
-	}
+		};
+	};
+	console.log(result);
+};
+
+/* 체크박스 선택시 값 불러오기 - 차량사람선택 */
+function getChkbxVal(test) {
+	if (!result.includes(test.value)) {
+		result.push(test.value);
+	}else{
+	var index = result.indexOf(test.value);
+	if (index !== -1) {
+		result.splice(index, 1);
+		};
+	};
 	console.log(result);
 };
 
@@ -77,6 +71,7 @@ $(function(){
 				sac_entrance_time.push(res.sac[i].sac_out_at.slice(11,13));
 				/*console.log(sac_intrusion_time);*/
 				/*console.log(typeof(res.sac[i].sac_out_at.slice(11,13)));*/
+				/*console.log(res.sac[i].sac_out_count);*/
 				
 				for(var j = 0; j < labels.length; j++){
 					if(sac_intrusion_time == labels[j]){
@@ -281,11 +276,57 @@ $('.datachkbx').on('click', function() {
 			myLineChart.data.datasets[2].data = [];
 			myLineChart.data.datasets[3].data = [];
 		};
-	} else if(result.length==0){
+	};
+	myLineChart.update();
+});
+$('.navdatachkbx').on('click', function() {
+	/*console.log("up!");*/
+	/*passing 출입*/
+	if(result.includes('passing')) {
+		if (result.includes('car') && !result.includes('human') && result.includes('passing')) {
+			myLineChart.data.datasets[0].data = sac_entrance_count;
+			myLineChart.data.datasets[1].data = [];
+			myLineChart.data.datasets[2].data = [];
+			myLineChart.data.datasets[3].data = [];
+		} else if(!result.includes('car') && result.includes('human') && result.includes('passing')){
+			myLineChart.data.datasets[0].data = [];
+			myLineChart.data.datasets[1].data = sah_entrance_count;
+			myLineChart.data.datasets[2].data = [];
+			myLineChart.data.datasets[3].data = [];
+		} else if(result.includes('car') && result.includes('human') && result.includes('passing')) {
+			myLineChart.data.datasets[0].data = sac_entrance_count;
+			myLineChart.data.datasets[1].data = sah_entrance_count;
+			myLineChart.data.datasets[2].data = [];
+			myLineChart.data.datasets[3].data = [];
+		} else {
 			myLineChart.data.datasets[0].data = [];
 			myLineChart.data.datasets[1].data = [];
 			myLineChart.data.datasets[2].data = [];
-			myLineChart.data.datasets[3].data = [];	
+			myLineChart.data.datasets[3].data = [];
+		};
+		/*intrude 침입*/
+	}else if(result.includes('intrude')){
+		if (result.includes('car') && !result.includes('human') && result.includes('intrude')) {
+			myLineChart.data.datasets[0].data = [];
+			myLineChart.data.datasets[1].data = [];
+			myLineChart.data.datasets[2].data = sac_intrusion_count;
+			myLineChart.data.datasets[3].data = [];
+		} else if(!result.includes('car') && result.includes('human') && result.includes('intrude')){
+			myLineChart.data.datasets[0].data = [];
+			myLineChart.data.datasets[1].data = [];
+			myLineChart.data.datasets[2].data = [];
+			myLineChart.data.datasets[3].data = sah_intrusion_count;
+		} else if(result.includes('car') && result.includes('human') && result.includes('intrude')) {
+			myLineChart.data.datasets[0].data = [];
+			myLineChart.data.datasets[1].data = [];
+			myLineChart.data.datasets[2].data = sac_intrusion_count;
+			myLineChart.data.datasets[3].data = sah_intrusion_count;
+		} else {
+			myLineChart.data.datasets[0].data = [];
+			myLineChart.data.datasets[1].data = [];
+			myLineChart.data.datasets[2].data = [];
+			myLineChart.data.datasets[3].data = [];
+		};
 	};
 	myLineChart.update();
 });

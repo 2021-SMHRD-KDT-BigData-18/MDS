@@ -100,10 +100,10 @@
 					<div class="collapse show", id="collapsePages">
 						<nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages"></nav>
 						<div class="nav-link collapsed">
-						    <input id="data_pas" class = "navdatachkbx" type="checkbox" name="dataanalyze" value="passing" checked="false" onclick="getNavChkbxVal(this)" style="display: none"><label for="data_pas">출입</label>
+						    <input id="data_pas" class = "navdatachkbx" type="checkbox" name="dataanalyze" value="passing" onclick="getNavChkbxVal(this)" style="display: none"><label for="data_pas">출입</label>
 						</div>
 						<div class="nav-link collapsed">
-						    <input id="data_itr" class = "navdatachkbx" type="checkbox" name="dataanalyze" value="intrude" checked="false" onclick="getNavChkbxVal(this)" style="display: none"><label for="data_itr">침입</label>
+						    <input id="data_itr" class = "navdatachkbx" type="checkbox" name="dataanalyze" value="intrude" onclick="getNavChkbxVal(this)" style="display: none"><label for="data_itr">침입</label>
 						</div>
 					</div>
 				</div>

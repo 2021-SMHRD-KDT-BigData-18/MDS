@@ -204,4 +204,58 @@ $('.datachkbx').on('click', function() {
 	};
 	mySquareChart.update();
 });
+$('.navdatachkbx').on('click', function() {
+	console.log("up!");
+	if(result.includes('passing')) {
+		if (result.includes('car') && !result.includes('human') && result.includes('passing')) {
+			mySquareChart.data.datasets[0].data = sac_entrance_count;
+			mySquareChart.data.datasets[1].data = [];
+			mySquareChart.data.datasets[2].data = [];
+			mySquareChart.data.datasets[3].data = [];
+		} else if(!result.includes('car') && result.includes('human') && result.includes('passing')){
+			mySquareChart.data.datasets[0].data = [];
+			mySquareChart.data.datasets[1].data = sah_entrance_count;
+			mySquareChart.data.datasets[2].data = [];
+			mySquareChart.data.datasets[3].data = [];
+		} else if(result.includes('car') && result.includes('human') && result.includes('passing')) {
+			mySquareChart.data.datasets[0].data = sac_entrance_count;
+			mySquareChart.data.datasets[1].data = sah_entrance_count;
+			mySquareChart.data.datasets[2].data = [];
+			mySquareChart.data.datasets[3].data = [];
+		} else {
+			mySquareChart.data.datasets[0].data = [];
+			mySquareChart.data.datasets[1].data = [];
+			mySquareChart.data.datasets[2].data = [];
+			mySquareChart.data.datasets[3].data = [];
+		};
+	}else if(result.includes('intrude')){
+		if (result.includes('car') && !result.includes('human') && result.includes('intrude')) {
+			mySquareChart.data.datasets[0].data = [];
+			mySquareChart.data.datasets[1].data = [];
+			mySquareChart.data.datasets[2].data = sac_intrusion_count;
+			mySquareChart.data.datasets[3].data = [];
+		} else if(!result.includes('car') && result.includes('human') && result.includes('intrude')){
+			mySquareChart.data.datasets[0].data = [];
+			mySquareChart.data.datasets[1].data = [];
+			mySquareChart.data.datasets[2].data = [];
+			mySquareChart.data.datasets[3].data = sah_intrusion_count;
+		} else if(result.includes('car') && result.includes('human') && result.includes('intrude')) {
+			mySquareChart.data.datasets[0].data = [];
+			mySquareChart.data.datasets[1].data = [];
+			mySquareChart.data.datasets[2].data = sac_intrusion_count;
+			mySquareChart.data.datasets[3].data = sah_intrusion_count;
+		} else {
+			mySquareChart.data.datasets[0].data = [];
+			mySquareChart.data.datasets[1].data = [];
+			mySquareChart.data.datasets[2].data = [];
+			mySquareChart.data.datasets[3].data = [];
+		};
+	}else if(result.length=0){
+			mySquareChart.data.datasets[0].data = [];
+			mySquareChart.data.datasets[1].data = [];
+			mySquareChart.data.datasets[2].data = [];
+			mySquareChart.data.datasets[3].data = [];
+	};
+	mySquareChart.update();
+});
 }
